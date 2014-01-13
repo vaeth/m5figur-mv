@@ -1,0 +1,29 @@
+m5figur-mv
+
+LaTeX2e character sheet layout for the Midgard Role Playing Game (Edition M5)
+
+Author und (C): Martin Väth
+
+Dies ist ein Figurenblatt-Layout für das Midgard-Rollenspiel (Regelwerk M5),
+das zur Benutzug mit LaTeX2e gedacht ist.
+
+Zum Verändern beachten Sie bitte, dass alle drei Dateien (dieses README,
+m5figur-mv.cls und m5bsp-mv.tex) entweder unverändert weitergegeben werden
+müssen, oder dass bei eigenen Veränderungen die Dateien umbenannt werden -
+dies ist aufgrund technischer Restriktionen des LaTeX-Systems sinnvoll.
+Die Lizenz steht in m5figur-mv.cls
+
+Zur Benutzung kopieren Sie normalerweise m5bsp-mv.tex in eine neue Datei
+(sinnvollerweise mit der Endung .tex) und passen dort die Werte,
+Fähigkeiten usw. entsprechend ihrer Figur(en) (eine einzige .tex Datei kann
+alle Ihre Figuren sowie ggf. auch Vordruck leerer
+Figuren-/Abenteuer-/Zauberblätter enthalten) an.
+
+Zum Erzeugen einer PDF-Datei aus der von Ihnen geänderten Datei wird
+LaTeX2e mit (z.B.) pdflatex benötigt - ein solches ist für praktisch
+jedes Betriebssystem frei verfügbar und es gibt sogar online-Versionen,
+die für die Benutzung mit Smartphones geeignet sind.
+Zur Übersetzung ihrer geänderten Datei (oder des Beispiels m5bsp-mv.tex)
+ist (z.B.) pdflatex auf diese Datei anzuwenden, wobei sich entweder
+m5figur-mv.cls im selben Verzeichnis befinden muss oder in einem Verzeichnis,
+das dem TeX-System bekannt gemacht wurde.

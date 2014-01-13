@@ -1,0 +1,444 @@
+%
+% m5bsp-mv.tex
+%
+% Diese Datei ist ein Beispielfigurenblatt des
+% Midgard5-TeX-Figurenblatt-Projekts von Martin Väth.
+% Sie muss zusammen mit m5figur-mv.cls und dem README weitergegeben werden;
+% in m5figur-mv.cls steht auch die Lizenz.
+%
+% Die Datei m5bsp-mv.tex selbst darf nur vom Autor verändert werden.
+%
+% Um eigenes Figuren auszufertigen, empfiehlt es sich daher,
+% diese Datei zu kopieren und geeignet anzupassen.
+%
+% Ein pdflatex auf dieser Datei erzeugt daraufhin die Figur(en) im PDF-Format;
+% pdflatex muss dazu auf m5bsp-mv.cls zugreifen können. Normalerweise ist
+% dies der Fall, wenn sich m5figur-mv.cls im selben Verzeichnis befindet,
+% aber es darf auch in einem geeigneten systemweiten Verzeichnis sein, wenn
+% dieses dem TeX-System entsprechend bekannt gemacht wird.
+
+\documentclass{m5figur-mv}
+% Bei anderer als UTF8-Kodierung für Umlaute und Sonderzeichen
+% (es gibt z.B. ansinew (Windows), latin1 (Linux), applemac (Mac); dies
+% bedeutet, dass Sie die Umlaute (äöüÄÖÜ), scharfes ß, Paragraph (§)
+% und Eurozeichen (€) in dieser Datei nicht richtig gelesen und
+% mit Ihrem Texteditor oder anderen Programm konvertiert haben),
+% muss ggf. die Kodierung als Option angegeben werden, also z.B. so:
+% \documentclass[ansinew]{midgard5}
+
+% Falls Sie keine geeignete Kodierung finden, können Sie die folgenden
+% deutschen TeX-Kürzel benutzen, die immer funktionieren:
+% "a "o "ü  "A "O "U "s (Paragraph und Euro werden wohl nicht benötigt).
+
+% Gänsefüßchen schreibt man in TeX immer so, unabhängig von der Kodierung:
+% "`Text in G"ansef"u"schen"'
+
+% Andere spezielle TeX-Eigenarten (spezielle Trennregeln u.ä.) entnehmen
+% Sie bitte einer TeX-Anleitung.
+
+\begin{document}
+
+% Das Setzen der Daten sollte erst nach \begin{document} erfolgen,
+% da vorher keine Umlaute und deutschen Trennregeln benutzt werden können.
+
+% Die wichtigsten Daten werden mit \DefData gesetzt.
+% Die Daten sind normalerweise einfache Werte, manchmal jedoch Tupel,
+% wie etwa bei Gewandtheit, in der der normale Wert und der in Rüstung
+% angegeben werden muss. Selbst wenn die Werte identisch sein sollten,
+% müssen in diesen Fällen beide Werte angegeben werden.
+% Das folgende Beispiel ist insofern vollständig, als alle Daten vorkommen,
+% und daher für jeden Wert klar ist, ob er als Tupel oder alleinstehend
+% gesetzt werden muss.
+% Die *Reihenfolge*, in der die Daten gesetzt werden, spielt keine Rolle.
+
+
+\DefData{Spieler}{Martin Väth}
+
+{ % Alle Daten innerhalb der Klammern werden nach dme Schließen vergessen.
+% Dies kann man benutzen, um z.B. mehrere Figuren zu erstellen.
+% Hätten wir den Spieler ebenfalls in die Klammer gesetzt, würde dieser
+% Name anschließend ebenfalls vergessen. So bleibt er "global"
+% (bis er "manuell" anders gesetzt wird, siehe weiter unten).
+
+% \ClearLists löscht alle Listen (Fertigkeiten, Waffen, Zauber, Gegenstände).
+% Dies ist hier eigentlich redundant, da die Listen zu Beginn leer sind:
+\ClearLists
+
+\DefData{Figur}{Cynyr ap Clai}
+\DefData{Typ}{Schamane}
+\DefData{Grad}{15}
+\DefData{Spezialisierung}{}
+\DefData{St}{73}
+\DefData{Gs}{96}
+\DefData{Gw}{{85}{85}}% Normal bzw. in Rüstung
+\DefData{Ko}{87}
+\DefData{In}{92}
+\DefData{Zt}{83}
+\DefData{Au}{94}
+\DefData{pA}{88}
+\DefData{Wk}{84}
+\DefData{B}{{29}{29}}% Normal bzw. in Rüstung
+\DefData{Raufen}{9}
+\DefData{Ausdauerbonus}{11}
+\DefData{Schadensbonus}{3}
+\DefData{Angriffsbonus}{{2}{2}}% Normal bzw. in Rüstung
+\DefData{Abwehrbonus}{{1}{1}}% Normal bzw. in Rüstung
+\DefData{ResistenzBonus}{{3}{3}}
+\DefData{Zauberbonus}{1}
+\DefData{RK}{{LR}{2}}
+\DefData{Ruestung}{Lederhalsschutz Lederstiefel}
+\DefData{Sehen}{{0}{6}}
+\DefData{Nachtsicht}{{0}{6}}
+\DefData{Hoeren}{{0}{6}}
+\DefData{Riechen}{{4}{10}}
+\DefData{SechsterSinn}{{2}{8}}
+\DefData{LP}{19}
+\DefData{AP}{51}
+\DefData{GG}{2}
+\DefData{SG}{2}
+\DefData{Geburtsdatum}{}
+\DefData{Alter}{28}
+\DefData{haendig}{rechts}
+\DefData{Groesse}{188}
+\DefData{Gestalt}{g/n}
+\DefData{Gewicht}{75}
+\DefData{Stand}{Mittelschicht}
+\DefData{Heimat}{Fuardayn}
+\DefData{Glaube}{schamanisch}
+\DefData{Merkmale}{Totem: Wolf}
+\DefData{Datum01}{{01.01.14}{4800}{300}{1748}}
+
+
+% Leere Definitionen sind eigentlich redundant, aber zur Vollständigkeit:
+
+\DefData{Datum02}{{}{}{}{}}
+\DefData{Datum03}{{}{}{}{}}
+\DefData{Datum04}{{}{}{}{}}
+\DefData{Datum05}{{}{}{}{}}
+\DefData{Datum06}{{}{}{}{}}
+\DefData{Datum07}{{}{}{}{}}
+\DefData{Datum08}{{}{}{}{}}
+\DefData{Datum09}{{}{}{}{}}
+\DefData{Datum10}{{}{}{}{}}
+\DefData{Datum11}{{}{}{}{}}
+\DefData{Datum12}{{}{}{}{}}
+\DefData{Datum13}{{}{}{}{}}
+\DefData{Datum14}{{}{}{}{}}
+\DefData{Datum15}{{}{}{}{}}
+\DefData{Datum16}{{}{}{}{}}
+\DefData{Datum17}{{}{}{}{}}
+\DefData{Datum18}{{}{}{}{}}
+\DefData{Datum19}{{}{}{}{}}
+\DefData{Datum20}{{}{}{}{}}
+
+
+% Hier setzen wir die Daten für die Basisfertigkeiten und Boni gemischt:
+% Es ist übersichtlicher, dies zusammen zu halten.
+% Der Aufruf von \Fertigkeit wird gleich erklärt.
+% Beachte, dass durch unsere Mischung Abwehr, Resistenz, Zaubern die
+% ersten Einträge in der ersten Fertigkeitstabelle des Figurenblattes werden.
+
+\Fertigkeit1{Abwehr}[15]
+\DefData{Abwehr}{{16}{16}}% Normal bzw. mit Verteidigungswaffe
+\Fertigkeit1{Resistenz}[15]
+\DefData{Resistenz}{{18}{18}}% Gegen Körper- bzw. Geistesmagie
+\Fertigkeit1{Zaubern}[17]
+\DefData{Zaubern}{18}
+
+
+% Mit dem folgenden Kommando machen wir einen Eintrag in der Fertigkeitsliste
+% auf dem Figurenblatt und schaffen zugleich eine Referenz für spätere Blätter.
+% Die Reihenfolge der Aufrufe ist im Prinzip beliebig, sie kann sogar mit
+% später erklärten Aufrufen für andere Listen gemischt werden.
+% Die Reihenfolge spielt allerdings insofern eine Rolle, dass frühere Aufrufe
+% zuerst in der Liste erscheinen.
+
+%\Fertigkeit1[Name]{Fähigkeit}[Bonus][PP]
+% 1/2 steht für die erste/zweite Liste auf dem *Figurenblatt*.
+% [Name] ist der Name unter dem die Fähigkeit später referenziert werden kann;
+% er muss eindeutig sein. Falls Name leer ist, kann nicht referenziert werden;
+% dies ist z.B. bei leeren Einträgen sinnvoll.
+% Falls [Name] weggelassen wird, wird Fähigkeit als Name benutzt.
+% (Dies kann bei komplizierten Fähigkeiten - mit Umlauten, newlines usw. -
+% zu TeX-Fehlern führen; daher [Name] im Zweifelsfall nicht weglassen).
+% Bonus ist der Bonus, auf den die Fertigkeit gelernt ist
+% PP sie ev. noch ausstehende Praxispunkte.
+% [Bonus] und [PP] sind optional; wird jedoch [Bonus] weggelassen, muss auch
+% [PP] weggelassen werden.
+
+\Fertigkeit1[]{}% freier Eintrag; [] bedeutet, dass nicht referenziert wird
+\Fertigkeit1{Wahrnehmung}[6]
+\Fertigkeit1{Pflanzenkunde}[10][5]
+\Fertigkeit1[Fuardayn]{Landeskunde Fuardayn}[10][5]% Referenzname: Fuardayn
+\Fertigkeit1{Tierkunde}[9][2]
+\Fertigkeit1{Zauberkunde}[8][6]
+\Fertigkeit1[Gebirge]{Überleben Gebirge}[9]
+\Fertigkeit1[Wald]{Überleben Wald}[8]
+\Fertigkeit1[]{}
+\Fertigkeit1[]{}
+\Fertigkeit1[]{}
+\Fertigkeit1{Erste Hilfe}[15][8]
+\Fertigkeit1{Trinken}[8]
+\Fertigkeit1[]{}
+\Fertigkeit1{Seilkunst}[12][1]
+\Fertigkeit1{Schleichen}[8][4]
+\Fertigkeit1{Bootfahren}[10]
+\Fertigkeit1{Schwimmen}[16][1]
+\Fertigkeit1{Klettern}[14][1]
+\Fertigkeit1[]{}
+\Fertigkeit1[]{}
+\Fertigkeit1[Wurf daneben]{Wurf daneben (PW-25:Zt/2;
+  Grad/5 x 10 sec; Fehler: 1W6 LP+AP)}
+
+% Für Waffenfertigkeiten lohnen sich Abkürzungen in den Referenznamen,
+% da diese in der Praxis häufig referenziert werden müssen:
+
+\Fertigkeit2[Stich]{Stichwaffe}[5]
+\Fertigkeit2[1Schlag]{Einhandschlagwaffe}[8]
+\Fertigkeit2[1Schwert]{Einhandschwert}[8][2]
+\Fertigkeit2[Stielwurf]{Stielwurfwaffe}[6]
+\Fertigkeit2[Fecht]{Fechtwaffe}[5]
+\Fertigkeit2[]{}
+\Fertigkeit2[]{}
+\Fertigkeit2[]{}
+\Fertigkeit2[]{}
+\Fertigkeit2[]{}
+\Fertigkeit2[]{}
+\Fertigkeit2[]{}
+\Fertigkeit2[]{}
+\Fertigkeit2[]{}
+\Fertigkeit2[]{}
+\Fertigkeit2[]{}
+\Fertigkeit2[]{}
+\Fertigkeit2{Chryseisch}[11(?)]
+\Fertigkeit2{Rawindi}[11]
+\Fertigkeit2{Waelska}[13]
+\Fertigkeit2{Albisch}[13]
+\Fertigkeit2{Twyneddisch}[18]
+\Fertigkeit2{Zauberschrift}[18]
+
+
+% Das folgende Kommando ist ähnlich wie \Fertigkeit, betrifft allerdings
+% die Fertigkeitsliste des Abenteuerblattes. Zudem werden Einträge aus
+% \Fertigkeit referenziert. Für die korrekte Referenzierung ist es nicht
+% nötig, das Figurenblatt später auch tatsächlich auszugeben. Zudem ist
+% es nicht nötig, dass das entsprechende \Fertigkeit-Aufruf vor der
+% Referenzierung im File steht. Es m muss allerdings vor der Ausgabe
+% des Abenteuerblatts erscheinen.
+
+%\Fertig1[Beschreibung]{Referenz}[Modifikation]{Leiteigenschaft/Wert}[PP]
+% 1/2 steht für die erste/zweite Liste auf dem *Abenteuerblatt*.
+% [Beschreibung] ist optional; wenn sie fehlt, wird die der Referenz genommen.
+% {Referenz} ist nicht optional; sie kann aber leer bleiben, also {};
+% in dem Fall sollten [Beschreibung], Wert und [PP] angegeben werden;
+% falls {Referenz} nicht leer ist, muss ein entsprechender Eintrag mit
+% \Fertigkeit erfolgt sein (Ausnahme: Raufen, siehe unten).
+% [Modifikation] ist eine optionale Modifikation des errechneten Werts.
+% Der Wert wird aus Referenz und Leiteigenschaft berechnet, wenn er nicht
+% explizit angegeben ist. Eine leere Leiteigenschaft bedeutet, dass keine
+% existiert; um eine Leiteigenschaft oder einen leeren Wert als *Wert* zu
+% interpretieren, kann man nochmals klammern. Z.B. ist {{}} ein leerer Wert.
+% Die spezielle "Leiteigenschaft" AB bedeutet, den Angriffsbonus zu nehmen.
+% [PP] ist optional; wenn der Eintrag fehlt wird der Wert der Referenz
+% genommen.
+% Die "Fähigkeit" Raufen kann auch im nichtgesetzten Fall referenziert werden.
+
+\Fertig1{Wahrnehmung}{}
+\Fertig1{Pflanzenkunde}{In}
+\Fertig1{Fuardayn}{In}
+\Fertig1{Tierkunde}{In}
+\Fertig1{Zauberkunde}{In}
+\Fertig1{Gebirge}{In}
+\Fertig1{Wald}{In}
+\Fertig1{}{}
+\Fertig1{Erste Hilfe}{Gs}
+\Fertig1{Trinken}{}
+\Fertig1{}{}
+\Fertig1{Seilkunst}{Gs}
+\Fertig1{Schleichen}{Gw}
+\Fertig1{Bootfahren}{Gs}
+\Fertig1{Schwimmen}{Gw}
+\Fertig1{Klettern}{St}
+\Fertig1{}{}
+\Fertig1{Wurf daneben}{}
+\Fertig2{}{}
+\Fertig2{}{}
+\Fertig2{}{}
+\Fertig2{}{}
+\Fertig2{Chryseisch}{In}
+\Fertig2{Rawindi}{In}
+\Fertig2{Waelska}{In}
+\Fertig2{Albisch}{In}
+\Fertig2{Twyneddisch}{In}
+\Fertig2{Zauberschrift}{Zt}
+
+
+% Das folgende Kommando ist ganz ähnlich zu \Fertig, aber für Waffen:
+
+%\Waffe1[Beschreibung]{Referenz}[Modifikation]{AB oder leer}[Schaden][Nah]
+% Wie bei \Fertig, nur dass AB für den Angriffsbonus steht, und dass
+% [Nah] und [Fern] der Schaden im Nah- bzw. Fernkampf ist; beides ist optional.
+% Wird allerdings [Nah] ausgelassen, muss auch [Fern] ausgelassen werden.
+% Die "Waffe" Raufen kann auch im nichtgesetzten Fall referenziert werden.
+
+\Waffe1[Wasserklinge]{1Schwert}[2]{AB}[1W6+5]
+\Waffe1[Langschwert]{1Schwert}{AB}[1W6+4]
+\Waffe1[Keule]{1Schlag}{AB}[1W6+2]
+\Waffe1[Dolch]{Stich}{AB}[1W6+2]
+\Waffe1[Wurfkeule]{Stielwurf}{AB}[1W6]
+\Waffe1{}{}
+\Waffe1{}{}
+\Waffe1{}{}
+\Waffe1{}{}
+\Waffe1{}{}
+\Waffe1{}{}
+\Waffe2{}{}
+\Waffe2{}{}
+\Waffe2{}{}
+\Waffe2{}{}
+\Waffe2{}{}
+\Waffe2{}{}
+\Waffe2{}{}
+\Waffe2{Raufen}{}
+
+{ % Hier klammern wir nochmals, um die folgenden Daten lokal zu machen
+
+
+% Für das Zauberblatt brauchen wir noch ein Kommando, um die Zauber zu
+% setzen. Dies ist das folgende:
+
+%\Zauber1{Name}{AP}{Prozess}{Zauberdauer}{Reichweite}{Wirkungsziel}%
+%       {Wirkungsbereich}{Wirkungsdauer}{Beschreibung}{Art}
+
+\Zauber1{Hitzeschutz Kälteschutz}{1}{Verändern}{Augenblick}{-}{Körper}%
+  {Zauberer}{2\,min}{S.~94}{Gedanken}
+\Zauber1{Segnen}{2}{Wunder/""Verändern}{1\,min}{Berührung}{Körper}%
+  {1 Wesen}{10\,min}{S.~146; +1 Erfolgs/Widerstands "~5 Prüfwürfe}{Geste}
+\Zauber1{Schwäche}{1 pro Wesen}{Verändern}{Augenblick}{30\,m}{Körper}%
+  {1--10 Wesen}{2\,min}{S.~110; Stärke "~20, Raufen "~1, Schaden "~1}%
+  {10 Eschenrinde (1GS)}
+\Zauber1{Schwingenkeule}{1}{Wunder/""Formen}{10\,sec}{Berührung}%
+  {Umgebung}{1 Objekt}{2\,min}{S.~146}{Geste}
+\Zauber1{Felsenfaust}{1}{Verändern}{10\,sec}{Berührung}{Körper}%
+  {1 Wesen}{2\,min}{S.~81; +Hand/""Faustkampf (1W6+""Schadensbonus);
+  keine Gestenzauber; nicht im HG}{20 Kiesel (1SS)}
+\Zauber1{Verfluchen}{2}{Wunder/""Veränden}{10\,sec}{15\,m}{Körper}%
+  {1 Wesen}{10\,min}{S.~147; "~1 Erfolgs/Widerstands +5 Prüfwürfe}{Geste}
+\Zauber1{Macht über das Selbst}{1}{Beherrschen}{10\,sec}{-}{Körper}%
+  {Zauberer}{24\,h; Konz.}{S.~98}{Gedanke}
+\Zauber1{Bannen von Licht}{1}{Zerstören}{1\,sec}{0\,m}{Umgebung}%
+  {9\,m Umkreis}{bis 10\,min}{S.~66; bewegt sich mit Zauberer;
+  nicht gegen Infrarotsicht}{Wort}
+\Zauber1{Unsichtbarkeit}{4 (oder 8)}{Verändern}{10\,sec}{-}{Körper}%
+  {Zauberer}{10\,min; Konz.}{S.~120}{Wort}
+\Zauber2{Bärenwut}{2}{Dweomer/""Verändern}{Augenblick}{-}{Körper}%
+  {Zauberer}{2\,min}{S.~149; nur bei LP-Verlust anwendbar;
+  Stärke +30, Raufen +4, ohne AP wie normal bis weniger als 6~LP}{Geste}
+\Zauber2{Handauflegen}{1}{Wunder/""Erschaffen}{10\,sec}{Berührung}%
+  {Körper}{1 Wesen}{0}{S.~143; 1W6 AP (1 mal pro Tag)}{Geste}
+\Zauber2{Heilen von Wunden}{3}{Wunder/""Erschaffen}{1\,min}{Berührung}%
+  {Körper}{1 Wesen}{0}{S.~144; 1W6 LP+AP (1 mal pro 3 Tage)}{Geste}
+\Zauber2{Naturgeist rufen}{3}{Dweomer/""Beherrschen}{5\,min}{500\,m}{Geist}%
+  {-}{2\,min}{S.~256}{Trommel}
+\Zauber2{Schlaf}{4 je Wesen}{Beherrschen}{10\,sec}{30\,m}{Körper}%
+  {bis 6 Wesen}{8\,h}{S.~109; bis max.\ Grad 10}{20 Lotusblütenstaub (10GS)}
+\Zauber2{Brot und Wasser}{3}{Erschaffen}{10\,min}{0\,m}{Umgebung}%
+  {-}{0}{S.~71}{20 Lotusblütenstaub (10GS)}
+
+
+% Ebenfalls auf dem Zauberblatt stehen die Liste der magischen Gegenstände.
+% Diese wird mit folgendem Kommando gefüllt:
+
+%\Magisch{Gegenstand}{Beschreibung}
+
+\Magisch{1 Kraut der konzentrierten Energie}{volle AP;
+  später verliert man 3 LP}
+\Magisch{1 Krafttrunk}{2W6 AP}
+\Magisch{1 Heiltrank}{1W6 LP+AP}
+\Magisch{5 Berserkerpilze}{}
+\Magisch{2 Amphoren Zauberöl}{}
+\Magisch{30 Portionen Rauschkraut}{? von reisendem Zwergenhändler
+  aus Wagen gekauft}
+\Magisch{1 Phiole Weihwasser}{}
+
+
+% Es folgt die eigentliche Ausgabe der gewünschten Blätter:
+
+\Output{Figurenblatt}
+\Output{Abenteuerblatt}
+\Output{Zauberblatt}
+
+
+} % Schließen der vorherigen Klammer zum "Vergessen" der lokalen Daten;
+% in diesem Fall waren dies alle Einträge mit \Zauber und \Magisch.
+% Wir benutzen dies, um noch ein anderes Zauberblatt (mit anderen Einträgen)
+% für die selbe Figur zu erstellen - die anderen Daten sind ja noch die selben.
+
+\Zauber1{Wandelhand}{2}{Bewegen}{5\,sec}{Berührung}{Umgebung}%
+  {1 Objekt}{10\,min}{M4:S.~184; 6LP $\infty$AP Gw80 St50 B12 11/10/12
+  Raufen +6(W-3) Würgen (1W6-1 AP; ab 6 Rd.\ PW+10:Ko)
+  Angriff -4 oder beidhändig losreißen}{Wort}
+\Zauber1{Seelenheilung}{2}{Wunder/""Verändern}{10\,min}{3\,m}{Geist}%
+  {1 Wesen}{0}{S.~146}{Wort}
+\Zauber1{Wasseratmen}{2}{Verändern}{10\,sec}{Berührung}{Körper}%
+  {1 Wesen}{8\,h}{S.~127}{Geste}
+\Zauber1{Stille}{2}{Formen}{Augenblick}{0\,m}{Umgebung}%
+  {3\,m Umkreis}{1\,min}{S.~115; bewegt sich mit Zauberer}%
+  {20 Eulenfedern (2GS)}
+\Zauber1{Sumpfboden}{1}{Formen}{10\,sec}{50\,m}{Umgebung}%
+  {15\,m Umkreis}{2\,min}{S.~117; B/4 (PW+20); Wagen bleiben stecken;
+  keine Pferde; Reiter ggf.\ EW-4}{20 Wasserlinsen (1GS)}
+\Zauber1{Seelenkompaß}{2}{Erkennen}{1\,min}{6\,km}{Geist}%
+  {1 Wesen}{10\,min}{S.~112; benötigt Haar}{1 Silbernadel (10GS)}
+\Zauber1{Tiergestalt (Wolf)}{6}{Dweomer/""Verändern}{20\,sec}{-}{Körper}%
+  {Zauberer}{$\infty$}{S.~160}{8 Fellstücke des Wolfs (1GS)}
+\Zauber1{Geisterlauf}{4 je Wesen}{Bewegen}{30\,min}{3\,m}{Körper}%
+  {bis 7 Wesen}{variabel}{Ergänzungen S.~16, M4:S.~125}{8 Symbole (5GS)}
+\Zauber2{Hagel}{12}{Erschaffen}{30\,sec}{100\,m}{Umgebung}%
+  {30\,m Umkreis}{2\,min; Konz.}{S.~89; +15(1W6); Schild +4 auf Abwehr}%
+  {4 Diamanten (50GS)}
+\Zauber2{Vision}{alle (mind.\ 3)}{Wunder/""Erkennen}{6\,h}{-}{Geist}%
+  {Zauberer}{1\,h}{S.~147}{9 Kräuter}
+\Zauber2{Schutzgeist}{3}{Dweomer/""Bewegen}{10\,sec}{Berührung}{Umgebung}%
+  {Zauberer}{bis 30\,min}{S.~159;
+  bei LP-Verlust letzten Wurf wiederholen}{Geste}
+\Zauber2{Wasserstrahl (W.-Llinge)}{1 (+1)}{Erschaffen}%
+  {Augenblick}{5\,m}{Umgebung}{Strahl}{1 Ap für "`aus"'}{S.~128;
+  +8(1W6+2), schwer: PW:Stärke (1W6-1\,m) 50\% für 1m Feuerwand}{Geste}
+\Zauber2{Wasserlauf/-wandeln (W.-Klinge)}{3}{Bewegen}{20\,sec}{-}{Körper}%
+  {Zauberer}{10\,min}{S.~127; B/2, sonst EW+8:Geländelauf}{Gedanke}
+\Zauber2{Nebel schaffen (W.-Klinge)}{4}{Erschaffen}{20\,sec}{0\,m}%
+  {Umgebung}{50\,m Umkreis}{30\,min}{S.~103; Sicht 10\,m tags/3\,m nachts,
+  Geräusche nur halbweit}{Geste}
+
+\Magisch{10 Duftwasser}{pA+10}
+\Magisch{Springwurz}{}
+\Magisch{Schutzamulett}{gegen Lauscher und Beobachter, ABW:15}
+\Magisch{Wasserklinge}{}
+\Magisch{Maske der Ferne}{500\,km, 30\,min, ABW:1}
+
+\Output{Zauberblatt}
+
+}% Schließen der ersten Klammer zum "Vergessen" aller Figurendaten.
+
+% Wird vor das folgende \end{document} ein Kommentarzeichen % geschrieben,
+% so wird anschließend die nächste Figur ausgeben;
+% ansonsten beendet \end{document} das Dokument, und der Rest wird ignoriert.
+\end{document}
+
+\DefData{Spieler}{}% Wir setzen auch den global definierten Spieler zurück
+
+{ % Hier könnten wir die nächste Figur definieren ...
+
+% ... und dann ausgeben.
+% Da wir nichts definiert haben, werden leere Bögen ausgegeben.
+% Leere Fertigkeits-/Waffen-/Zauber-/Gegenstandslisten werden unterdrückt.
+
+\Output{Figurenblatt}
+\Output{Abenteuerblatt}
+\Output{Zauberblatt}
+
+} % Diese Klammer schließt die "zweite" Figur.
+
+% Am Ende muss immer \end{document} stehen. Alles danach wird ignoriert.
+\end{document}
