@@ -13,14 +13,15 @@
 %
 % Martin V"ath <martin at mvath.de>
 %
+% Die Anleitung zur Benutzung dieser Datei befindet sich in m5bsp-mv.tex
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{midgard5}[13/01/2014 v1.0]
+\ProvidesClass{midgard5}[14/01/2014 v1.0]
 
 \PassOptionsToClass{11pt,a4paper,oneside,landscape}{article}
 
 
-% Eingabeschriftart; default ist utf8; Alternativen: latin1, ansinew, applemac
+% Eingabekodierung; default ist utf8; Alternativen: latin1, ansinew, applemac
 
 \newcommand{\mg@inputenc}{utf8}
 \DeclareOption*{\let\mg@inputenc\CurrentOption}

@@ -16,6 +16,34 @@
 % dies der Fall, wenn sich m5figur-mv.cls im selben Verzeichnis befindet,
 % aber es darf auch in einem geeigneten systemweiten Verzeichnis sein, wenn
 % dieses dem TeX-System entsprechend bekannt gemacht wird.
+%
+% Vorteile der Ausarbeitung einer Figurenblatts mit diesem Projekt gegenüber
+% der reinen PDF- oder Papierversion sind:
+%
+% 1. Daten müssen nur einmalig für alle Figurenblätter eingegeben werden.
+% 2. Es ist kein Problem z.B. mehrfache Zauberblätter auszudrucken (falls
+%    ein Blatt nicht alle Informationen aufnehmen kann).
+% 3. Tabellen werden den Daten angepasst (etwa falls die Beschreibung einer
+%    Wirkung bei Zaubern lange ist, oder eine Fertigkeit Zusatzbemerkungen
+%    erfordert).
+% 4. Man kann mehrere Figuren mit einer einzigen Datei verwalten und muss
+%    dabei für "ähnliche" Figuren (z.B. die selbe Figur in verschiedenen
+%    Graden) die identischen Daten (etwa Basiswerte) nicht mehrfach eingeben.
+%    Falls sich Basiswerte ändern (z.B. durch Verbesserungswürde), kann man
+%    nur den geänderten Wert neu setzen ohne alle anderen zu wiederholen.
+% 5. Automatische Berechnung von Werten!
+%
+% In der Tat, für die Fertigkeits- und Waffenlisten auf dem Abenteuerblatt
+% der Figuren müssen die Einträge aus dem Figurenblatt nicht ganz wiederholt
+% werden, sondern sie können referenziert werden, und die Berechnung des
+% Erfolgs-/Trefferwerts geschieht normalerweise automatisch aufgrund der
+% anderen Daten.
+% Dabei wurde das Hauptaugenmerk auf die Flexibilität gerichtet.
+% Beispielsweise können Modifikationen (etwa für magische Waffen)
+% berücksichtigt werden, und ggf. kann man das Ergebnis auch fest angeben
+% (oder z.B. leer lassen).
+
+
 
 \documentclass{m5figur-mv}
 % Bei anderer als UTF8-Kodierung für Umlaute und Sonderzeichen
