@@ -8,7 +8,7 @@
 %
 % Die Datei m5bsp-mv.tex selbst darf nur vom Autor verändert werden.
 %
-% Um eigenes Figuren auszufertigen, empfiehlt es sich daher,
+% Um eigene Figuren auszufertigen, empfiehlt es sich daher,
 % diese Datei zu kopieren und geeignet anzupassen.
 %
 % Ein pdflatex auf dieser Datei erzeugt daraufhin die Figur(en) im PDF-Format;
@@ -17,10 +17,10 @@
 % aber es darf auch in einem geeigneten systemweiten Verzeichnis sein, wenn
 % dieses dem TeX-System entsprechend bekannt gemacht wird.
 %
-% Vorteile der Ausarbeitung einer Figurenblatts mit diesem Projekt gegenüber
+% Vorteile der Ausarbeitung eines Figurenblatts mit diesem Projekt gegenüber
 % der reinen PDF- oder Papierversion sind:
 %
-% 1. Daten müssen nur einmalig für alle Figurenblätter eingegeben werden.
+% 1. Gemeinsame Daten müssen nur einmalig für alle 3 Blätter eingegeben werden.
 % 2. Es ist kein Problem z.B. mehrfache Zauberblätter auszudrucken (falls
 %    ein Blatt nicht alle Informationen aufnehmen kann).
 % 3. Tabellen werden den Daten angepasst (etwa falls die Beschreibung einer
@@ -29,8 +29,10 @@
 % 4. Man kann mehrere Figuren mit einer einzigen Datei verwalten und muss
 %    dabei für "ähnliche" Figuren (z.B. die selbe Figur in verschiedenen
 %    Graden) die identischen Daten (etwa Basiswerte) nicht mehrfach eingeben.
-%    Falls sich Basiswerte ändern (z.B. durch Verbesserungswürde), kann man
-%    nur den geänderten Wert neu setzen ohne alle anderen zu wiederholen.
+%    Falls sich Basis- oder Fertigkeitswerte ändern (z.B. durch
+%    Verbesserungswürfe oder Lernen), kann man nur den geänderten Wert
+%    neu setzen ohne alle anderen zu wiederholen.
+%    Selbstverständlich kann man auch einfach neue Fertigkeiten hinzufügen.
 % 5. Automatische Berechnung von Werten!
 %
 % In der Tat, für die Fertigkeits- und Waffenlisten auf dem Abenteuerblatt
@@ -45,7 +47,11 @@
 
 
 
-\documentclass{m5figur-mv}
+\documentclass{m5figur-mv}[2014/01/16]
+% Der Datumsteil [...] ist optional, aber wir stellen damit "sicher", dass
+% eine aktuelle Version von m5figur-mv.cls benutzt wird (falls auf dem Rechner
+% eine veraltete vorhanden sein sollte, wird eine Warnung gedruckt).
+%
 % Bei anderer als UTF8-Kodierung für Umlaute und Sonderzeichen
 % (es gibt z.B. ansinew (Windows), latin1 (Linux), applemac (Mac); dies
 % bedeutet, dass Sie die Umlaute (äöüÄÖÜ), scharfes ß, Paragraph (§)
@@ -82,7 +88,7 @@
 
 \DefData{Spieler}{Martin Väth}
 
-{ % Alle Daten innerhalb der Klammern werden nach dme Schließen vergessen.
+{ % Alle Daten innerhalb von Klammern werden nach deren Schließen vergessen.
 % Dies kann man benutzen, um z.B. mehrere Figuren zu erstellen.
 % Hätten wir den Spieler ebenfalls in die Klammer gesetzt, würde dieser
 % Name anschließend ebenfalls vergessen. So bleibt er "global"
@@ -183,14 +189,14 @@
 
 %\Fertigkeit1[Name]{Fähigkeit}[Bonus][PP]
 % 1/2 steht für die erste/zweite Liste auf dem *Figurenblatt*.
-% [Name] ist der Name unter dem die Fähigkeit später referenziert werden kann;
+% [Name] ist der Name, unter dem die Fähigkeit später referenziert werden kann;
 % er muss eindeutig sein. Falls Name leer ist, kann nicht referenziert werden;
 % dies ist z.B. bei leeren Einträgen sinnvoll.
 % Falls [Name] weggelassen wird, wird Fähigkeit als Name benutzt.
 % (Dies kann bei komplizierten Fähigkeiten - mit Umlauten, newlines usw. -
 % zu TeX-Fehlern führen; daher [Name] im Zweifelsfall nicht weglassen).
-% Bonus ist der Bonus, auf den die Fertigkeit gelernt ist
-% PP sie ev. noch ausstehende Praxispunkte.
+% Bonus ist der Bonus, auf den die Fertigkeit gelernt ist,
+% PP die ev. noch ausstehende Praxispunkte.
 % [Bonus] und [PP] sind optional; wird jedoch [Bonus] weggelassen, muss auch
 % [PP] weggelassen werden.
 
@@ -215,8 +221,8 @@
 \Fertigkeit1{Klettern}[14][1]
 \Fertigkeit1[]{}
 \Fertigkeit1[]{}
-\Fertigkeit1[Wurf daneben]{Wurf daneben (PW-25:Zt/2;
-  Grad/5 x 10 sec; Fehler: 1W6 LP+AP)}
+\Fertigkeit1{Wurf daneben}
+
 
 % Für Waffenfertigkeiten lohnen sich Abkürzungen in den Referenznamen,
 % da diese in der Praxis häufig referenziert werden müssen:
@@ -246,13 +252,41 @@
 \Fertigkeit2{Zauberschrift}[18]
 
 
+% Referenzierbare Fertigkeiten können nach dem Aufruf von \Fertigkeit...
+% noch modifiziert werden. Dies ist beispielsweise dann sinvoll, wenn wir
+% ein zweites Figurenblatt der selben Figur in höherem Grad drucken:
+% Wir wollen dann i.d.R. nicht alle \Fertigkeit...-Kommandos erneut eingeben,
+% sondern nur z.B. Boni ändern (und ggf. *zusätzliche* \Fertigkeit-Kommandos)
+% einfügen.
+%
+% Die Macros zum Modifizieren der Fertigkeiten lauten:
+%
+% \RenewBeschreibung{Name}{Fertigkeit}
+% \RenewWert{Name}{neuer Wert}
+% \RenewPP{Name}{neuer PP}
+%
+% Es ist sogar möglich, Referenzen zu erstellen für Einträge, die gar nicht
+% mit \Fertigkeit gelistet wurden (für Raufen geschieht dies z.B. automatisch).
+% Dies geht mit einem der beiden folgenden Macros:
+%
+% \DefReferenz{Name}{Fertigkeit}{Wert}{PP}
+% \DefReferenzWertFirst{Wert}{Name}{Fertigkeit}{PP}
+
+% Da in diesem Beispielfile nicht mehrere Versionen ausgegeben werden,
+% gibt es hier nur beispielhaft eine Änderung der Beschreibung von
+% "Wurf daneben" in einen etwas ausführlicheren Text:
+
+\RenewBeschreibung{Wurf daneben}{Wurf daneben (PW-25:Zt/2;
+  Grad/5 x 10 sec; Fehler: 1W6 LP+AP)}
+
+
 % Das folgende Kommando ist ähnlich wie \Fertigkeit, betrifft allerdings
-% die Fertigkeitsliste des Abenteuerblattes. Zudem werden Einträge aus
-% \Fertigkeit referenziert. Für die korrekte Referenzierung ist es nicht
-% nötig, das Figurenblatt später auch tatsächlich auszugeben. Zudem ist
-% es nicht nötig, dass das entsprechende \Fertigkeit-Aufruf vor der
-% Referenzierung im File steht. Es m muss allerdings vor der Ausgabe
-% des Abenteuerblatts erscheinen.
+% die Fertigkeitsliste des *Abenteuerblattes*. Zudem werden Einträge aus
+% \Fertigkeit referenziert (und keine neuen Referenzen erstellt).
+% Für die korrekte Referenzierung ist es nicht nötig, das Figurenblatt
+% später auch tatsächlich auszugeben. Zudem ist es nicht nötig, dass der
+% entsprechende \Fertigkeit-Aufruf vor der Referenzierung im File steht.
+% Er muss allerdings vor der Ausgabe des Abenteuerblatts erscheinen.
 
 %\Fertig1[Beschreibung]{Referenz}[Modifikation]{Leiteigenschaft/Wert}[PP]
 % 1/2 steht für die erste/zweite Liste auf dem *Abenteuerblatt*.
@@ -269,7 +303,7 @@
 % Die spezielle "Leiteigenschaft" AB bedeutet, den Angriffsbonus zu nehmen.
 % [PP] ist optional; wenn der Eintrag fehlt wird der Wert der Referenz
 % genommen.
-% Die "Fähigkeit" Raufen kann auch im nichtgesetzten Fall referenziert werden.
+% Die "Fähigkeit" Raufen kann automatisch referenziert werden.
 
 \Fertig1{Wahrnehmung}{}
 \Fertig1{Pflanzenkunde}{In}
@@ -307,7 +341,7 @@
 % Wie bei \Fertig, nur dass AB für den Angriffsbonus steht, und dass
 % [Nah] und [Fern] der Schaden im Nah- bzw. Fernkampf ist; beides ist optional.
 % Wird allerdings [Nah] ausgelassen, muss auch [Fern] ausgelassen werden.
-% Die "Waffe" Raufen kann auch im nichtgesetzten Fall referenziert werden.
+% Die "Waffe" Raufen kann automatisch referenziert werden.
 
 \Waffe1[Wasserklinge]{1Schwert}[2]{AB}[1W6+5]
 \Waffe1[Langschwert]{1Schwert}{AB}[1W6+4]

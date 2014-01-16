@@ -9,14 +9,14 @@
 % umbenannt werden muss, und der ProvidesClass-Eintrag entsprechend anzupassen
 % ist. Welche Modifizierung unter dem Ursprungsnamen der Datei zugelassen ist,
 % entscheidet der erste Autor, dessen Name auch bei Umbenennung der Datei
-% nicht entfernt/modifiziert werden darf.
+% nicht entfernt/modifiziert werden darf:
 %
 % Martin V"ath <martin at mvath.de>
 %
 % Die Anleitung zur Benutzung dieser Datei befindet sich in m5bsp-mv.tex
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{midgard5}[14/01/2014 v1.0]
+\ProvidesClass{m5figur-mv}[2014/01/16]
 
 \PassOptionsToClass{11pt,a4paper,oneside,landscape}{article}
 
@@ -146,6 +146,8 @@
 
 \newcommand*{\mg@default}{\mg@default}
 \newcommand*{\mg@list}{}
+\newcommand*{\mg@tmpA}{}
+\newcommand*{\mg@tmpB}{}
 \newcommand{\mg@appendSub}[2]{\toolboxSurround{}{#2}#1}
 \newcommand{\mg@append}[1]{\expandafter\mg@appendSub\mg@list{#1}}
 
@@ -186,10 +188,8 @@
 % \mg@Data{,bf} wirkt nur auf Data {Ausgabe in boldface};
 % \mg@EP{,s} gibt auf name=Datum* und gibt in in Boxen aus.
 
-\newcommand{\mg@XSubA}{}
-\newcommand{\mg@XSubB}{}
-\newcommand*{\mg@X}[4]{\renewcommand{\mg@XSubA}[#1]{###2}%
-	\csname Let#3\endcsname\mg@XSubB{#4}\expandafter\mg@XSubA\mg@XSubB}
+\newcommand*{\mg@X}[4]{\renewcommand{\mg@tmpA}[#1]{###2}%
+	\csname Let#3\endcsname\mg@tmpB{#4}\expandafter\mg@tmpA\mg@tmpB}
 \newcommand*{\mg@Data}[3]{\mg@X{#1}{#2}{Data}{#3}}
 \newcommand*{\mg@Databf}[3]{{\bfseries\mg@Data{#1}{#2}{#3}}}
 \newcommand*{\mg@EP}[2]{\mbox{\hbox to 12mm{\bfseries\hfill
@@ -243,39 +243,73 @@
 
 
 % Die Fertigkeiten des Figurenblatts werden zur Referenz im
-% toolbox-Format in mg@Memory gespeichert:
+% toolbox-Format in Beschreibung Wert PP gespeichert:
 
-\toolboxMakeDef{mg@Memory}{#1}
+\toolboxMakeDef{Beschreibung}{#1}
+\toolboxMakeDef{Wert}{#1}
+\toolboxMakeDef{PP}{#1}
 
 
-% User-Interface: Fertigkeiten; in \mg@fert* sammeln, in mg@Memory speichern
+% Speichern der Referenzwerte:
+
+\newcommand{\DefReferenz}[4]{%
+	\DefBeschreibung{#1}{#2}%
+	\DefWert{#1}{#3}%
+	\DefPP{#1}{#4}}
+\newcommand{\DefReferenzWertFirst}[4]{\DefReferenz{#2}{#3}{#1}{#4}}
+
+
+% Mit \mg@SetMemory machen wir Defaults zur Referenzierung.
+% Derzeit betrifft dies nur den Raufen-Eintrag.
+
+\newcommand{\mg@SetMemory}{\LetData\mg@tmpA{Raufen}%
+  \expandafter\DefReferenzWertFirst\expandafter{\mg@tmpA}{Raufen}{Raufen}{}}
+
+
+% Die folgenden Variablen enthalten die "aktuellen" Werte von mg@...
+% Da sie in Tabellen restauriert werden, werden sie stets global gesetzt
+
+\newcommand*{\mg@Beschreibung}{}
+\newcommand*{\mg@Wert}{}
+\newcommand*{\mg@PP}{}
+
+
+% Funkktionen zum Setzen von \mg@{Beschreibung,Wert,PP} auf Referenzwerte
+
+\newcommand{\mg@GetBeschreibung}[1]{\toolboxIfEmpty{#1}{%
+	\global\let\mg@Beschreibung\toolboxEmpty}{%
+	\LetBeschreibung\mg@Beschreibung{#1}%
+	\global\let\mg@Beschreibung\mg@Beschreibung}}
+\newcommand{\mg@GetWert}[1]{\toolboxIfEmpty{#1}{%
+	\global\let\mg@Wert\toolboxEmpty}{%
+	\LetWert\mg@Wert{#1}%
+	\global\let\mg@Wert\mg@Wert}}
+\newcommand{\mg@GetPP}[1]{\toolboxIfEmpty{#1}{%
+	\global\let\mg@PP\toolboxEmpty}{%
+	\LetPP\mg@PP{#1}%
+	\global\let\mg@PP\mg@PP}}
+\newcommand{\mg@GetAll}[1]{\mg@GetBeschreibung{#1}%
+	\mg@GetWert{#1}\mg@GetPP{#1}}
+
+
+% User-Interface: Fertigkeiten; in \mg@fert* sammeln, Referenzen speichern
 
 \newcommand{\Fertigkeit}[1]{\toolboxIfX{1}{#1}{\def\mg@list{\mg@fertA}}%
 	{\def\mg@list{\mg@fertB}}\mg@FertigkeitA}
 \newcommand{\mg@FertigkeitA}[2][\mg@default]{%
-	\toolboxTokDef{{#1}{#2}}\mg@XSubA\mg@FertigkeitB}
-\newcommand{\mg@FertigkeitB}[1][]{\toolboxSurround{}{{#1}}\mg@XSubA
+	\toolboxTokDef{{#1}{#2}}\mg@tmpA\mg@FertigkeitB}
+\newcommand{\mg@FertigkeitB}[1][]{\toolboxSurround{}{{#1}}\mg@tmpA
 	\mg@FertigkeitC}
-\newcommand{\mg@FertigkeitC}[1][]{\toolboxSurround{}{{#1}}\mg@XSubA
-	\expandafter\mg@Fertigkeit\mg@XSubA}
-\newcommand{\mg@Fertigkeit}[4]{%
-	\toolboxIfx{#1}\mg@default{\Defmg@Memory{#2}{{#2}{#3}{#4}}}%
-	 {\toolboxIfEmpty{#1}{}{\Defmg@Memory{#1}{{#2}{#3}{#4}}}}%
-	\mg@append{\tabularnewline\mg@midrule\mg@sep#2&\mg@sep#3&\mg@sep#4}}
-
-
-% Memory-Manipulationen ohne Ausgabe mit \mg@Fertigkeit.
-% Dies ist zwar im m5bsp-mv.tex nicht dokumentiert, ist aber trotzdem
-% Teil des Benutzer-Interfaces.
-
-\newcommand{\FertigkeitMemory}[4]{\Defmg@Memory{#2}{{#3}{#1}{#4}}}
-
-
-% Wir benutzen es zur Festlegung des Raufen-Werts, der nicht in der
-% Fertigkeitenliste des Figurenblatts erscheint:
-
-\newcommand{\mg@SetMemory}{\LetData\mg@XSubB{Raufen}%
-  \expandafter\FertigkeitMemory\expandafter{\mg@XSubB}{Raufen}{Raufen}{}}
+\newcommand{\mg@FertigkeitC}[1][]{\toolboxSurround{}{{#1}}\mg@tmpA
+	\expandafter\mg@Fertigkeit\mg@tmpA}
+\newcommand{\mg@Fertigkeit}[4]{\toolboxIfx{#1}\mg@default
+	{\DefReferenz{#2}{#2}{#3}{#4}\mg@append{\mg@FertigkeitDefault{#2}}}%
+	{\toolboxIfEmpty{#1}{\mg@append{\mg@FertigkeitEntry{#2}{#3}{#4}}}%
+	 {\DefReferenz{#1}{#2}{#3}{#4}\mg@append{\mg@FertigkeitDefault{#1}}}}}
+\newcommand{\mg@FertigkeitDefault}[1]{\mg@GetAll{#1}%
+	\mg@FertigkeitEntry\mg@Beschreibung\mg@Wert\mg@PP}
+\newcommand{\mg@FertigkeitEntry}[3]{%
+	\tabularnewline\mg@midrule\mg@sep#1&\mg@sep#2&\mg@sep#3}
 
 
 % User-Interface: Fertigkeiten auf Abenteuerblatt; in \mg@afer* sammeln
@@ -342,7 +376,6 @@
 % nichtexpansiv sind. Daher muss der Aufruf dieser Macros in den obigen
 % Listen selbst gespeichert werden.
 
-\newcommand*{\mg@Wert}{}
 \newcommand*{\mg@WertLeit}{}
 \newcommand*{\mg@WertMod}{}
 \newcommand*{\mg@continue}{}
@@ -351,10 +384,10 @@
 	 \toolboxIfElse{\ifnum#1<21 }{\def\mg@WertLeit{-1}}{%
 	  \toolboxIfElse{\ifnum#1>80 }{\def\mg@WertLeit{1}}{%
 	   \toolboxIfElse{\ifnum#1>95 }{\def\mg@WertLeit{2}}{}}}}}
-\newcommand{\mg@Leit}[1]{\LetData\mg@XSubB{#1}%
-	\expandafter\mg@calcLeit\expandafter{\mg@XSubB}}
-\newcommand{\mg@LeitX}[3]{\renewcommand{\mg@XSubA}[#1]{\mg@calcLeit{###2}}%
-	\LetData\mg@XSubB{#3}\expandafter\mg@XSubA\mg@XSubB}
+\newcommand{\mg@Leit}[1]{\LetData\mg@tmpB{#1}%
+	\expandafter\mg@calcLeit\expandafter{\mg@tmpB}}
+\newcommand{\mg@LeitX}[3]{\renewcommand{\mg@tmpA}[#1]{\mg@calcLeit{###2}}%
+	\LetData\mg@tmpB{#3}\expandafter\mg@tmpA\mg@tmpB}
 \newcommand{\mg@SetWertLeit}[2]{\toolboxTokDef{#1}\mg@WertLeit}
 \newcommand{\mg@calcWert}[2]{\toolboxTokDef{#1}\mg@WertMod
 	\let\mg@WertLeit\toolboxEmpty
@@ -368,8 +401,8 @@
 	       \toolboxIfX{Au}{#2}{\mg@Leit{Au}}{%
 	        \toolboxIfX{pA}{#2}{\mg@Leit{pA}}{%
 	         \toolboxIfX{Wk}{#2}{\mg@Leit{Wk}}{%
-	          \toolboxIfX{AB}{#2}{\LetData\mg@XSubB{Angriffsbonus}%
-	            \expandafter\mg@SetWertLeit\mg@XSubB}{%
+	          \toolboxIfX{AB}{#2}{\LetData\mg@tmpB{Angriffsbonus}%
+	            \expandafter\mg@SetWertLeit\mg@tmpB}{%
 	           \toolboxTokDef{#2}\mg@Wert}}}}}}}}}}%
 	\global\let\mg@Wert\mg@Wert
 	\global\let\mg@WertLeit\mg@WertLeit
@@ -388,48 +421,23 @@
 	  \mg@sum\mg@Wert\mg@WertLeit\mg@WertMod}}}
 
 
-% Bei Fertigkeiten/Waffen auf dem Abenteuerblatt wird die Beschreibung
-% in \mg@beschreib und die Praxispunkte in \mg@PPSave gespeichert
-% (muss global gemacht werden!)
-
-\newcommand*{\mg@beschreib}{}
-\newcommand*{\mg@PPSave}{}
-
-
-% Subroutine zum Initialisieren der drei Variablen aufgrund von mg@Memory
-
-\newcommand{\mg@RestoreMemory}[3]{
-	\toolboxTokDef{#1}\mg@beschreib
-	\toolboxTokDef{#2}\mg@Wert
-	\toolboxTokDef{#3}\mg@PPSave}
-
-
 % Internes Interface: Eintrag auf Fertigkeitenliste im Abenteuerblatt
 
-\newcommand{\mg@Fertig}[2]{%
-	\toolboxIfEmpty{#2}{\mg@RestoreMemory{}{}{}}{%
-	 \Letmg@Memory\mg@XSubB{#2}%
-	 \expandafter\mg@RestoreMemory\mg@XSubB}%
-	\toolboxIfx{#1}\mg@default{}{\toolboxTokDef{#1}\mg@beschreib}%
-	\global\let\mg@PPSave\mg@PPSave
-	\global\let\mg@beschreib\mg@beschreib
-	\let\mg@continue\mg@fertfinish\mg@calcWert}
+\newcommand{\mg@Fertig}{\let\mg@continue\mg@fertfinish\mg@FertigWaffen}
+\newcommand{\mg@FertigWaffen}[2]{\mg@GetAll{#2}%
+	\toolboxIfx{#1}\mg@default{}{\toolboxTokDef{#1}\mg@Beschreibung
+		\global\let\mg@Beschreibung\mg@Beschreibung}%
+	\mg@calcWert}
 \newcommand{\mg@fertfinish}[1]{\tabularnewline\mg@midrule
-	\mg@sep\mg@beschreib&\mg@sep\mg@sumWert&%
-	\mg@sep{\toolboxIfx{#1}\mg@default{\mg@PPSave}{#1}}}
+	\mg@sep\mg@Beschreibung&\mg@sep\mg@sumWert&%
+	\mg@sep{\toolboxIfx{#1}\mg@default{\mg@PP}{#1}}}
 
 
 % Internes Interface: Eintrag auf Waffenliste
 
-\newcommand{\mg@Waffe}[2]{%
-	\toolboxIfEmpty{#2}{\mg@RestoreMemory{}{}{}}{%
-	 \Letmg@Memory\mg@XSubB{#2}%
-	 \expandafter\mg@RestoreMemory\mg@XSubB}%
-	\toolboxIfx{#1}\mg@default{}{\toolboxTokDef{#1}\mg@beschreib}%
-	\global\let\mg@beschreib\mg@beschreib
-	\let\mg@continue\mg@WaffSchaden\mg@calcWert}
+\newcommand{\mg@Waffe}{\let\mg@continue\mg@WaffSchaden\mg@FertigWaffen}
 \newcommand{\mg@WaffSchaden}[2]{\tabularnewline\mg@midrule
-	\mg@sep\mg@beschreib&\mg@sep\mg@sumWert&\mg@sep#1&\mg@sep#2}
+	\mg@sep\mg@Beschreibung&\mg@sep\mg@sumWert&\mg@sep#1&\mg@sep#2}
 
 
 % Header der Fertigkeiten/Waffen/Zauber/Gegenstandstabellen:
@@ -492,19 +500,19 @@ au\ss er \emph{Musizieren}, \emph{Schreiben}, \emph{Sprache},
 
 % Tabelle der Zauber-PP
 
-\newcommand*{\mg@PP}{\,\fbox{\mg@tiny\strut\qquad}}
+\newcommand*{\mg@PPbox}{\,\fbox{\mg@tiny\strut\qquad}}
 \newcommand*{\mg@ZauberPP}{{\mg@tiny Zauber PP:
 \begin{tabular}{*5{@{ }l@{}l}}
-\mg@sep Beherrschen&\mg@sep\mg@PP&%
-\mg@sep Erkennen&\mg@sep\mg@PP&%
-\mg@sep Formen&\mg@sep\mg@PP&%
-\mg@sep Zerst\"{o}ren&\mg@sep\mg@PP&%
-\mg@sep Dweomer&\mg@sep\mg@PP\tabularnewline
-\mg@sep Bewegen&\mg@sep\mg@PP&%
-\mg@sep Erschaffen&\mg@sep\mg@PP&%
-\mg@sep Ver\"{a}ndern&\mg@sep\mg@PP&%
-\mg@sep Wundertaten&\mg@sep\mg@PP&%
-\mg@sep Zauberlieder&\mg@sep\mg@PP%
+\mg@sep Beherrschen&\mg@sep\mg@PPbox&%
+\mg@sep Erkennen&\mg@sep\mg@PPbox&%
+\mg@sep Formen&\mg@sep\mg@PPbox&%
+\mg@sep Zerst\"{o}ren&\mg@sep\mg@PPbox&%
+\mg@sep Dweomer&\mg@sep\mg@PPbox\tabularnewline
+\mg@sep Bewegen&\mg@sep\mg@PPbox&%
+\mg@sep Erschaffen&\mg@sep\mg@PPbox&%
+\mg@sep Ver\"{a}ndern&\mg@sep\mg@PPbox&%
+\mg@sep Wundertaten&\mg@sep\mg@PPbox&%
+\mg@sep Zauberlieder&\mg@sep\mg@PPbox%
 \end{tabular}}}
 
 

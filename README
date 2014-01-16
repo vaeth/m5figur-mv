@@ -28,10 +28,10 @@ ist (z.B.) pdflatex auf diese Datei anzuwenden, wobei sich entweder
 m5figur-mv.cls im selben Verzeichnis befinden muss oder in einem Verzeichnis,
 das dem TeX-System bekannt gemacht wurde.
 
-Vorteile der Ausarbeitung einer Figurenblatts mit diesem Projekt gegenüber
+Vorteile der Ausarbeitung eines Figurenblatts mit diesem Projekt gegenüber
 der reinen PDF- oder Papierversion sind:
 
-1. Daten müssen nur einmalig für alle Figurenblätter eingegeben werden.
+1. Gemeinsame Daten müssen nur einmalig für alle 3 Blätter eingegeben werden.
 2. Es ist kein Problem z.B. mehrfache Zauberblätter auszudrucken (falls
    ein Blatt nicht alle Informationen aufnehmen kann).
 3. Tabellen werden den Daten angepasst (etwa falls die Beschreibung einer
@@ -40,8 +40,10 @@ der reinen PDF- oder Papierversion sind:
 4. Man kann mehrere Figuren mit einer einzigen Datei verwalten und muss
    dabei für "ähnliche" Figuren (z.B. die selbe Figur in verschiedenen
    Graden) die identischen Daten (etwa Basiswerte) nicht mehrfach eingeben.
-   Falls sich Basiswerte ändern (z.B. durch Verbesserungswürde), kann man
-   nur den geänderten Wert neu setzen ohne alle anderen zu wiederholen.
+   Falls sich Basis- oder Fertigkeitswerte ändern (z.B. durch
+   Verbesserungswürfe oder Lernen), kann man nur den geänderten Wert
+   neu setzen ohne alle anderen zu wiederholen.
+   Selbstverständlich kann man auch einfach neue Fertigkeiten hinzufügen.
 5. Automatische Berechnung von Werten!
 
 In der Tat, für die Fertigkeits- und Waffenlisten auf dem Abenteuerblatt
