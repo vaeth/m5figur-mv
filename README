@@ -2,21 +2,50 @@ m5figur-mv
 
 LaTeX2e character sheet layout for the Midgard Role Playing Game (Edition M5)
 
-Author und (C): Martin Väth
+Author und (C): Martin Väth.
+This project is under the LaTeX Project Public License
 
 Dies ist ein Figurenblatt-Layout für das Midgard-Rollenspiel (Regelwerk M5),
 das zur Benutzug mit LaTeX2e gedacht ist.
 
-Zum Verändern beachten Sie bitte, dass alle drei Dateien (dieses README,
-m5figur-mv.cls und m5bsp-mv.tex) entweder unverändert weitergegeben werden
-müssen, oder dass bei eigenen Veränderungen die Dateien umbenannt werden -
-dies ist aufgrund technischer Restriktionen des LaTeX-Systems sinnvoll.
-Die Lizenz steht in m5figur-mv.cls
+Vorteile der Ausarbeitung eines Figurenblatts mit diesem Projekt gegenüber
+der reinen PDF- oder Papierversion sind:
+
+1. Gemeinsame Daten müssen nur einmalig für alle 3 Blätter (Figuren-,
+   Abenteuer- und Zauberblatt) eingegeben werden.
+2. Es ist kein Problem z.B. mehrfache Zauberblätter auszudrucken, etwa falls
+   ein Blatt nicht alle Informationen aufnehmen kann.
+3. Tabellen werden den Daten angepasst, etwa falls die Beschreibung einer
+   Wirkung bei Zaubern lange ist, oder eine Fertigkeit Zusatzbemerkungen
+   erfordert.
+4. Man kann mehrere Figuren mit einer einzigen Datei verwalten und muss
+   dabei für "ähnliche" Figuren (z.B. die selbe Figur in verschiedenen
+   Graden) die identischen Daten (etwa Basiswerte) nicht mehrfach eingeben.
+   Falls sich Basis- oder Fertigkeitswerte ändern (z.B. durch
+   Verbesserungswürfe oder Lernen), kann man nur den geänderten Wert
+   neu setzen ohne alle anderen zu wiederholen.
+   Selbstverständlich kann man auch einfach neue Fertigkeiten hinzufügen.
+5. Automatische Berechnung von Werten!
+   In der Tat, für die Fertigkeits- und Waffenlisten auf dem Abenteuerblatt
+   der Figuren müssen die Einträge aus dem Figurenblatt nicht ganz wiederholt
+   werden, sondern sie können referenziert werden, und die Berechnung des
+   Erfolgs-/Trefferwerts geschieht normalerweise automatisch aufgrund der
+   anderen Daten.
+   Dabei wurde das Hauptaugenmerk auf die Flexibilität gerichtet.
+   Beispielsweise können Modifikationen (etwa für magische Waffen)
+   berücksichtigt werden, und ggf. kann man das Ergebnis auch fest angeben
+   (oder z.B. leer lassen).
+
+Zum Editieren der Daten beachten Sie bitte, dass alle drei Dateien (dieses
+README, m5figur-mv.cls und m5bsp-mv.tex) entweder unverändert weitergegeben
+werden müssen, oder dass bei eigenen Veränderungen die Dateien umbenannt
+werden - dies ist aufgrund technischer Restriktionen des LaTeX-Systems
+sinnvoll. Mehr zur Lizenz finden Sie in m5figur-mv.cls
 
 Zur Benutzung kopieren Sie normalerweise m5bsp-mv.tex in eine neue Datei
 (sinnvollerweise mit der Endung .tex) und passen dort die Werte,
 Fähigkeiten usw. entsprechend ihrer Figur(en) (eine einzige .tex Datei kann
-alle Ihre Figuren sowie ggf. auch Vordruck leerer
+alle Ihre Figuren sowie ggf. auch Vordrucke leerer
 Figuren-/Abenteuer-/Zauberblätter enthalten) an.
 
 Zum Erzeugen einer PDF-Datei aus der von Ihnen geänderten Datei wird
@@ -28,30 +57,5 @@ ist (z.B.) pdflatex auf diese Datei anzuwenden, wobei sich entweder
 m5figur-mv.cls im selben Verzeichnis befinden muss oder in einem Verzeichnis,
 das dem TeX-System bekannt gemacht wurde.
 
-Vorteile der Ausarbeitung eines Figurenblatts mit diesem Projekt gegenüber
-der reinen PDF- oder Papierversion sind:
-
-1. Gemeinsame Daten müssen nur einmalig für alle 3 Blätter eingegeben werden.
-2. Es ist kein Problem z.B. mehrfache Zauberblätter auszudrucken (falls
-   ein Blatt nicht alle Informationen aufnehmen kann).
-3. Tabellen werden den Daten angepasst (etwa falls die Beschreibung einer
-   Wirkung bei Zaubern lange ist, oder eine Fertigkeit Zusatzbemerkungen
-   erfordert).
-4. Man kann mehrere Figuren mit einer einzigen Datei verwalten und muss
-   dabei für "ähnliche" Figuren (z.B. die selbe Figur in verschiedenen
-   Graden) die identischen Daten (etwa Basiswerte) nicht mehrfach eingeben.
-   Falls sich Basis- oder Fertigkeitswerte ändern (z.B. durch
-   Verbesserungswürfe oder Lernen), kann man nur den geänderten Wert
-   neu setzen ohne alle anderen zu wiederholen.
-   Selbstverständlich kann man auch einfach neue Fertigkeiten hinzufügen.
-5. Automatische Berechnung von Werten!
-
-In der Tat, für die Fertigkeits- und Waffenlisten auf dem Abenteuerblatt
-der Figuren müssen die Einträge aus dem Figurenblatt nicht ganz wiederholt
-werden, sondern sie können referenziert werden, und die Berechnung des
-Erfolgs-/Trefferwerts geschieht normalerweise automatisch aufgrund der
-anderen Daten.
-Dabei wurde das Hauptaugenmerk auf die Flexibilität gerichtet.
-Beispielsweise können Modifikationen (etwa für magische Waffen)
-berücksichtigt werden, und ggf. kann man das Ergebnis auch fest angeben
-(oder z.B. leer lassen).
+Für Gentoo Linux gibt es ein Ebuild im mv overlay (über layman verfügbar),
+das die m5figur-mv.cls und die Beispieldatei installiert und ggf. übersetzt.

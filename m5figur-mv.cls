@@ -16,7 +16,7 @@
 % Die Anleitung zur Benutzung dieser Datei befindet sich in m5bsp-mv.tex
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{m5figur-mv}[2014/01/16]
+\ProvidesClass{m5figur-mv}[2014/01/24]
 
 \PassOptionsToClass{11pt,a4paper,oneside,landscape}{article}
 
@@ -129,6 +129,16 @@
 \NewData{Datum18}{{}{}{}{}}
 \NewData{Datum19}{{}{}{}{}}
 \NewData{Datum20}{{}{}{}{}}
+\NewData{Beherrschen}{}
+\NewData{Erkennen}{}
+\NewData{Formen}{}
+\NewData{Zerstoeren}{}
+\NewData{Dweomer}{}
+\NewData{Bewegen}{}
+\NewData{Erschaffen}{}
+\NewData{Veraendern}{}
+\NewData{Wundertaten}{}
+\NewData{Zauberlieder}{}
 
 
 % Allen rein intern benutzten Macros wird ein mg@... vorangestellt.
@@ -500,19 +510,20 @@ au\ss er \emph{Musizieren}, \emph{Schreiben}, \emph{Sprache},
 
 % Tabelle der Zauber-PP
 
-\newcommand*{\mg@PPbox}{\,\fbox{\mg@tiny\strut\qquad}}
+\newcommand*{\mg@PPbox}[1]{\mg@sep\,\fbox{\mg@tiny\strut
+	\hbox to 5mm{\hfill\Data{#1}}}}
 \newcommand*{\mg@ZauberPP}{{\mg@tiny Zauber PP:
 \begin{tabular}{*5{@{ }l@{}l}}
-\mg@sep Beherrschen&\mg@sep\mg@PPbox&%
-\mg@sep Erkennen&\mg@sep\mg@PPbox&%
-\mg@sep Formen&\mg@sep\mg@PPbox&%
-\mg@sep Zerst\"{o}ren&\mg@sep\mg@PPbox&%
-\mg@sep Dweomer&\mg@sep\mg@PPbox\tabularnewline
-\mg@sep Bewegen&\mg@sep\mg@PPbox&%
-\mg@sep Erschaffen&\mg@sep\mg@PPbox&%
-\mg@sep Ver\"{a}ndern&\mg@sep\mg@PPbox&%
-\mg@sep Wundertaten&\mg@sep\mg@PPbox&%
-\mg@sep Zauberlieder&\mg@sep\mg@PPbox%
+\mg@sep Beherrschen&\mg@PPbox{Beherrschen}&%
+\mg@sep Erkennen&\mg@PPbox{Erkennen}&%
+\mg@sep Formen&\mg@PPbox{Formen}&%
+\mg@sep Zerst\"{o}ren&\mg@PPbox{Zerstoeren}&%
+\mg@sep Dweomer&\mg@PPbox{Dweomer}\tabularnewline
+\mg@sep Bewegen&\mg@PPbox{Bewegen}&%
+\mg@sep Erschaffen&\mg@PPbox{Erschaffen}&%
+\mg@sep Ver\"{a}ndern&\mg@PPbox{Veraendern}&%
+\mg@sep Wundertaten&\mg@PPbox{Wundertaten}&%
+\mg@sep Zauberlieder&\mg@PPbox{Zauberlieder}%
 \end{tabular}}}
 
 

@@ -90,7 +90,7 @@
 
 { % Alle Daten innerhalb von Klammern werden nach deren Schließen vergessen.
 % Dies kann man benutzen, um z.B. mehrere Figuren zu erstellen.
-% Hätten wir den Spieler ebenfalls in die Klammer gesetzt, würde dieser
+% Hätten wir den Spielernamen ebenfalls in die Klammer gesetzt, würde dieser
 % Name anschließend ebenfalls vergessen. So bleibt er "global"
 % (bis er "manuell" anders gesetzt wird, siehe weiter unten).
 
@@ -164,6 +164,19 @@
 \DefData{Datum18}{{}{}{}{}}
 \DefData{Datum19}{{}{}{}{}}
 \DefData{Datum20}{{}{}{}{}}
+
+% Praxispunkte für Zauber:
+
+\DefData{Beherrschen}{}
+\DefData{Erkennen}{}
+\DefData{Formen}{}
+\DefData{Zerstoeren}{}
+\DefData{Dweomer}{}
+\DefData{Bewegen}{}
+\DefData{Erschaffen}{}
+\DefData{Veraendern}{}
+\DefData{Wundertaten}{}
+\DefData{Zauberlieder}{---} % Der (lange) Gedankenstrich
 
 
 % Hier setzen wir die Daten für die Basisfertigkeiten und Boni gemischt:
@@ -464,7 +477,7 @@
 \Zauber2{Schutzgeist}{3}{Dweomer/""Bewegen}{10\,sec}{Berührung}{Umgebung}%
   {Zauberer}{bis 30\,min}{S.~159;
   bei LP-Verlust letzten Wurf wiederholen}{Geste}
-\Zauber2{Wasserstrahl (W.-Llinge)}{1 (+1)}{Erschaffen}%
+\Zauber2{Wasserstrahl (W.-Klinge)}{1 (+1)}{Erschaffen}%
   {Augenblick}{5\,m}{Umgebung}{Strahl}{1 Ap für "`aus"'}{S.~128;
   +8(1W6+2), schwer: PW:Stärke (1W6-1\,m) 50\% für 1m Feuerwand}{Geste}
 \Zauber2{Wasserlauf/-wandeln (W.-Klinge)}{3}{Bewegen}{20\,sec}{-}{Körper}%
