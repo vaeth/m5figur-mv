@@ -16,7 +16,7 @@
 % Die Anleitung zur Benutzung dieser Datei befindet sich in m5bsp-mv.tex
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{m5figur-mv}[2014/01/24]
+\ProvidesClass{m5figur-mv}[2014/12/23]
 
 \PassOptionsToClass{11pt,a4paper,oneside,landscape}{article}
 
@@ -211,7 +211,7 @@
 % Macros zum Setzen der Box bei Basiseigenschaften:
 
 \newcommand*{\mg@BasisSub}[2]{\begin{fminitab}{17mm}{@{}p{10mm}@{}r}%
-	{\bfseries\mg@sep#1}&\mg@sep#2\end{fminitab}}
+	{\mg@sep\bfseries#1}&\mg@sep#2\end{fminitab}}
 \newcommand*{\mg@Basis}[1]{\mg@BasisSub{#1}{\Data{#1}}}
 \newcommand*{\mg@BasisX}[3]{\mg@BasisSub{#3}{\mg@Data{#1}{#2}{#3}}}
 
@@ -219,7 +219,7 @@
 % Macros zum Setzen anderer Boni:
 
 \newcommand*{\mg@BoniTabSub}[2]{\begin{minitab}{25mm}{@{}p{15mm}@{}r}%
-	\mg@sep#1&\mg@sep#2\end{minitab}}
+	\mg@sep#1&\mg@sep\bfseries#2\end{minitab}}
 \newcommand*{\mg@BoniTabX}[4]{\mg@BoniTabSub{#1}{\mg@Data{#2}{#3}{#4}}}
 \newcommand*{\mg@BoniTab}[2]{\mg@BoniTabSub{#1}{\Data{#2}}}
 
@@ -354,7 +354,7 @@
 
 \newcommand{\Magisch}[2]{%
 	\toolboxSurround{}{\tabularnewline\mg@midrule
-	\mg@sep#1&\mg@sep#2}\mg@gegen}
+	\mg@sep\bfseries#1&\mg@sep#2}\mg@gegen}
 
 
 % Internes Interface: Eintrag in Zauberliste
@@ -364,8 +364,8 @@
 	\mg@sep#4%
 	\end{tabular}}
 \newcommand{\mg@ZauberOne}[8]{%
-	\mg@stack{@{\,}p{18mm}@{\,}}{(r)}{#1}{#2}&%
-	\mg@sep#3&%
+	\mg@stack{@{\,}p{18mm}@{\,}}{(r)}{\bfseries#1}{#2}&%
+	\mg@sep\bfseries#3&%
 	\mg@stack{@{\,}p{14mm}@{\,}}{(r)}{#4}{#5}&
 	\mg@stack{@{\,}p{15mm}}{(r)}{#6}{#7}&%
 	\mg@sep#8&%
@@ -439,7 +439,7 @@
 		\global\let\mg@Beschreibung\mg@Beschreibung}%
 	\mg@calcWert}
 \newcommand{\mg@fertfinish}[1]{\tabularnewline\mg@midrule
-	\mg@sep\mg@Beschreibung&\mg@sep\mg@sumWert&%
+	\mg@sep\mg@Beschreibung&\mg@sep\bfseries\mg@sumWert&%
 	\mg@sep{\toolboxIfx{#1}\mg@default{\mg@PP}{#1}}}
 
 
@@ -447,7 +447,8 @@
 
 \newcommand{\mg@Waffe}{\let\mg@continue\mg@WaffSchaden\mg@FertigWaffen}
 \newcommand{\mg@WaffSchaden}[2]{\tabularnewline\mg@midrule
-	\mg@sep\mg@Beschreibung&\mg@sep\mg@sumWert&\mg@sep#1&\mg@sep#2}
+	\mg@sep\mg@Beschreibung&\mg@sep\bfseries\mg@sumWert
+	&\mg@sep\bfseries#1&\mg@sep\bfseries#2}
 
 
 % Header der Fertigkeiten/Waffen/Zauber/Gegenstandstabellen:
@@ -462,8 +463,9 @@
 	\expandafter\mg@initmidrule#1\end{tabular}#2}}
 \newcommand{\mg@zaub}[2]{\toolboxIfx{}#1{}{%
 	\begin{tabular}[t]{c@{}p{15mm}@{}c@{}c@{\,}p{25mm}@{\,}c}%
-	\mg@ZauberOne{AP}{Prozess$^*$}{Zauber}{Z.-Dauer}{Reichweite}%
-	{Wirk.Bereich}{Wirk.-Dauer}{Wirkung}{Wirk.-Ziel}{Art}%
+	\mg@ZauberOne
+	{\mdseries AP}{Prozess$^*$}{\mdseries Zauber}{Z.-Dauer}{Reichweite}%
+	{W.-Bereich}{W.-Dauer}{Wirkung}{W.-Ziel}{Art}%
 	\expandafter\mg@initmidrule#1\end{tabular}#2}}
 \newcommand{\mg@geg}[2]{\toolboxIfx{}#1{}{%
 	\mg@sep{\itshape wichtige magische
@@ -486,24 +488,25 @@
 
 % Tabelle der ungelernten Fertigkeiten:
 
+\newcommand{\mg@ungelerf}[2]{\mg@sep#1({\bfseries+#2})}
 \newcommand*{\mg@ungelernt}{{\tiny\begin{tabular}{ll}\toprule
-\multicolumn{2}{@{}p{50mm}@{}}{unglernte F\"{a}higkeiten: alle wenigstens +(0)
-au\ss er \emph{Musizieren}, \emph{Schreiben}, \emph{Sprache},
+\multicolumn{2}{@{}p{50mm}@{}}{unglernte F\"{a}higkeiten: alle wenigstens
+({\bfseries+0}) au\ss er \emph{Musizieren}, \emph{Schreiben}, \emph{Sprache},
 \emph{Lesen von Zauberschrift}}\tabularnewline
 \midrule
-\mg@sep Akrobatik+(6)&\mg@sep Schleichen+(3)\tabularnewline
-\mg@sep Anf\"{u}hren+(6)&\mg@sep Schwimmen+(3)\tabularnewline
-\mg@sep Balancieren+(6)&\mg@sep Seilkunst+(3)\tabularnewline
-\mg@sep Beredsamkeit+(3)&\mg@sep Spurensuche+(0)\tabularnewline
-\mg@sep Bet\"{a}uben+(6)&\mg@sep Stehlen+(3)\tabularnewline
-\mg@sep Bootfahren+(3)&\mg@sep Tarnen+(3)\tabularnewline
-\mg@sep Fallen entdecken+(0)&\mg@sep Tauchen+(3)\tabularnewline
-\mg@sep Fallenmechanik+(0)&\mg@sep \"{U}berleben+(6)\tabularnewline
-\mg@sep Gel\"{a}ndelauf+(6)&\mg@sep Verf\"{u}hren+(3)\tabularnewline
-\mg@sep Klettern+(6)&\mg@sep Verh\"{o}ren+(3)\tabularnewline
-\mg@sep Landeskunde+(6)&\mg@sep Verstellen+(3)\tabularnewline
-\mg@sep Menschenkenntnis+(3)&\mg@sep Wagenlenken+(3)\tabularnewline
-\mg@sep Reiten+(6)&\mg@sep Zaubern+(3)\tabularnewline
+\mg@ungelerf{Akrobatik}{6}&\mg@ungelerf{Schleichen}{3}\tabularnewline
+\mg@ungelerf{Anf\"{u}hren}{6}&\mg@ungelerf{Schwimmen}{3}\tabularnewline
+\mg@ungelerf{Balancieren}{6}&\mg@ungelerf{Seilkunst}{3}\tabularnewline
+\mg@ungelerf{Beredsamkeit}{3}&\mg@ungelerf{Spurensuche}{0}\tabularnewline
+\mg@ungelerf{Bet\"{a}uben}{6}&\mg@ungelerf{Stehlen}{3}\tabularnewline
+\mg@ungelerf{Bootfahren}{3}&\mg@ungelerf{Tarnen}{3}\tabularnewline
+\mg@ungelerf{Fallen entdecken}{0}&\mg@ungelerf{Tauchen}{3}\tabularnewline
+\mg@ungelerf{Fallenmechanik}{0}&\mg@ungelerf{\"{U}berleben}{6}\tabularnewline
+\mg@ungelerf{Gel\"{a}ndelauf}{6}&\mg@ungelerf{Verf\"{u}hren}{3}\tabularnewline
+\mg@ungelerf{Klettern}{6}&\mg@ungelerf{Verh\"{o}ren}{3}\tabularnewline
+\mg@ungelerf{Landeskunde}{6}&\mg@ungelerf{Verstellen}{3}\tabularnewline
+\mg@ungelerf{Menschenkenntnis}{3}&\mg@ungelerf{Wagenlenken}{3}\tabularnewline
+\mg@ungelerf{Reiten}{6}&\mg@ungelerf{Zaubern}{3}\tabularnewline
 \bottomrule
 \end{tabular}\par}}
 
@@ -785,7 +788,6 @@ auf LP-\tabularnewline
 {\mg@tiny\mg@geg\mg@gegen{}}
 \end{minipage}%
 \clearpage}
-
 
 % Ende der Klassendefinition:
 
