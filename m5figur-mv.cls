@@ -16,7 +16,7 @@
 % Die Anleitung zur Benutzung dieser Datei befindet sich in m5bsp-mv.tex
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{m5figur-mv}[2014/12/23]
+\ProvidesClass{m5figur-mv}[2014/12/31]
 
 \PassOptionsToClass{11pt,a4paper,oneside,landscape}{article}
 
@@ -55,11 +55,16 @@
 \RequirePackage{toolbox}
 
 
-% Daten werden mit dem \NewData/\DefData-Interface aus toolbox eingegeben::
+% Daten werden mit dem \NewData/\DefData-Interface aus toolbox eingegeben:
 
 \toolboxMakeDef{Data}{#1}
 \newcommand*{\Databf}[1]{{\bfseries\Data{#1}}}
 
+
+% Ein quad und qquad, das in jedem Fall Platz braucht:
+
+\newcommand{\mgquad}{\mbox{\quad}}
+\newcommand{\mgqquad}{\mbox{\qquad}}
 
 % Alles wird als leer initialisiert:
 
@@ -83,11 +88,11 @@
 \NewData{Schadensbonus}{}
 \NewData{Angriffsbonus}{{}{}}
 \NewData{Abwehrbonus}{{}{}}
-\NewData{ResistenzBonus}{{\quad}{\quad}}
+\NewData{ResistenzBonus}{{\mgquad}{\mgquad}}
 \NewData{Zauberbonus}{}
-\NewData{Abwehr}{{}{}}
-\NewData{Resistenz}{{\quad}{\quad}}
-\NewData{Zaubern}{}
+\NewData{Abwehr}{{\mgquad}{\mgquad}}
+\NewData{Resistenz}{{\mgquad}{\mgquad}}
+\NewData{Zaubern}{\mgquad}
 \NewData{RK}{{}{}}
 \NewData{Ruestung}{}
 \NewData{Sehen}{{}{}}
@@ -101,8 +106,8 @@
 \NewData{SG}{}
 \NewData{Geburtsdatum}{}
 \NewData{Alter}{}
-\NewData{haendig}{\qquad}
-\NewData{Groesse}{\qquad}
+\NewData{haendig}{\mgqquad}
+\NewData{Groesse}{\mgqquad}
 \NewData{Gestalt}{}
 \NewData{Gewicht}{}
 \NewData{Stand}{}
@@ -284,7 +289,7 @@
 \newcommand*{\mg@PP}{}
 
 
-% Funkktionen zum Setzen von \mg@{Beschreibung,Wert,PP} auf Referenzwerte
+% Funktionen zum Setzen von \mg@{Beschreibung,Wert,PP} auf Referenzwerte
 
 \newcommand{\mg@GetBeschreibung}[1]{\toolboxIfEmpty{#1}{%
 	\global\let\mg@Beschreibung\toolboxEmpty}{%
@@ -301,6 +306,15 @@
 \newcommand{\mg@GetAll}[1]{\mg@GetBeschreibung{#1}%
 	\mg@GetWert{#1}\mg@GetPP{#1}}
 
+
+% User-Interface: Ausgabe des Schadens mit Schadensbonus
+
+\newcommand*{\PlusSB}[1]{{\LetData\mg@tmpA{Schadensbonus}%
+	\toolboxIfElse{\ifx\mg@tmpA\toolboxEmpty}{\def\mg@tmpA{0}}{}%
+	\count0=\mg@tmpA\relax
+	\toolboxIfEmpty{#1}{}{\advance\count0 by #1\relax}%
+	\toolboxIfElse{\ifnum\count0>0 }{+\@arabic\count0\relax}{%
+	 \toolboxIfElse{\ifnum\count0<0 }{\@arabic\count0\relax}{}}}}
 
 % User-Interface: Fertigkeiten; in \mg@fert* sammeln, Referenzen speichern
 
@@ -488,10 +502,11 @@
 
 % Tabelle der ungelernten Fertigkeiten:
 
-\newcommand{\mg@ungelerf}[2]{\mg@sep#1({\bfseries+#2})}
+\newcommand{\mg@ungelerntadd}[1]{+({\bfseries#1})}
+\newcommand{\mg@ungelerf}[2]{\mg@sep#1\mg@ungelerntadd{#2}}
 \newcommand*{\mg@ungelernt}{{\tiny\begin{tabular}{ll}\toprule
 \multicolumn{2}{@{}p{50mm}@{}}{unglernte F\"{a}higkeiten: alle wenigstens
-({\bfseries+0}) au\ss er \emph{Musizieren}, \emph{Schreiben}, \emph{Sprache},
+\mg@ungelerntadd0 au\ss er \emph{Musizieren}, \emph{Schreiben}, \emph{Sprache},
 \emph{Lesen von Zauberschrift}}\tabularnewline
 \midrule
 \mg@ungelerf{Akrobatik}{6}&\mg@ungelerf{Schleichen}{3}\tabularnewline
