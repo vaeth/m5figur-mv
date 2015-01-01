@@ -16,7 +16,7 @@
 % Die Anleitung zur Benutzung dieser Datei befindet sich in m5bsp-mv.tex
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{m5figur-mv}[2014/12/31]
+\ProvidesClass{m5figur-mv}[2015/01/01]
 
 \PassOptionsToClass{11pt,a4paper,oneside,landscape}{article}
 
@@ -395,7 +395,7 @@
 % Hierbei wird angenommen, dass alle optionalen Argumente vorhanden sind
 % (ggf. werden sie in obigen Macros des User-Interfaces addiert);
 % danach wird in \mg@continue fortgefahren.
-% Nachher wird mit \mg@SumWert der effektive Wert ausgegeben.
+% Nachher wird mit \mg@sumWert der effektive Wert ausgegeben.
 % Dies muss im TeX-Stomach passieren, da numerische Kalkulationen leider
 % nichtexpansiv sind. Daher muss der Aufruf dieser Macros in den obigen
 % Listen selbst gespeichert werden.
@@ -403,11 +403,12 @@
 \newcommand*{\mg@WertLeit}{}
 \newcommand*{\mg@WertMod}{}
 \newcommand*{\mg@continue}{}
-\newcommand{\mg@calcLeit}[1]{%
+\newcommand{\mg@calcLeit}[1]{\toolboxIfEmpty{#1}{\def\mg@WertLeit{0}%
+	\LeiteigentschaftIstLeer}{%
 	\toolboxIfElse{\ifnum#1<6 }{\def\mg@WertLeit{-2}}{%
 	 \toolboxIfElse{\ifnum#1<21 }{\def\mg@WertLeit{-1}}{%
-	  \toolboxIfElse{\ifnum#1>80 }{\def\mg@WertLeit{1}}{%
-	   \toolboxIfElse{\ifnum#1>95 }{\def\mg@WertLeit{2}}{}}}}}
+	  \toolboxIfElse{\ifnum#1>95 }{\def\mg@WertLeit{2}}{%
+	   \toolboxIfElse{\ifnum#1>80 }{\def\mg@WertLeit{1}}{}}}}}}
 \newcommand{\mg@Leit}[1]{\LetData\mg@tmpB{#1}%
 	\expandafter\mg@calcLeit\expandafter{\mg@tmpB}}
 \newcommand{\mg@LeitX}[3]{\renewcommand{\mg@tmpA}[#1]{\mg@calcLeit{###2}}%
@@ -500,28 +501,39 @@
 \mg@sep Sechster Sinn&\mg@sep\mg@Databf2#1{SechsterSinn}\end{tabular}}
 
 
+% User-Interface: Addieren/Nichtaddieren der Leiteigenschaft zu ungelernt:
+
+\newcommand{\UngelerntMit}{\let\mg@ungl\mg@unglMit}
+\newcommand{\UngelerntOhne}{\let\mg@ungl\mg@unglOhne}
+
 % Tabelle der ungelernten Fertigkeiten:
 
-\newcommand{\mg@ungelerntadd}[1]{+({\bfseries#1})}
-\newcommand{\mg@ungelerf}[2]{\mg@sep#1\mg@ungelerntadd{#2}}
+\newcommand*{\mg@ungelerntadd}[1]{+({\bfseries#1})}
+\newcommand*{\mg@ungelerf}[2]{\mg@sep#1\mg@ungelerntadd{#2}}
+\newcommand*{\mg@ungl}[3]{}
+\newcommand*{\mg@unglMit}[3]{\let\mg@continue\toolboxEmpty
+	\def\mg@Wert{0}%
+	\mg@calcWert{#2}{#3}\mg@ungelerf{#1}{\mg@sumWert}}
+\newcommand*{\mg@unglOhne}[3]{\mg@ungelerf{#1}{#2}}
+\UngelerntMit
 \newcommand*{\mg@ungelernt}{{\tiny\begin{tabular}{ll}\toprule
 \multicolumn{2}{@{}p{50mm}@{}}{unglernte F\"{a}higkeiten: alle wenigstens
 \mg@ungelerntadd0 au\ss er \emph{Musizieren}, \emph{Schreiben}, \emph{Sprache},
 \emph{Lesen von Zauberschrift}}\tabularnewline
 \midrule
-\mg@ungelerf{Akrobatik}{6}&\mg@ungelerf{Schleichen}{3}\tabularnewline
-\mg@ungelerf{Anf\"{u}hren}{6}&\mg@ungelerf{Schwimmen}{3}\tabularnewline
-\mg@ungelerf{Balancieren}{6}&\mg@ungelerf{Seilkunst}{3}\tabularnewline
-\mg@ungelerf{Beredsamkeit}{3}&\mg@ungelerf{Spurensuche}{0}\tabularnewline
-\mg@ungelerf{Bet\"{a}uben}{6}&\mg@ungelerf{Stehlen}{3}\tabularnewline
-\mg@ungelerf{Bootfahren}{3}&\mg@ungelerf{Tarnen}{3}\tabularnewline
-\mg@ungelerf{Fallen entdecken}{0}&\mg@ungelerf{Tauchen}{3}\tabularnewline
-\mg@ungelerf{Fallenmechanik}{0}&\mg@ungelerf{\"{U}berleben}{6}\tabularnewline
-\mg@ungelerf{Gel\"{a}ndelauf}{6}&\mg@ungelerf{Verf\"{u}hren}{3}\tabularnewline
-\mg@ungelerf{Klettern}{6}&\mg@ungelerf{Verh\"{o}ren}{3}\tabularnewline
-\mg@ungelerf{Landeskunde}{6}&\mg@ungelerf{Verstellen}{3}\tabularnewline
-\mg@ungelerf{Menschenkenntnis}{3}&\mg@ungelerf{Wagenlenken}{3}\tabularnewline
-\mg@ungelerf{Reiten}{6}&\mg@ungelerf{Zaubern}{3}\tabularnewline
+\mg@ungl{Akrobatik}{6}{Gw}&\mg@ungl{Schleichen}{3}{Gw}\tabularnewline
+\mg@ungl{Anf\"{u}hren}{6}{pA}&\mg@ungl{Schwimmen}{3}{Gw}\tabularnewline
+\mg@ungl{Balancieren}{6}{Gw}&\mg@ungl{Seilkunst}{3}{Gs}\tabularnewline
+\mg@ungl{Beredsamkeit}{3}{pA}&\mg@ungl{Spurensuche}{0}{In}\tabularnewline
+\mg@ungl{Bet\"{a}uben}{6}{Gs}&\mg@ungl{Stehlen}{3}{Gs}\tabularnewline
+\mg@ungl{Bootfahren}{3}{Gs}&\mg@ungl{Tarnen}{3}{Gw}\tabularnewline
+\mg@ungl{Fallen entdecken}{0}{In}&\mg@ungl{Tauchen}{3}{Ko}\tabularnewline
+\mg@ungl{Fallenmechanik}{0}{Gs}&\mg@ungl{\"{U}berleben}{6}{In}\tabularnewline
+\mg@ungl{Gel\"{a}ndelauf}{6}{Gw}&\mg@ungl{Verf\"{u}hren}{3}{pA}\tabularnewline
+\mg@ungl{Klettern}{6}{St}&\mg@ungl{Verh\"{o}ren}{3}{pA}\tabularnewline
+\mg@ungl{Landeskunde}{6}{In}&\mg@ungl{Verstellen}{3}{pA}\tabularnewline
+\mg@ungl{Menschenkenntnis}{3}{In}&\mg@ungl{Wagenlenken}{3}{Gs}\tabularnewline
+\mg@ungl{Reiten}{6}{Gw}&\mg@ungl{Zaubern}{3}{Zt}\tabularnewline
 \bottomrule
 \end{tabular}\par}}
 

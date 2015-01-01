@@ -47,7 +47,7 @@
 
 
 
-\documentclass{m5figur-mv}[2014/12/31]
+\documentclass{m5figur-mv}[2015/01/01]
 % Der Datumsteil [...] ist optional, aber wir stellen damit "sicher", dass
 % eine aktuelle Version von m5figur-mv.cls benutzt wird (falls auf dem Rechner
 % eine veraltete vorhanden sein sollte, wird eine Warnung gedruckt).
@@ -87,6 +87,11 @@
 
 
 \DefData{Spieler}{Martin Väth}
+
+% Ungelernte Fertigkeiten mit oder ohne Leiteigenschaft?
+% \UngelerntMit ist die Voreinstellung
+\UngelerntMit
+%\UngelerntOhne
 
 { % Alle Daten innerhalb von Klammern werden nach deren Schließen vergessen.
 % Dies kann man benutzen, um z.B. mehrere Figuren zu erstellen.
@@ -538,10 +543,13 @@
 % neue Datei zu kopieren und die Kommentare/Daten entsprechend zu editieren.
 
 % Anfang:
-%\documentclass{m5figur-mv}[2014/12/31]% Laden von m5figur-mv für das Folgende
+%\documentclass{m5figur-mv}[2015/01/01]% Laden von m5figur-mv für das Folgende
 %\begin{document}
 
 %\DefData{Spieler}{Martin Väth}
+
+%\UngelerntMit
+%\UngelerntOhne
 
 \DefData{Figur}{Leo Anjini}
 \DefData{Typ}{Glücksritter}
@@ -564,7 +572,7 @@
 \DefData{Abwehrbonus}{{2}{0}}% Normal bzw. in Rüstung
 \DefData{ResistenzBonus}{{1}{1}}
 \DefData{Zauberbonus}{0}
-\DefData{RK}{{KR/PR}{3/4}}
+\DefData{RK}{{PR}{4}}
 \DefData{Ruestung}{Kettenhemd/mit Beinschienen}
 \DefData{Sehen}{{2}{8}}
 \DefData{Nachtsicht}{{0}{6}}
@@ -582,7 +590,7 @@
 \DefData{Gestalt}{n/n}
 \DefData{Gewicht}{75}
 \DefData{Stand}{Mittelschicht}
-\DefData{Datum01}{{30.12.14}{750}{730}{}}
+\DefData{Datum01}{{31.12.14}{950}{0}{}}
 
 \Fertigkeit1{Abwehr}[13]
 \DefData{Abwehr}{{14}{17}}% Normal bzw. mit Verteidigungswaffe
@@ -596,12 +604,15 @@
 \Fertigkeit1{Fechten}[7]
 \Fertigkeit1{Musizieren}[12]
 \Fertigkeit1{Schreiben}[8]
+\Fertigkeit1{Reiten}[13]
+\Fertigkeit1{Schwimmen}[13]
 \Fertigkeit1{Seilkunst}[12]
 \Fertigkeit1{Balancieren}[12]
 \Fertigkeit1{Glücksspiel}[12]
 \Fertigkeit1{Klettern}[12]
 \Fertigkeit1{Etikette}[8]
 \Fertigkeit1{Verführen}[10]
+\Fertigkeit1{Verstellen}[10]
 \Fertigkeit1{Gassenwissen}[8]
 \Fertigkeit1{Menschenkenntnis}[8]
 
@@ -617,12 +628,15 @@
 \Fertig1{Fechten}{Gs}
 \Fertig1{Musizieren}{Gs}
 \Fertig1{Schreiben}{In}
+\Fertig1{Reiten}{Gw}
+\Fertig1{Schwimmen}{Gw}
 \Fertig1{Seilkunst}{Gs}
 \Fertig1{Balancieren}{Gw}
 \Fertig1{Glücksspiel}{Gs}
 \Fertig1{Klettern}{St}
 \Fertig1{Etikette}{In}
 \Fertig1{Verführen}{pA}
+\Fertig1{Verstellen}{pA}
 \Fertig1{Gassenwissen}{In}
 \Fertig1{Menschenkenntnis}{In}
 
@@ -670,6 +684,11 @@
 
 % ... und dann ausgeben.
 % Da wir nichts definiert haben, werden leere Bögen ausgegeben.
+
+% Da die Leiteigenschaften nicht definiert sind, dürfen wir sie nicht benutzen:
+
+\UngelerntOhne
+
 % Leere Fertigkeits-/Waffen-/Zauber-/Gegenstandslisten werden unterdrückt.
 
 % Wir fügen leere Werte zu den Tabellen  inzu,
