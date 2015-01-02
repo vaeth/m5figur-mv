@@ -404,7 +404,10 @@
 \newcommand*{\mg@WertMod}{}
 \newcommand*{\mg@continue}{}
 \newcommand{\mg@calcLeit}[1]{\toolboxIfEmpty{#1}{\def\mg@WertLeit{0}%
-	\LeiteigentschaftIstLeer}{%
+	\ClassError{m5figur-mv}{Leiteigenschaft nicht initialisiert}{Bei
+	\protect\Fertig, \protect\Waffe\space oder ungelernten Fertigkeiten
+	wurde eine Leiteigenschaft\MessageBreak
+	referenziert, die nicht zuvor mit einem Wert initialisiert wurde.}}{%
 	\toolboxIfElse{\ifnum#1<6 }{\def\mg@WertLeit{-2}}{%
 	 \toolboxIfElse{\ifnum#1<21 }{\def\mg@WertLeit{-1}}{%
 	  \toolboxIfElse{\ifnum#1>95 }{\def\mg@WertLeit{2}}{%

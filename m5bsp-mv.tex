@@ -7,15 +7,23 @@
 % in m5figur-mv.cls steht auch die Lizenz.
 %
 % Die Datei m5bsp-mv.tex selbst darf nur vom Autor verändert werden.
+% (Sie darf nur verändert werden, wenn sie umbenannt wird; das selbe
+% gilt für m5figur-mv.cls)
 %
 % Um eigene Figuren auszufertigen, empfiehlt es sich daher,
 % diese Datei zu kopieren und geeignet anzupassen.
+% Da diese Datei nur ein Beispiel ist, empfiehlt es sich, nur das
+%  "kompakten" Beispiel zwischen --- Anfang --- und --- Ende --- zu
+% kopieren (oder beim Kopieren den Rest gleich wieder zu löschen),
+% und bei Bedarf in diesem File hier nachzuschauen bzw. gezielt
+% spezielle Zeilen zusätzlich zu kopieren.
 %
-% Ein pdflatex auf dieser Datei erzeugt daraufhin die Figur(en) im PDF-Format;
+% Ein pdflatex auf diese Datei erzeugt daraufhin die Figur(en) im PDF-Format;
 % pdflatex muss dazu auf m5bsp-mv.cls zugreifen können. Normalerweise ist
-% dies der Fall, wenn sich m5figur-mv.cls im selben Verzeichnis befindet,
-% aber es darf auch in einem geeigneten systemweiten Verzeichnis sein, wenn
-% dieses dem TeX-System entsprechend bekannt gemacht wird.
+% dies der Fall, wenn sich m5figur-mv.cls im selben Verzeichnis wie die
+% Datei selbst befindet, aber es kann auch in einem geeigneten systemweiten
+% Verzeichnis sein, wenn dieses dem TeX-System entsprechend bekannt gemacht
+% wird.
 %
 % Vorteile der Ausarbeitung eines Figurenblatts mit diesem Projekt gegenüber
 % der reinen PDF- oder Papierversion sind:
@@ -536,7 +544,7 @@
 % hört das Dokument hier auf - ansonsten folgt die nächste Figur
 %\end{document}
 
-{ % Eine zweite Figur.
+{% Eine zweite Figur.
 
 % Wenn Sie selbst eine Figur mit m5figur-mv machen wollen, empfiehlt es sich,
 % nur den folgenden Teil zwischen "--- Anfang ---" und "--- Ende ---" in eine
@@ -677,22 +685,20 @@
 %\end{document}
 % --- Ende ---
 
-}% Schließen der zweitenKlammer zum "Vergessen" aller Figurendaten.
+}% Schließen der zweiten Klammer zum "Vergessen" aller Figurendaten.
 
 \DefData{Spieler}{}% Wir setzen auch den global definierten Spieler zurück
 
-{ % Hier könnten wir die nächste Figur definieren ...
+{% Hier könnten wir die nächste Figur definieren und ausgeben.
+% Da wir hier nichts definieren, werden leere Bögen ausgegeben.
 
-% ... und dann ausgeben.
-% Da wir nichts definiert haben, werden leere Bögen ausgegeben.
-
-% Da die Leiteigenschaften nicht definiert sind, dürfen wir sie nicht benutzen:
+% Da die Leiteigenschaften nicht definiert sind, dürfen wir sie nicht benutzen
+% (sonst erhalten wir Fehlermeldungen bei deren Referenzierung):
 
 \UngelerntOhne
 
 % Leere Fertigkeits-/Waffen-/Zauber-/Gegenstandslisten werden unterdrückt.
-
-% Wir fügen leere Werte zu den Tabellen  inzu,
+% Wir fügen daher leere Werte zu den Tabellen hinzu,
 % um eine leere Tabellen zu erhalten:
 
 \Fertigkeit1{Abwehr}
@@ -875,7 +881,7 @@
 
 \Output{Zauberblatt}
 
-} % Diese Klammer schließt die "zweite" Figur.
+}% Diese Klammer schließt die "leere" Figur.
 
 % Am Ende muss immer \end{document} stehen. Alles danach wird ignoriert.
 \end{document}
