@@ -16,7 +16,7 @@
 % Die Anleitung zur Benutzung dieser Datei befindet sich in m5bsp-mv.tex
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{m5figur-mv}[2015/01/01]
+\ProvidesClass{m5figur-mv}[2015/01/02]
 
 \PassOptionsToClass{11pt,a4paper,oneside,landscape}{article}
 
@@ -527,7 +527,7 @@
 \mg@ungl{Beredsamkeit}{3}{pA}&\mg@ungl{Spurensuche}{0}{In}\tabularnewline
 \mg@ungl{Bet\"{a}uben}{6}{Gs}&\mg@ungl{Stehlen}{3}{Gs}\tabularnewline
 \mg@ungl{Bootfahren}{3}{Gs}&\mg@ungl{Tarnen}{3}{Gw}\tabularnewline
-\mg@ungl{Fallen entdecken}{0}{In}&\mg@ungl{Tauchen}{3}{Ko}\tabularnewline
+\mg@ungl{Fallen entdecken}{0}{In}&\mg@ungl{Tauchen}{6}{Ko}\tabularnewline
 \mg@ungl{Fallenmechanik}{0}{Gs}&\mg@ungl{\"{U}berleben}{6}{In}\tabularnewline
 \mg@ungl{Gel\"{a}ndelauf}{6}{Gw}&\mg@ungl{Verf\"{u}hren}{3}{pA}\tabularnewline
 \mg@ungl{Klettern}{6}{St}&\mg@ungl{Verh\"{o}ren}{3}{pA}\tabularnewline
