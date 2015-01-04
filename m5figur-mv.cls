@@ -16,7 +16,7 @@
 % Die Anleitung zur Benutzung dieser Datei befindet sich in m5bsp-mv.tex
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{m5figur-mv}[2015/01/02]
+\ProvidesClass{m5figur-mv}[2015/01/04]
 
 \PassOptionsToClass{11pt,a4paper,oneside,landscape}{article}
 
@@ -773,8 +773,8 @@ auf LP-\tabularnewline
 \end{minipage}\,%
 \begin{minipage}{25mm}%
 \mg@sep In R\"{u}stung:\par
-\mg@BasisX21{Gw}\mg@par
-\mg@BasisX21{B}\mg@par
+\mg@BasisX22{Gw}\mg@par
+\mg@BasisX22{B}\mg@par
 \end{minipage}\mg@mpar
 \begin{minipage}{105mm}%
 {\begin{minipage}{50mm}
