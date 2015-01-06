@@ -55,7 +55,7 @@
 
 
 
-\documentclass{m5figur-mv}[2015/01/04]
+\documentclass{m5figur-mv}[2015/01/06]
 % Der Datumsteil [...] ist optional, aber wir stellen damit "sicher", dass
 % eine aktuelle Version von m5figur-mv.cls benutzt wird (falls auf dem Rechner
 % eine veraltete vorhanden sein sollte, wird eine Warnung gedruckt).
@@ -125,6 +125,7 @@
 \DefData{pA}{90}
 \DefData{Wk}{84}
 \DefData{B}{{29}{29}}% Normal bzw. in Rüstung
+\DefData{GiT}{\StandardGiT}% Das ist Voreinstellung
 \DefData{Raufen}{9}
 \DefData{Ausdauerbonus}{11}
 \DefData{Schadensbonus}{3}
@@ -195,15 +196,24 @@
 % Hier setzen wir die Daten für die Basisfertigkeiten und Boni gemischt:
 % Es ist übersichtlicher, dies zusammen zu halten.
 % Der Aufruf von \Fertigkeit wird gleich erklärt.
-% Beachte, dass durch unsere Mischung Abwehr, Resistenz, Zaubern die
-% ersten Einträge in der ersten Fertigkeitstabelle des Figurenblattes werden.
+% Beachte, dass durch den Aufruf von \Fertigkeit bereits an dieser Stelle
+% schon die ersten Einträge in der ersten Fertigkeitstabelle des
+% Figurenblattes festgelegt werden.
 
 \Fertigkeit1{Abwehr}[15]
-\DefData{Abwehr}{{16}{16}}% Normal bzw. mit Verteidigungswaffe
-\Fertigkeit1{Resistenz}[15]
-\DefData{Resistenz}{{18}{18}}% Gegen Körper- bzw. Geistesmagie
 \Fertigkeit1{Zaubern}[17]
-\DefData{Zaubern}{18}
+\Fertigkeit1{Resistenz}[15]
+
+% Nun kommen die Basisfertigkeiten mit Boni.
+% Die folgenden Werte sind die Voreinstellung, und wir könnten diese Befehle
+% daher weglassen: % Sie geben die Werte entsprechend der oben gesetzten
+% Fertigkeiten und Boni aus.
+
+\DefData{Abwehr}{{\StandardAbwehrPlus{0}}% Normal
+	{\StandardAbwehrPlus{0}}}% Mit Verteidigungswaffe
+\DefData{Resistenz}{{\StandardResistenz1}% Gegen Körpermagie
+	{\StandardResistenz2}}% Gegen Geistesmagie
+\DefData{Zaubern}{\StandardZaubern}
 
 
 % Mit dem folgenden Kommando machen wir einen Eintrag in der Fertigkeitsliste
@@ -250,7 +260,12 @@
 \Fertigkeit1{Klettern}[14][1]
 \Fertigkeit1[]{}
 \Fertigkeit1[]{}
-\Fertigkeit1{Wurf daneben}
+\Fertigkeit1[Wurf daneben]{Wurf daneben\tiny\newline
+% Wir benuzen "minipage" um eine "overfull box" zu erzwingen, die
+% auch Einträge rechts in der Tabelle überschreiben kann
+\begin{minipage}{41mm}\raggedright PW-25:Zt/2; W.-Dauer Grad/5 x 10\,sec;
+\newline
+Bei Fehler: 1W6 LP+AP\end{minipage}}
 
 
 % Für Waffenfertigkeiten lohnen sich Abkürzungen in den Referenznamen,
@@ -300,14 +315,8 @@
 %
 % \DefReferenz{Name}{Fertigkeit}{Wert}{PP}
 % \DefReferenzWertFirst{Wert}{Name}{Fertigkeit}{PP}
-
-% Da in diesem Beispielfile nicht mehrere Versionen ausgegeben werden,
-% gibt es hier nur beispielhaft eine Änderung der Beschreibung von
-% "Wurf daneben" in einen etwas ausführlicheren Text:
-
-\RenewBeschreibung{Wurf daneben}{Wurf daneben (PW-25:Zt/2;
-  Grad/5 x 10 sec; Fehler: 1W6 LP+AP)}
-
+%
+% Ein Beispiel wird weiter unten gegeben.
 
 % Das folgende Kommando ist ähnlich wie \Fertigkeit, betrifft allerdings
 % die Fertigkeitsliste des *Abenteuerblattes*. Zudem werden Einträge aus
@@ -461,9 +470,17 @@
 
 % Es folgt die eigentliche Ausgabe der gewünschten Blätter:
 
-\Output{Figurenblatt}
-\Output{Abenteuerblatt}
-\Output{Zauberblatt}
+{ % Diese Klammer dient dazu, dass das Folgende nur lokal wirkt:
+% Für das Figurenblatt entfernen wir die ausführliche Beschreibung für
+% die Fertigkeit "Wurf daneben"
+\RenewBeschreibung{Wurf daneben}{Wurf daneben}
+
+\Output{Figurenblatt}% Ausgabe des Figurenblattes
+
+}% Nach dieser Klammer ist die Änderung von "Wurf daneben" wieder vergessen...
+
+\Output{Abenteuerblatt}% Ausgabe des Abenteuerblattes
+\Output{Zauberblatt}% Ausgabe des Zauberblattes
 
 % Wir fügen zum Zauberblatt noch etwas hinzu (weil die Figur inzwischen mehr
 % trainiert hat) und drucken die neue Version nochmals:
@@ -552,7 +569,7 @@
 
 % --- Anfang ---
 % Laden von m5figur-mv, aktuelle Version fordern:
-%\documentclass{m5figur-mv}[2015/01/04]
+%\documentclass{m5figur-mv}[2015/01/06]
 %\begin{document}
 
 %\DefData{Spieler}{Martin Väth}
@@ -574,6 +591,7 @@
 \DefData{pA}{100}
 \DefData{Wk}{78}
 \DefData{B}{{23}{19}}% Normal bzw. in Rüstung
+\DefData{GiT}{\StandardGiT}% Das ist Voreinstellung
 \DefData{Raufen}{9}
 \DefData{Ausdauerbonus}{8}
 \DefData{Schadensbonus}{3}
@@ -581,7 +599,8 @@
 \DefData{Abwehrbonus}{{2}{0}}% Normal bzw. in Rüstung
 \DefData{ResistenzBonus}{{1}{1}}
 \DefData{Zauberbonus}{0}
-\DefData{RK}{{KR}{3/4}}
+\DefData{RK}{{\begin{minipage}{5mm}KR\newline PR\end{minipage}}%
+	{\begin{minipage}{2mm}3\newline4\end{minipage}}}
 \DefData{Ruestung}{Kettenhemd/mit Beinschienen}
 \DefData{Sehen}{{2}{8}}
 \DefData{Nachtsicht}{{0}{6}}
@@ -602,11 +621,10 @@
 \DefData{Datum01}{{31.12.14}{950}{0}{}}
 
 \Fertigkeit1{Abwehr}[13]
-\DefData{Abwehr}{{14}{17}}% Normal bzw. mit Verteidigungswaffe
 \Fertigkeit1{Resistenz}[13]
-\DefData{Resistenz}{{14}{14}}% Gegen Körper- bzw. Geistesmagie
 \Fertigkeit1{Zaubern}[13]
-\DefData{Zaubern}{13}
+\DefData{Abwehr}{{\StandardAbwehrPlus{0}}% Normal
+	{\StandardAbwehrPlus{3}}}% Mit Verteidigungswaffe
 
 \Fertigkeit1{Wahrnehmung}[6]
 \Fertigkeit1{Trinken}[5]

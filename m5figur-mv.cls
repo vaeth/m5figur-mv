@@ -16,7 +16,7 @@
 % Die Anleitung zur Benutzung dieser Datei befindet sich in m5bsp-mv.tex
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{m5figur-mv}[2015/01/04]
+\ProvidesClass{m5figur-mv}[2015/01/06]
 
 \PassOptionsToClass{11pt,a4paper,oneside,landscape}{article}
 
@@ -83,6 +83,7 @@
 \NewData{pA}{}
 \NewData{Wk}{}
 \NewData{B}{{}{}}
+\NewData{GiT}{\StandardGiT}
 \NewData{Raufen}{}
 \NewData{Ausdauerbonus}{}
 \NewData{Schadensbonus}{}
@@ -90,9 +91,9 @@
 \NewData{Abwehrbonus}{{}{}}
 \NewData{ResistenzBonus}{{\mgquad}{\mgquad}}
 \NewData{Zauberbonus}{}
-\NewData{Abwehr}{{\mgquad}{\mgquad}}
-\NewData{Resistenz}{{\mgquad}{\mgquad}}
-\NewData{Zaubern}{\mgquad}
+\NewData{Abwehr}{{\StandardAbwehrPlus{0}}{\StandardAbwehrPlus{0}}}
+\NewData{Resistenz}{{\StandardResistenz1}{\StandardResistenz2}}
+\NewData{Zaubern}{\StandardZaubern}
 \NewData{RK}{{}{}}
 \NewData{Ruestung}{}
 \NewData{Sehen}{{}{}}
@@ -201,7 +202,7 @@
 % \mg@X XY{Data}{name} liest aus X-Tupeln (hier: {{x}{y}}=2)
 % den Teil Y (hier: 2).
 % \mg@Data{,bf} wirkt nur auf Data {Ausgabe in boldface};
-% \mg@EP{,s} gibt auf name=Datum* und gibt in in Boxen aus.
+% \mg@EP{,s} gibt auf name=Datum* und gibt in Boxen aus.
 
 \newcommand*{\mg@X}[4]{\renewcommand{\mg@tmpA}[#1]{###2}%
 	\csname Let#3\endcsname\mg@tmpB{#4}\expandafter\mg@tmpA\mg@tmpB}
@@ -212,13 +213,23 @@
 \newcommand*{\mg@EPs}[2]{\mbox{\hbox to 12mm{\scriptsize\hfill
 	\mg@Data4{#1}{Datum#2}\hfill}}}
 
+% \mg@letX\var XY{Data}{name} ist ähnlich wie \mg@X, aber definiert \var
+% \mg@letData wirkt nur auf Data
+
+\newcommand*{\mg@letX}[5]{\renewcommand{\mg@tmpA}[#2]{\def#1{###3}}%
+	\csname Let#4\endcsname\mg@tmpB{#5}\expandafter\mg@tmpA\mg@tmpB}
+\newcommand*{\mg@letData}[4]{\mg@letX{#1}{#2}{#3}{Data}{#4}}
 
 % Macros zum Setzen der Box bei Basiseigenschaften:
 
-\newcommand*{\mg@BasisSub}[2]{\begin{fminitab}{17mm}{@{}p{10mm}@{}r}%
+\newcommand*{\mg@BasisSub}[2]{\begin{fminitab}{17mm}{@{}p{8mm}@{}r}%
 	{\mg@sep\bfseries#1}&\mg@sep#2\end{fminitab}}
 \newcommand*{\mg@Basis}[1]{\mg@BasisSub{#1}{\Data{#1}}}
 \newcommand*{\mg@BasisX}[3]{\mg@BasisSub{#3}{\mg@Data{#1}{#2}{#3}}}
+
+% Abstand zwischen zwei solchen Boxen:
+
+\newcommand{\mg@next}{\hspace*{7mm}}
 
 
 % Macros zum Setzen anderer Boni:
@@ -307,14 +318,62 @@
 	\mg@GetWert{#1}\mg@GetPP{#1}}
 
 
+% Hilfsmacros zum Rechnen:
+
+\newcommand*{\mg@set}[1]{\toolboxIfEmpty{#1}{\count0=0\relax}{%
+	\count0=#1\relax}}
+\newcommand*{\mg@adding}[1]{\toolboxIfEmpty{#1}{}{\advance\count0 by #1\relax}}
+\newcommand{\mg@half}{\divide\count0 by 2\relax}
+\newcommand{\mg@result}{\@arabic\count0\relax}
+
+
 % User-Interface: Ausgabe des Schadens mit Schadensbonus
 
 \newcommand*{\PlusSB}[1]{{\LetData\mg@tmpA{Schadensbonus}%
-	\toolboxIfElse{\ifx\mg@tmpA\toolboxEmpty}{\def\mg@tmpA{0}}{}%
-	\count0=\mg@tmpA\relax
-	\toolboxIfEmpty{#1}{}{\advance\count0 by #1\relax}%
-	\toolboxIfElse{\ifnum\count0>0 }{+\@arabic\count0\relax}{%
-	 \toolboxIfElse{\ifnum\count0<0 }{\@arabic\count0\relax}{}}}}
+	\toolboxIfx{}\mg@tmpA{\def\mg@tmpA{0}}{}%
+	\mg@set\mg@tmpA
+	\toolboxIfEmpty{#1}{}{\mg@adding{#1}}%
+	\toolboxIfElse{\ifnum\count0>0 }{+\mg@result}{%
+	 \toolboxIfElse{\ifnum\count0<0 }{\mg@result}{}}}}
+
+% User-Interface: Standard Gift-Toleranz
+
+\newcommand{\StandardGiT}{{\LetData\mg@tmpA{Ko}%
+	\toolboxIfx{}\mg@tmpA{}{%
+	 \mg@set{\mg@tmpA}\mg@half\mg@adding{30}\mg@result}}}
+
+% User-Interface: Standard Abwehr
+
+\newcommand*{\StandardAbwehrPlus}[1]{{\mg@letData\mg@tmpA21{Abwehrbonus}%
+	\toolboxIfx{\mgquad}\mg@tmpA{\mgquad}{%
+	 \toolboxIfx{}\mg@tmpA{\mgquad}{%
+	  \mg@set\mg@tmpA
+	  \LetWert\mg@tmpA{Abwehr}%
+	  \toolboxIfx{}\mg@tmpA{\mgquad}{%
+	   \expandafter\mg@adding\expandafter{\mg@tmpA}%
+	   \mg@adding{#1}\mg@result}}}}}
+
+% User-Interface: Standard Resistenzbonus 1|2 (Körper|Geist)
+
+\newcommand*{\StandardResistenz}[1]{{\mg@letData\mg@tmpA2#1{ResistenzBonus}%
+	\toolboxIfx{\mgquad}\mg@tmpA{\mgquad}{%
+	 \toolboxIfx{}\mg@tmpA{\mgquad}{%
+	  \mg@set\mg@tmpA
+	  \LetWert\mg@tmpA{Resistenz}%
+	  \toolboxIfx{}\mg@tmpA{\mgquad}{%
+	   \expandafter\mg@adding\expandafter{\mg@tmpA}%
+	   \mg@result}}}}}
+
+% User-Interface: Standard Zaubern
+
+\newcommand{\StandardZaubern}{{\LetData\mg@tmpA{Zauberbonus}%
+	\toolboxIfx{\mgquad}\mg@tmpA{\mgquad}{%
+	 \toolboxIfx{}\mg@tmpA{\mgquad}{%
+	  \mg@set\mg@tmpA
+	  \LetWert\mg@tmpA{Zaubern}%
+	  \toolboxIfx{}\mg@tmpA{\mgquad}{%
+	   \expandafter\mg@adding\expandafter{\mg@tmpA}%
+	   \mg@result}}}}}
 
 % User-Interface: Fertigkeiten; in \mg@fert* sammeln, Referenzen speichern
 
@@ -436,15 +495,13 @@
 	\global\let\mg@WertLeit\mg@WertLeit
 	\global\let\mg@WertMod\mg@WertMod
 	\mg@continue}
-\newcommand*{\mg@sum}[3]{{\count0=#1\relax\advance\count0 by #2\relax
-	\toolboxIfEmpty{#3}{}{\advance\count0 by #3\relax}%
-	\@arabic\count0\relax}}
+\newcommand*{\mg@sum}[3]{{\mg@set{#1}\mg@adding{#2}\mg@adding{#3}\mg@result}}
 \newcommand*{\mg@sumWert}{%
-	\toolboxIfElse{\ifx\mg@WertLeit\toolboxEmpty}{%
-	 \toolboxIfElse{\ifx\mg@WertMod\toolboxEmpty}{%
+	\toolboxIfx{}\mg@WertLeit{%
+	 \toolboxIfx{}\mg@WertMod{%
 	  \mg@Wert}{%
 	  \mg@sum\mg@Wert\mg@WertMod{}}}{%
-	 \toolboxIfElse{\ifx\mg@WertMod\toolboxEmpty}{%
+	 \toolboxIfx{}\mg@WertMod{%
 	  \mg@sum\mg@Wert\mg@WertLeit{}}{%
 	  \mg@sum\mg@Wert\mg@WertLeit\mg@WertMod}}}
 
@@ -544,7 +601,7 @@
 % Tabelle der Zauber-PP
 
 \newcommand*{\mg@PPbox}[1]{\mg@sep\,\fbox{\mg@tiny\strut
-	\hbox to 5mm{\hfill\Data{#1}}}}
+	\hbox to 5mm{\hfill\Data{#1}\hfill}}}
 \newcommand*{\mg@ZauberPP}{{\mg@tiny Zauber PP:
 \begin{tabular}{*5{@{ }l@{}l}}
 \mg@sep Beherrschen&\mg@PPbox{Beherrschen}&%
@@ -603,18 +660,19 @@
 \begin{tabular}{@{}lp{45mm}}%
 \mg@sep Spezialisierung&\mg@sep\Databf{Spezialisierung}%
 \end{tabular}\mg@par
-\mg@Basis{St}\hfill
-\mg@Basis{Gs}\hfill
+\mg@Basis{St}\mg@next
+\mg@Basis{Gs}\mg@next
 \mg@BasisX21{Gw}\mg@par
-\mg@Basis{Ko}\hfill
-\mg@Basis{In}\hfill
+\mg@Basis{Ko}\mg@next
+\mg@Basis{In}\mg@next
 \mg@Basis{Zt}\mg@par
-\mg@Basis{Au}\hfill
-\mg@Basis{pA}\hfill
+\mg@Basis{Au}\mg@next
+\mg@Basis{pA}\mg@next
 \mg@Basis{Wk}\mg@par
-\mg@BasisX21{B}\hfill
+\mg@BasisX21{B}\mg@next
+\mg@Basis{GiT}\hfill
 %
-\begin{tabular}{lc}%
+\begin{tabular}{l@{}p{5mm}}%
 \mg@sep\textbf{Raufen +{}}&\mg@sep\Data{Raufen}%
 \end{tabular}\mg@mpar%
 %
@@ -769,7 +827,8 @@ Geld&\mg@EP4{11}&\mg@EP4{12}&\mg@EP4{13}&\mg@EP4{14}&\mg@EP4{15}&%
 \mg@sep\mg@Databf21{RK}&\mg@sep{\bfseries -\,\mg@Data22{RK}}&%
 auf LP-\tabularnewline
 &&\mg@sep Verlust%
-\end{ftabular}}%
+\end{ftabular}}\newline
+\mg@Basis{GiT}%
 \end{minipage}\,%
 \begin{minipage}{25mm}%
 \mg@sep In R\"{u}stung:\par
