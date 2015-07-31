@@ -16,7 +16,7 @@
 % Die Anleitung zur Benutzung dieser Datei befindet sich in m5bsp-mv.tex
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{m5figur-mv}[2015/01/06]
+\ProvidesClass{m5figur-mv}[2015/07/31]
 
 \PassOptionsToClass{11pt,a4paper,oneside,landscape}{article}
 
@@ -526,7 +526,7 @@
 	&\mg@sep\bfseries#1&\mg@sep\bfseries#2}
 
 
-% Header der Fertigkeiten/Waffen/Zauber/Gegenstandstabellen:
+% Kopf der Fertigkeiten/Waffen/Zauber/Gegenstandstabellen:
 
 \newcommand{\mg@fert}[2]{\toolboxIfx{}#1{}{%
 	\begin{tabular}[t]{p{28mm}@{+}rr}%
@@ -642,14 +642,18 @@
 
 % Figurenblatt:
 
-\NewOutput{Figurenblatt}{
-{\centering\Ovalbox{%
-	\begin{tabular}{lp{50mm}}%
+\newlength{\FigurenblattKopf}
+\setlength{\FigurenblattKopf}{50mm}
+\NewOutput{FigurenblattKopf}{\centering\Ovalbox{%
+	\begin{tabular}{lp{\FigurenblattKopf}}%
 	\mg@sep Figur&\mg@sep\Databf{Figur}%
 	\tabularnewline\midrule
 	\mg@sep Spieler&\mg@sep\Databf{Spieler}%
 	\end{tabular}}%
-\mg@mpar}%
+\mg@mpar}
+
+\NewOutput{Figurenblatt}{%
+\Output{FigurenblattKopf}%
 %
 \begin{minipage}{140mm}%
 %
@@ -763,17 +767,19 @@ Geld&\mg@EP4{11}&\mg@EP4{12}&\mg@EP4{13}&\mg@EP4{14}&\mg@EP4{15}&%
 
 % Abenteuerblatt:
 
-\NewOutput{Abenteuerblatt}{\mg@SetMemory
-{\centering\Ovalbox{%
-	\begin{tabular}{lp{25mm}|lr|lr}%
-	\mg@sep Figur&\multicolumn{3}{p{30mm}|}{\Databf{Figur}}&%
+\newlength{\AbenteuerblattKopf}
+\setlength{\AbenteuerblattKopf}{40mm}
+\NewOutput{AbenteuerblattKopf}{\centering\Ovalbox{%
+	\begin{tabular}{ll|lr|lr}%
+	\mg@sep Figur&\multicolumn{3}{p{\AbenteuerblattKopf}|}{\Databf{Figur}}&%
 	\mg@sep Grad&\mg@sep\Databf{Grad}%
 	\tabularnewline\midrule
 	\mg@sep Typ&\mg@sep\Databf{Typ}&\mg@sep GG&%
 	\mg@sep\Databf{GG}&\mg@sep SG&\mg@sep\Databf{SG}%
 	\end{tabular}}%
-\mg@mpar}%
-%
+\mg@mpar}
+
+\NewOutput{Abenteuerblatt}{\Output{AbenteuerblattKopf}\mg@SetMemory
 \begin{minipage}{120mm}%
 \mg@Basis{St}\hfill
 \mg@Basis{Gs}\hfill
@@ -856,18 +862,20 @@ auf LP-\tabularnewline
 
 % Zauberblatt:
 
-\NewOutput{Zauberblatt}{\mg@SetMemory
-{\centering\Ovalbox{%
-	\begin{tabular}{lp{25mm}|lr|lr}%
-	\mg@sep Figur&\multicolumn{3}{p{30mm}|}{\Databf{Figur}}&%
+\newlength{\ZauberblattKopf}
+\setlength{\ZauberblattKopf}{40mm}
+\NewOutput{ZauberblattKopf}{\centering\Ovalbox{%
+	\begin{tabular}{ll|lr|lr}%
+	\mg@sep Figur&\multicolumn{3}{p{\ZauberblattKopf}|}{\Databf{Figur}}&%
 	\mg@sep Grad&\mg@sep\Databf{Grad}%
 	\tabularnewline\midrule
 	\mg@sep Typ&\mg@sep\Databf{Typ}&%
 	\multicolumn{3}{l}{Zaubern}&%
 	\mg@sep+\Databf{Zaubern}\tabularnewline
 	\end{tabular}}%
-\mg@mpar}%
-%
+\mg@mpar}
+
+\NewOutput{Zauberblatt}{\Output{ZauberblattKopf}\mg@SetMemory
 \begin{minipage}{130mm}%
 {\mg@tiny\mg@zaub\mg@zauberA{\mg@mpar
 \mg@sep$^*$: +2 auf EW:Zaubern f\"{u}r Spezialisierung von Magiern\mg@par}}%

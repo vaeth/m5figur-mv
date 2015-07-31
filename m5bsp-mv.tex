@@ -55,7 +55,7 @@
 
 
 
-\documentclass{m5figur-mv}[2015/01/06]
+\documentclass{m5figur-mv}[2015/07/31]
 % Der Datumsteil [...] ist optional, aber wir stellen damit "sicher", dass
 % eine aktuelle Version von m5figur-mv.cls benutzt wird (falls auf dem Rechner
 % eine veraltete vorhanden sein sollte, wird eine Warnung gedruckt).
@@ -111,6 +111,9 @@
 % Dies ist hier eigentlich redundant, da die Listen zu Beginn leer sind:
 \ClearLists
 
+\setlength{\FigurenblattKopf}{50mm}
+\setlength{\AbenteuerblattKopf}{40mm}
+\setlength{\ZauberblattKopf}{40mm}
 \DefData{Figur}{Cynyr ap Clai}
 \DefData{Typ}{Schamane}
 \DefData{Grad}{16}
@@ -475,8 +478,7 @@ Bei Fehler: 1W6 LP+AP\end{minipage}}
 % die Fertigkeit "Wurf daneben"
 \RenewBeschreibung{Wurf daneben}{Wurf daneben}
 
-\Output{Figurenblatt}% Ausgabe des Figurenblattes
-
+\Output{Figurenblatt}
 }% Nach dieser Klammer ist die Änderung von "Wurf daneben" wieder vergessen...
 
 \Output{Abenteuerblatt}% Ausgabe des Abenteuerblattes
@@ -496,7 +498,23 @@ Bei Fehler: 1W6 LP+AP\end{minipage}}
   {Körper}{1 Wesen}{30\,min}{S.~154; 1W6+Grad AP, W.-Dauer auch über Max,
   1 mal pro Tag}{Geste}
 
+% Nur zu Demonstrationszwecken wird auf diesem Blatt der Text "Version 2"
+% an einer festen Koordinate (Von der linken oberen Ecke aus gesehen
+% 17cm nach unten und 2cm rechts eingefügt).
+% Ähnlich können natürlich ggf. ganze Textpassagen oder Tabellen an
+% gewünschten Stellen eingefügt werden (z.B. in
+% \begin{minipage}{10cm} .... \end{minipage}
+% eingeschlossen).
+\vbox to0pt{\vspace*{17cm}\hbox to0pt{\hspace*{2cm}Version 2}}
 \Output{Zauberblatt}
+
+% Wollte man statt fester Koordinaten den Text einfach am Ende ausgeben,
+% muss man verhindern, dass "\Output{Zauberblatt}" die Seite beendet.
+% Dies könnte man so tun:
+
+% {\def\clearpage{\newline}Output{Zauberblatt}}
+% \vbox to0pt{\vspace*{17cm}\hbox to0pt{\hspace*{2cm}Version 2}}
+
 
 } % Schließen der vorherigen Klammer zum "Vergessen" der lokalen Daten;
 % in diesem Fall waren dies alle Einträge mit \Zauber und \Magisch.
@@ -555,6 +573,16 @@ Bei Fehler: 1W6 LP+AP\end{minipage}}
 
 \Output{Zauberblatt}
 
+% Wir machen noch ein Kommentarblatt.
+% Dazu wählen wir den Kopf des Figurenblatts.
+% Wir könnten auch den des Abenteuerblatts oder Zauberblatts wählen können:
+
+\Output{FigurenblattKopf}
+%\Output{AbenteuerblattKopf}
+%\Output{ZauberblattKopf}
+Derzeit keine speziellen Bemerkungen
+\clearpage
+
 }% Schließen der ersten Klammer zum "Vergessen" aller Figurendaten.
 
 % Wird das Kommentarzeichen, vor dem folgenden \end{document} enfernt,
@@ -577,6 +605,10 @@ Bei Fehler: 1W6 LP+AP\end{minipage}}
 %\UngelerntMit
 %\UngelerntOhne
 
+% Da der Name etwas kürzer ist, machen wir die Box oben etwas kleiner:
+\setlength{\FigurenblattKopf}{40mm}
+\setlength{\AbenteuerblattKopf}{30mm}
+\setlength{\ZauberblattKopf}{30mm}
 \DefData{Figur}{Leo Anjini}
 \DefData{Typ}{Glücksritter}
 \DefData{Grad}{5}
