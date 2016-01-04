@@ -111,9 +111,16 @@
 % Dies ist hier eigentlich redundant, da die Listen zu Beginn leer sind:
 \ClearLists
 
+% Zunächst die Längen der Blätterköpfe:
+% Die folgenden Werte sind die Voreinstellung
 \setlength{\FigurenblattKopf}{50mm}
 \setlength{\AbenteuerblattKopf}{40mm}
 \setlength{\ZauberblattKopf}{40mm}
+
+% Der Trenner/Zwischenraum zwischen verschiedenen Zaubern:
+% Der folgende Wert ist die Voreinstellung
+\renewcommand*{\ZauberTrenner}{\vspace*{2mm}}
+
 \DefData{Figur}{Cynyr ap Clai}
 \DefData{Typ}{Schamane}
 \DefData{Grad}{16}

@@ -63,8 +63,12 @@
 
 % Ein quad und qquad, das in jedem Fall Platz braucht:
 
-\newcommand{\mgquad}{\mbox{\quad}}
-\newcommand{\mgqquad}{\mbox{\qquad}}
+\newcommand*{\mgquad}{\mbox{\quad}}
+\newcommand*{\mgqquad}{\mbox{\qquad}}
+
+% Der Trenner/Zwischenraum zwischen verschiedenen Zaubern:
+
+\newcommand*{\ZauberTrenner}{\vspace*{2mm}}
 
 % Alles wird als leer initialisiert:
 
@@ -443,7 +447,8 @@
 	\mg@stack{@{\,}p{15mm}}{(r)}{#6}{#7}&%
 	\mg@sep#8&%
 	\mg@ZauberOneSub}
-\newcommand{\mg@ZauberOneSub}[2]{\mg@stack{@{\,}p{18mm}@{}}{}{#1}{#2}}
+\newcommand{\mg@ZauberOneSub}[2]{\mg@stack{@{\,}p{18mm}@{}}{}{#1}{#2}%
+	\ZauberTrenner}
 \newcommand{\mg@ZauberSub}[9]{\tabularnewline\mg@midrule
 	\mg@ZauberOne{#2}{#3}{#1}{#4}{#5}{#7}{#8}{\mg@tiny#9}{#6}}
 
