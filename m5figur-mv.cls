@@ -16,7 +16,7 @@
 % Die Anleitung zur Benutzung dieser Datei befindet sich in m5bsp-mv.tex
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{m5figur-mv}[2015/07/31]
+\ProvidesClass{m5figur-mv}[2016/01/04]
 
 \PassOptionsToClass{11pt,a4paper,oneside,landscape}{article}
 
@@ -432,7 +432,7 @@
 
 % Internes Interface: Eintrag in Zauberliste
 
-\newcommand{\mg@stack}[4]{\begin{tabular}{#1}%
+\newcommand{\mg@stack}[4]{\begin{tabular}[t]{#1}%
 	\mg@sep#3\tabularnewline\cmidrule#2{1-1}%
 	\mg@sep#4%
 	\end{tabular}}
