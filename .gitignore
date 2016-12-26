@@ -4,3 +4,5 @@
 *.log
 *.pdf
 *.ps
+*.tex
+!/m5bsp-mv.tex
