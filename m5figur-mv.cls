@@ -582,7 +582,7 @@
 \newcommand*{\mg@unglOhne}[3]{\mg@ungelerf{#1}{#2}}
 \UngelerntMit
 \newcommand*{\mg@ungelernt}{{\tiny\begin{tabular}{ll}\toprule
-\multicolumn{2}{@{}p{50mm}@{}}{unglernte F\"{a}higkeiten: alle wenigstens
+\multicolumn{2}{@{}p{50mm}@{}}{ungelernte F\"{a}higkeiten: alle wenigstens
 \mg@ungelerntadd0 au\ss er \emph{Musizieren}, \emph{Schreiben}, \emph{Sprache},
 \emph{Lesen von Zauberschrift}}\tabularnewline
 \midrule
