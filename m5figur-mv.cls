@@ -2,7 +2,7 @@
 % m5figur-mv.cls
 %
 % Diese Datei ist Teil des Midgard5-TeX-Figurenblatt-Projekts von Martin V"ath.
-% Sie darf nur zusammen mit m5bsp-mv.tex und dem README weitergegeben werden.
+% Sie darf nur zusammen mit m5bsp-mv.tex und README.md weitergegeben werden.
 % Davon abgesehen unterliegt sie der LaTeX Project Public License
 % http://www.latex-project.org/lppl.txt
 % Dies bedeutet i.W., dass sie im Falle von nichttrivialen Modifizierungen

@@ -1,12 +1,13 @@
-m5figur-mv
+# m5figur-mv
 
-LaTeX2e character sheet layout for the Midgard Role Playing Game (Edition M5)
+LaTeX2e character sheet layout for the __Midgard__ Role Playing Game
+(Edition M5)
 
-Author und (C): Martin Väth.
+Author and (C): Martin Väth.
 This project is under the LaTeX Project Public License
 
-Dies ist ein Figurenblatt-Layout für das Midgard-Rollenspiel (Regelwerk M5),
-das zur Benutzug mit LaTeX2e gedacht ist.
+Dies ist ein Figurenblatt-Layout für das __Midgard__-Rollenspiel
+(Regelwerk M5), das zur Benutzug mit __LaTeX2e__ gedacht ist.
 
 Vorteile der Ausarbeitung eines Figurenblatts mit diesem Projekt gegenüber
 der reinen PDF- oder Papierversion sind:
@@ -19,7 +20,7 @@ der reinen PDF- oder Papierversion sind:
    Wirkung bei Zaubern lange ist, oder eine Fertigkeit Zusatzbemerkungen
    erfordert.
 4. Man kann mehrere Figuren mit einer einzigen Datei verwalten und muss
-   dabei für "ähnliche" Figuren (z.B. die selbe Figur in verschiedenen
+   dabei für „ähnliche“ Figuren (z.B. die selbe Figur in verschiedenen
    Graden) die identischen Daten (etwa Basiswerte) nicht mehrfach eingeben.
    Falls sich Basis- oder Fertigkeitswerte ändern (z.B. durch
    Verbesserungswürfe oder Lernen), kann man nur den geänderten Wert
@@ -37,23 +38,23 @@ der reinen PDF- oder Papierversion sind:
    (oder z.B. leer lassen).
 
 Zum Editieren der Daten beachten Sie bitte, dass alle drei Dateien (dieses
-README, m5figur-mv.cls und m5bsp-mv.tex) entweder unverändert weitergegeben
-werden müssen, oder dass bei eigenen Veränderungen die Dateien umbenannt
-werden - dies ist aufgrund technischer Restriktionen des LaTeX-Systems
-sinnvoll. Mehr zur Lizenz finden Sie in m5figur-mv.cls
+`README.md`, `m5figur-mv.cls` und `m5bsp-mv.tex`) entweder unverändert
+weitergegeben werden müssen, oder dass bei eigenen Veränderungen die
+Dateien umbenannt werden - dies ist aufgrund technischer Restriktionen des
+LaTeX-Systems sinnvoll. Mehr zur Lizenz finden Sie in `m5figur-mv.cls`
 
-Zur Benutzung kopieren Sie Teile von m5bsp-mv.tex (i.d.R. genügt der Teil
-zwischen "-- Anfang --" und "-- Ende --") in eine neue Datei
-(sinnvollerweise mit der Endung .tex) und passen dort die Werte,
+Zur Benutzung kopieren Sie Teile von `m5bsp-mv.tex` (i.d.R. genügt der Teil
+zwischen `-- Anfang --` und `-- Ende --`) in eine neue Datei
+(sinnvollerweise mit der Endung `.tex`) und passen dort die Werte,
 Fähigkeiten usw. entsprechend ihrer Figur bzw. ihren Figuren an.
-Der Plural ist gerechtfertigt, denn eine einzige .tex Datei
+Der Plural ist gerechtfertigt, denn eine einzige `.tex` Datei
 kann alle Ihre Figuren sowie ggf. auch Vordrucke leerer
-Figuren-/Abenteuer-/Zauberblätter enthalten; das Beispiel m5bsp-mv.tex
+Figuren-/Abenteuer-/Zauberblätter enthalten; das Beispiel `m5bsp-mv.tex`
 ist selbst ein solches Beispiel mit zwei Figuren (eine davon in zwei Varianten)
 und einem leeren Vordruck.
 
 Zum Erzeugen einer PDF-Datei aus der von Ihnen geänderten Datei (oder aus
-der Beispieldatei m5bsp-mv.tex) wird LaTeX2e mit (z.B.) pdflatex benötigt -
+der Beispieldatei m5bsp-mv.tex) wird LaTeX2e mit (z.B.) __pdflatex__ benötigt -
 ein solches ist für praktisch jedes Betriebssystem frei verfügbar, und es gibt
 sogar online-Versionen, die für die Benutzung mit Smartphones geeignet sind
 (Beispiele: Windows: MikTeX oder TeXLive; Linux und Mac: TeXLive;
@@ -64,5 +65,5 @@ m5figur-mv.cls im selben Verzeichnis wie die Datei befinden muss,
 oder in einem Verzeichnis, das dem TeX-System bekannt gemacht wurde.
 
 Für Gentoo Linux gibt es ein Ebuild im mv overlay (über layman verfügbar),
-das m5figur-mv.cls und die Beispieldatei installiert und (je nach
-USE-Flag) auch gleich die Beispieldatei in pdf übersetzt.
+das `m5figur-mv.cls` und die Beispieldatei installiert und (je nach
+`USE`-Flag) auch gleich die Beispieldatei in pdf übersetzt.
