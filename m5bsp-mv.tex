@@ -502,7 +502,8 @@ Bei Fehler: 1W6 LP+AP\end{minipage}}
 % \begin{minipage}{10cm} .... \end{minipage}
 % eingeschlossen).
 \vbox to0pt{\vspace*{17cm}\hbox to0pt{\hspace*{2cm}Veraltete Version}}
-\Output{Zauberblatt}% Ausgabe des Zauberblattes
+\Output{ZauberblattMagier}% Ausgabe des Zauberblattes mit Bemerkung für Magier
+%\Output{Zauberblatt}% Ausgabe des Zauberblattes ohne Bemerkung für Magier
 
 % Wir fügen zum Zauberblatt noch etwas hinzu (weil die Figur inzwischen mehr
 % trainiert hat) und drucken die neue Version nochmals:
@@ -521,7 +522,8 @@ Bei Fehler: 1W6 LP+AP\end{minipage}}
   {Zauberer}{1\,min}{S.~157; Bärenwut+Beschleunigen (S.~149,~68),
   Gegner -2 auf EW:Angriff}{Geste}
 
-\Output{Zauberblatt}
+%\Output{ZauberblattMagier}% Ausgabe des Zauberblattes mit Bemerkung für Magier
+\Output{Zauberblatt}% Ausgabe des Zauberblattes ohne Bemerkung für Magier
 
 % Wollte man statt fester Koordinaten den Text einfach am Ende ausgeben,
 % muss man verhindern, dass "\Output{Zauberblatt}" die Seite beendet.
@@ -586,16 +588,21 @@ Bei Fehler: 1W6 LP+AP\end{minipage}}
 \Magisch{Wasserklinge}{}
 \Magisch{Maske der Ferne}{500\,km, 30\,min, ABW:1}
 
-\Output{Zauberblatt}
+% Anstelle des Standard-Befehls
+%\Output{Zauberblatt} oder
+%\Output{ZauberblattMagier}
+% wird hier zu Demonstrationszwecken das Zauberblatt „manuell“ gebastelt,
+% um noch eine Demo-Bemerkung einzufügen.
 
-% Wir machen noch ein Kommentarblatt.
-% Dazu wählen wir den Kopf des Figurenblatts.
-% Wir könnten auch den des Abenteuerblatts oder Zauberblatts wählen können:
-
-\Output{FigurenblattKopf}
-%\Output{AbenteuerblattKopf}
-%\Output{ZauberblattKopf}
-Derzeit keine speziellen Bemerkungen
+\Output{ZauberblattKopf}
+\begin{minipage}{\Halbseitenbreite}%
+\Output{ZauberA}% oder \Output{ZauberAMagier}
+\scriptsize Die mit W.-Klinge markierten Zauber sind die der Wasserklinge
+\end{minipage}%
+\begin{minipage}{\Halbseitenbreite}%
+\Output{ZauberB}% oder \Output{ZauberBMagier}
+\Output{magischeGegenstaende}%
+\end{minipage}%
 \clearpage
 
 }% Schließen der ersten Klammer zum "Vergessen" aller Figurendaten.
@@ -743,7 +750,25 @@ Derzeit keine speziellen Bemerkungen
 %\Zauber1{Handauflegen}{1}{Wund./""Erschaffen}{10\,sec}{Berührung}%
 %  {Körper}{1 Wesen}{0}{S.~143; 1W6 AP (1 mal pro Tag)}{Geste}
 
-\Output{Zauberblatt}
+%\Output{Zauberblatt}
+%\Output{ZauberblattMagier}
+
+% Für einen Kämpfer geben wir statt des Zauberblatts ein  Beischreibungsblatt
+% aus, das zusätzlich die magischen Gegenstände enthält:
+
+\Output{BeschreibungsblattKopf}
+%\Output{FigurenblattKopf}
+%\Output{AbenteuerblattKopf}
+%\Output{ZauberblattKopf}
+
+\begin{minipage}{\Halbseitenbreite}%
+Beschreibung:
+\end{minipage}
+\begin{minipage}{\Halbseitenbreite}%
+\Output{magischeGegenstaende}
+\end{minipage}%
+\clearpage
+
 
 
 % Am Ende muss immer \end{document} stehen. Alles danach wird ignoriert.
@@ -943,8 +968,9 @@ Derzeit keine speziellen Bemerkungen
 
 \Output{Figurenblatt}
 \Output{Abenteuerblatt}
-
+\Output{ZauberblattMagier}
 \Output{Zauberblatt}
+\Output{BeschreibungsblattKopf}\clearpage
 
 }% Diese Klammer schließt die "leere" Figur.
 

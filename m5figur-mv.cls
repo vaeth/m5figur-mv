@@ -645,6 +645,9 @@
 \toolboxMakeDef{Output}{#1}
 
 
+\newlength{\Halbseitenbreite}
+\setlength{\Halbseitenbreite}{130mm}
+
 % Figurenblatt:
 
 \newlength{\FigurenblattKopf}
@@ -776,7 +779,8 @@ Geld&\mg@EP4{11}&\mg@EP4{12}&\mg@EP4{13}&\mg@EP4{14}&\mg@EP4{15}&%
 \setlength{\AbenteuerblattKopf}{40mm}
 \NewOutput{AbenteuerblattKopf}{\centering\Ovalbox{%
 	\begin{tabular}{ll|lr|lr}%
-	\mg@sep Figur&\multicolumn{3}{p{\AbenteuerblattKopf}|}{\Databf{Figur}}&%
+	\mg@sep Figur&%
+		\multicolumn{3}{p{\AbenteuerblattKopf}|}{\Databf{Figur}}&%
 	\mg@sep Grad&\mg@sep\Databf{Grad}%
 	\tabularnewline\midrule
 	\mg@sep Typ&\mg@sep\Databf{Typ}&\mg@sep GG&%
@@ -856,7 +860,7 @@ auf LP-\tabularnewline
 \end{minipage}%
 \par}%
 \end{minipage}%
-\begin{minipage}{130mm}%
+\begin{minipage}{\Halbseitenbreite}%
 {\mg@tiny\mg@waff\mg@waffA\quad
 \mg@waff\mg@waffB\hfill\mg@mpar
 \mg@ZauberPP\mg@mpar
@@ -880,16 +884,38 @@ auf LP-\tabularnewline
 	\end{tabular}}%
 \mg@mpar}
 
-\NewOutput{Zauberblatt}{\Output{ZauberblattKopf}\mg@SetMemory
-\begin{minipage}{130mm}%
-{\mg@tiny\mg@zaub\mg@zauberA{\mg@mpar
-\mg@sep$^*$: +2 auf EW:Zaubern f\"{u}r Spezialisierung von Magiern\mg@par}}%
-\end{minipage}%
-\begin{minipage}{130mm}%
-{\mg@tiny\mg@zaub\mg@zauberB\mg@mpar}%
-{\mg@tiny\mg@geg\mg@gegen{}}
-\end{minipage}%
-\clearpage}
+\newcommand*{\mg@magier}{\mg@mpar\mg@sep
+	$^*$: +2 auf EW:Zaubern f\"{u}r Spezialisierung von Magiern\mg@par}
+
+\NewOutput{magischeGegenstaende}{{\mg@tiny\mg@geg\mg@gegen{}}}
+\NewOutput{ZauberA}{{\mg@tiny\mg@zaub\mg@zauberA\mg@mpar}}
+\NewOutput{ZauberB}{{\mg@tiny\mg@zaub\mg@zauberB\mg@mpar}}
+\NewOutput{ZauberAMagier}{{\mg@tiny\mg@zaub\mg@zauberA\mg@magier}}
+\NewOutput{ZauberBMagier}{{\mg@tiny\mg@zaub\mg@zauberB\mg@magier}}
+
+\newcommand{\mg@outputZauberblatt}[1]{
+	\NewOutput{Zauberblatt#1}{\Output{ZauberblattKopf}%
+	\begin{minipage}{\Halbseitenbreite}%
+	\Output{ZauberA#1}%
+	\end{minipage}%
+	\begin{minipage}{\Halbseitenbreite}%
+	\Output{ZauberB}%
+	\Output{magischeGegenstaende}%
+	\end{minipage}%
+	\clearpage}}
+\mg@outputZauberblatt{}
+\mg@outputZauberblatt{Magier}
+
+% BeschreibungsblattKopf:
+
+\newlength{\BeschreibungsblattKopf}
+\setlength{\BeschreibungsblattKopf}{40mm}
+\NewOutput{BeschreibungsblattKopf}{\centering\Ovalbox{%
+	\begin{tabular}{lp{\FigurenblattKopf}}%
+	\mg@sep Figur&\mg@sep\Databf{Figur}%
+	\end{tabular}}%
+\mg@mpar}
+
 
 % Ende der Klassendefinition:
 
