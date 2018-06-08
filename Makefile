@@ -6,6 +6,8 @@ RM=rm -fv
 
 all: m5bsp-mv.pdf FORCE
 
+beispiele: alessia.pdf FORCE
+
 %.dvi: %.tex
 	latex $*
 
@@ -17,6 +19,9 @@ all: m5bsp-mv.pdf FORCE
 
 %.pdf: %.tex
 	pdflatex $*
+
+%.pdf: beispiele/%.tex
+	pdflatex $<
 
 mostlyclean: FORCE
 	@$(RM) -- .log *.log *.blg *.dlg *.ilg *.thm _region_.*

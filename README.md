@@ -41,7 +41,9 @@ Zum Editieren der Daten beachten Sie bitte, dass alle drei Dateien (dieses
 `README.md`, `m5figur-mv.cls` und `m5bsp-mv.tex`) entweder unverändert
 weitergegeben werden müssen, oder dass bei eigenen Veränderungen die
 Dateien umbenannt werden - dies ist aufgrund technischer Restriktionen des
-LaTeX-Systems sinnvoll. Mehr zur Lizenz finden Sie in `m5figur-mv.cls`
+LaTeX-Systems sinnvoll. Mehr zur Lizenz finden Sie in `m5figur-mv`.
+Weitere Beispiele in beispiele/ können optional mit weitergegeben werden,
+müssen es aber nicht.
 
 Zur Benutzung kopieren Sie Teile von `m5bsp-mv.tex` (i.d.R. genügt der Teil
 zwischen `-- Anfang --` und `-- Ende --`) in eine neue Datei

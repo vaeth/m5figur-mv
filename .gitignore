@@ -6,3 +6,4 @@
 *.ps
 *.tex
 !/m5bsp-mv.tex
+!/beispiele/*.tex
