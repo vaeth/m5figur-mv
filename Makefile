@@ -4,7 +4,7 @@ RM=rm -fv
 
 .PHONY: FORCE all mostlyclean clean distclean maintainer-clean \
 
-all: m5bsp-mv.pdf FORCE
+all: m5bsp-mv.pdf beispiele FORCE
 
 beispiele: alessia.pdf FORCE
 

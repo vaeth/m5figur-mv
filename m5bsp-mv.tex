@@ -55,7 +55,7 @@
 
 
 
-\documentclass{m5figur-mv}[2016/01/04]
+\documentclass{m5figur-mv}[2018/06/10]
 % Der Datumsteil [...] ist optional, aber wir stellen damit "sicher", dass
 % eine aktuelle Version von m5figur-mv.cls benutzt wird (falls auf dem Rechner
 % eine veraltete vorhanden sein sollte, wird eine Warnung gedruckt).
@@ -120,6 +120,13 @@
 % Der Trenner/Zwischenraum zwischen verschiedenen Zaubern:
 % Der folgende Wert ist die Voreinstellung
 \renewcommand*{\ZauberTrenner}{\vspace*{2mm}}
+
+% Zauberwert und/oder ZauberPP auf Abenteuerblatt ausgeben?
+% "Mit" ist jeweils die Voreinstellung:
+\MitZauberwert
+%\OhneZauberwert
+\MitZauberPP
+%\OhneZauberPP
 
 \DefData{Figur}{Cynyr ap Clai}
 \DefData{Typ}{Schamane}
@@ -220,8 +227,8 @@
 
 \DefData{Abwehr}{{\StandardAbwehrPlus{0}}% Normal
 	{\StandardAbwehrPlus{0}}}% Mit Verteidigungswaffe
-\DefData{Resistenz}{{\StandardResistenz1}% Gegen Körpermagie
-	{\StandardResistenz2}}% Gegen Geistesmagie
+\DefData{Resistenz}{{\StandardResistenz1}% Gegen Geistesmagie
+	{\StandardResistenz2}}% Gegen Körpermagie
 \DefData{Zaubern}{\StandardZaubern}
 
 
@@ -619,13 +626,17 @@ Bei Fehler: 1W6 LP+AP\end{minipage}}
 
 % --- Anfang ---
 % Laden von m5figur-mv, aktuelle Version fordern:
-%\documentclass{m5figur-mv}[2015/01/06]
+%\documentclass{m5figur-mv}[2018/06/10]
 %\begin{document}
 
 %\DefData{Spieler}{Martin Väth}
 
 %\UngelerntMit
 %\UngelerntOhne
+%\MitZauberwert
+\OhneZauberwert
+%\MitZauberPP
+\OhneZauberPP
 
 % Da der Name etwas kürzer ist, machen wir die Box oben etwas kleiner:
 \setlength{\FigurenblattKopf}{40mm}

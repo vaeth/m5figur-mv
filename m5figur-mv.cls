@@ -16,7 +16,7 @@
 % Die Anleitung zur Benutzung dieser Datei befindet sich in m5bsp-mv.tex
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{m5figur-mv}[2016/01/04]
+\ProvidesClass{m5figur-mv}[2018/06/10]
 
 \PassOptionsToClass{11pt,a4paper,oneside,landscape}{article}
 
@@ -34,8 +34,8 @@
 
 
 % Ausgabeschriftart und deren Kodierung, Trennmuster.
-% Beachte, dass wir in diesem File allerdings die TeX-Konvention bei
-% Umlauten benutzen, da dieses File vor \begin{document} abgearbeitet wird
+% Beachte, dass wir in m5figur-mv.cls allerdings die TeX-Konvention bei
+% Umlauten benutzen, da diese Datei vor \begin{document} abgearbeitet wird
 % und daher die folgenden Pakete (insbesondere babel) noch nicht aktiv sind.
 
 \RequirePackage[T1]{fontenc}
@@ -157,8 +157,10 @@
 
 \newcommand*{\mg@par}{\smallskip\par}
 \newcommand*{\mg@mpar}{\medskip\par}
+\newcommand*{\mg@normal}{\normalsize}
 \newcommand*{\mg@small}{\small}
 \newcommand*{\mg@tiny}{\scriptsize}
+\newcommand*{\mg@tiniest}{\tiny}
 
 
 % Durchweg benutzte Macros zum Interface:
@@ -217,7 +219,7 @@
 \newcommand*{\mg@EPs}[2]{\mbox{\hbox to 12mm{\scriptsize\hfill
 	\mg@Data4{#1}{Datum#2}\hfill}}}
 
-% \mg@letX\var XY{Data}{name} ist ähnlich wie \mg@X, aber definiert \var
+% \mg@letX\var XY{Data}{name} ist "ahnlich wie \mg@X, aber definiert \var
 % \mg@letData wirkt nur auf Data
 
 \newcommand*{\mg@letX}[5]{\renewcommand{\mg@tmpA}[#2]{\def#1{###3}}%
@@ -238,7 +240,7 @@
 
 % Macros zum Setzen anderer Boni:
 
-\newcommand*{\mg@BoniTabSub}[2]{\begin{minitab}{25mm}{@{}p{15mm}@{}r}%
+\newcommand*{\mg@BoniTabSub}[2]{\begin{minitab}{18mm}{@{}p{15mm}@{}r}%
 	\mg@sep#1&\mg@sep\bfseries#2\end{minitab}}
 \newcommand*{\mg@BoniTabX}[4]{\mg@BoniTabSub{#1}{\mg@Data{#2}{#3}{#4}}}
 \newcommand*{\mg@BoniTab}[2]{\mg@BoniTabSub{#1}{\Data{#2}}}
@@ -357,7 +359,7 @@
 	   \expandafter\mg@adding\expandafter{\mg@tmpA}%
 	   \mg@adding{#1}\mg@result}}}}}
 
-% User-Interface: Standard Resistenzbonus 1|2 (Körper|Geist)
+% User-Interface: Standard Resistenzbonus 1|2 (Geist|K"orper)
 
 \newcommand*{\StandardResistenz}[1]{{\mg@letData\mg@tmpA2#1{ResistenzBonus}%
 	\toolboxIfx{\mgquad}\mg@tmpA{\mgquad}{%
@@ -581,7 +583,7 @@
 	\mg@calcWert{#2}{#3}\mg@ungelerf{#1}{\mg@sumWert}}
 \newcommand*{\mg@unglOhne}[3]{\mg@ungelerf{#1}{#2}}
 \UngelerntMit
-\newcommand*{\mg@ungelernt}{{\tiny\begin{tabular}{ll}\toprule
+\newcommand*{\mg@ungelernt}{{\mg@tiniest\begin{tabular}{ll}\toprule
 \multicolumn{2}{@{}p{50mm}@{}}{ungelernte F\"{a}higkeiten: alle wenigstens
 \mg@ungelerntadd0 au\ss er \emph{Musizieren}, \emph{Schreiben}, \emph{Sprache},
 \emph{Lesen von Zauberschrift}}\tabularnewline
@@ -619,7 +621,21 @@
 \mg@sep Ver\"{a}ndern&\mg@PPbox{Veraendern}&%
 \mg@sep Wundertaten&\mg@PPbox{Wundertaten}&%
 \mg@sep Zauberlieder&\mg@PPbox{Zauberlieder}%
-\end{tabular}}}
+\end{tabular}}\mg@mpar}
+
+% User-Interface: Ausgabe mit (default) oder ohne Zauberwert
+
+\newcommand{\MitZauberwert}{\let\mg@ZauberVertCurr\mg@ZauberVert
+	\let\mg@ZauberwerttextCurr\mg@Zauberwerttext
+	\let\mg@ZauberwertwertCurr\mg@Zauberwertwert}
+\newcommand{\OhneZauberwert}{\let\mg@ZauberVertCurr\toolboxEmpty
+	\let\mg@ZauberwerttextCurr\mgqquad
+	\let\mg@ZauberwertwertCurr\mgqquad}
+
+% User-Interface: Ausgabe mit (default) oder ohne ZauberPP
+
+\newcommand{\MitZauberPP}{\let\mg@ZauberPPCurr\mg@ZauberPP}
+\newcommand{\OhneZauberPP}{\let\mg@ZauberPPCurr\toolboxEmpty}
 
 
 % Das PageFormat ist Teil des User-Interface, auch wenn wir es initialisieren:
@@ -649,6 +665,9 @@
 \setlength{\Halbseitenbreite}{130mm}
 
 % Figurenblatt:
+
+% User-Interface: Mit/ohne Aasgabe des Zauberwerts:
+
 
 \newlength{\FigurenblattKopf}
 \setlength{\FigurenblattKopf}{50mm}
@@ -693,8 +712,10 @@
 \mg@BoniTab{Schaden}{Schadensbonus}\hfill
 \mg@BoniTabX{Angriff}21{Angriffsbonus}\mg@par
 \mg@BoniTabX{Abwehr}21{Abwehrbonus}\hfill
-\mg@BoniTabSub{Resistenz}{\mg@Data21{ResistenzBonus}\,$\vert$\,%
-	\mg@Data22{ResistenzBonus}}\hfill
+\mg@BoniTabSub{Resistenz}{\mg@tiniest
+\begin{tabular}{@{}c@{\,}|@{\,}c@{}}\mdseries Geist&\mdseries K\"{o}rper\\%
+\mg@small\mg@Data21{ResistenzBonus}&\mg@small\mg@Data22{ResistenzBonus}%
+\end{tabular}}\hfill
 \mg@BoniTab{Zaubern}{Zauberbonus}\mg@par
 }%
 \end{minipage}%
@@ -788,7 +809,13 @@ Geld&\mg@EP4{11}&\mg@EP4{12}&\mg@EP4{13}&\mg@EP4{14}&\mg@EP4{15}&%
 	\end{tabular}}%
 \mg@mpar}
 
-\NewOutput{Abenteuerblatt}{\Output{AbenteuerblattKopf}\mg@SetMemory
+\newcommand{\mg@ZauberVert}{|}
+\newcommand{\mg@Zauberwerttext}{\mg@sep{\bfseries Zaubern\,+}}
+\newcommand{\mg@Zauberwertwert}{\mg@sep\Databf{Zaubern}}
+\MitZauberwert
+\MitZauberPP
+
+\NewOutput{Abenteuerblatt}{\Output{AbenteuerblattKopf}\mg@SetMemory\raggedright
 \begin{minipage}{120mm}%
 \mg@Basis{St}\hfill
 \mg@Basis{Gs}\hfill
@@ -806,16 +833,18 @@ Geld&\mg@EP4{11}&\mg@EP4{12}&\mg@EP4{13}&\mg@EP4{14}&\mg@EP4{15}&%
 \mg@sep{\bfseries LP}&\mg@sep\Data{LP}&&&&&&&&&&&&&&&\tabularnewline\midrule
 \mg@sep{\bfseries AP}&\mg@sep\Data{AP}&&&&&&&&&&&&&&&%
 \end{tabular}\mg@mpar
-\begin{tabular}{l@{ }r|l@{ }rc|l@{ }r|l@{ }r}
+\begin{tabular}{l@{ }r|l@{ }rc|l@{ }r\mg@ZauberVertCurr l@{ }r}
 \mg@sep{\bfseries Abwehr\,+}&\mg@sep\mg@Databf21{Abwehr}&%
 \mg@sep{\bfseries +}&\mg@sep\mg@Databf22{Abwehr}&%
 	\begin{minipage}{15mm}%
 	{Mit Vert. waffe}%
 	\end{minipage}&%
 \mg@sep{\bfseries Resistenz\,+}&%
-\mg@sep\mg@Databf21{Resistenz}\,$\vert$\,\mg@Databf22{Resistenz}&%
-\mg@sep{\bfseries Zaubern\,+}&\mg@sep\Databf{Zaubern}%
-\end{tabular}%
+\mg@tiny\begin{tabular}{@{}c@{\,}|@{\,}c@{}}Geist&K\"{o}rper\\%
+\mg@normal\mg@sep\mg@Databf21{Resistenz}&
+\mg@normal\mg@sep\mg@Databf22{Resistenz}\end{tabular}&%
+\mg@ZauberwerttextCurr&\mg@ZauberwertwertCurr
+\end{tabular}
 %
 {\mg@small
 \begin{tabular}{c|c|c}
@@ -863,11 +892,10 @@ auf LP-\tabularnewline
 \begin{minipage}{\Halbseitenbreite}%
 {\mg@tiny\mg@waff\mg@waffA\quad
 \mg@waff\mg@waffB\hfill\mg@mpar
-\mg@ZauberPP\mg@mpar
+\mg@ZauberPPCurr
 \mg@Sinne2}%
 \end{minipage}%
 \clearpage}
-
 
 % Zauberblatt:
 
