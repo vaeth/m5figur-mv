@@ -1,0 +1,177 @@
+\documentclass{m5figur-mv}[2018/06/10]
+\begin{document}
+
+\UngelerntOhne
+
+\DefData{Spieler}{Martin Väth}
+
+\DefData{Figur}{Thorghot}
+\DefData{Typ}{Zwerg (Or)}
+\DefData{Grad}{2}
+\DefData{Spezialisierung}{}
+\DefData{St}{78}
+\DefData{Gs}{91}
+\DefData{Gw}{{50}{50}}% Normal bzw. in Rüstung
+\DefData{Ko}{59}
+\DefData{In}{55}
+\DefData{Zt}{98}
+\DefData{Au}{65}
+\DefData{pA}{90}
+\DefData{Wk}{65}
+\DefData{B}{{19}{19}}% Normal bzw. in Rüstung
+\DefData{GiT}{\StandardGiT}% Das ist Voreinstellung
+\DefData{Raufen}{8}
+\DefData{Ausdauerbonus}{9}
+\DefData{Schadensbonus}{3}
+\DefData{Angriffsbonus}{{1}{1}}% Normal bzw. in Rüstung
+\DefData{Abwehrbonus}{{0}{0}}% Normal bzw. in Rüstung
+\DefData{ResistenzBonus}{{3}{4}}
+\DefData{Zauberbonus}{2}
+\DefData{RK}{{KR}{3}}
+\DefData{Ruestung}{Hals/Beinschutz}
+\DefData{Sehen}{{0}{6}}
+\DefData{Nachtsicht}{{2}{8}}
+\DefData{Hoeren}{{0}{6}}
+\DefData{Riechen}{{0}{6}}
+\DefData{SechsterSinn}{{0}{6}}
+\DefData{LP}{16}
+\DefData{AP}{16}
+\DefData{GG}{}
+\DefData{SG}{}
+\DefData{Geburtsdatum}{}
+\DefData{Alter}{28}
+\DefData{haendig}{rechts}
+\DefData{Groesse}{141}
+\DefData{Gestalt}{k/n}
+\DefData{Gewicht}{75}
+\DefData{Stand}{Volk}
+\DefData{Heimat}{}
+\DefData{Glaube}{Zornal Eisenhand}
+\DefData{Merkmale}{}
+\DefData{Datum01}{{20.10.18}{200}{}{}}
+
+% Praxispunkte für Zauber:
+
+\DefData{Beherrschen}{}
+\DefData{Erkennen}{}
+\DefData{Formen}{}
+\DefData{Zerstoeren}{}
+\DefData{Dweomer}{}
+\DefData{Bewegen}{}
+\DefData{Erschaffen}{}
+\DefData{Veraendern}{}
+\DefData{Wundertaten}{}
+\DefData{Zauberlieder}{---}
+
+\DefData{Abwehr}{{\StandardAbwehrPlus{0}}% Normal
+	{\StandardAbwehrPlus{2}}}% Mit Verteidigungswaffe
+
+\Fertigkeit1{Abwehr}[12]
+\Fertigkeit1{Zaubern}[12]
+\Fertigkeit1{Resistenz}[12]
+
+\Fertigkeit1{Trinken}[5]
+\Fertigkeit1{Wahrnehmung}[6]
+\Fertigkeit1{Richtungssinn}[12]
+\Fertigkeit1{Robustheit}[9]
+\Fertigkeit1[Fallenentdecken]{Fallen entdecken}[3]
+\Fertigkeit1{}
+\Fertigkeit1{Meditieren}[12]
+\Fertigkeit1{Erste Hilfe}[8]
+\Fertigkeit1[Anfuehren]{Anführen}[8]
+\Fertigkeit1{Klettern}[12]
+\Fertigkeit1{Seilkunst}[12]
+\Fertigkeit1{Reiten}[12]
+\Fertigkeit1[Gelaendelauf]{Geländelauf}[12]
+
+\Fertigkeit2[Stich]{Stichwaffe}[5]
+\Fertigkeit2[1Schlag]{Einhandschlagwaffe}[5]
+\Fertigkeit2[1Schwert]{Einhandschwert}[5]
+\Fertigkeit2[2Schlag]{Zweihandschlagwaffe}[7]
+\Fertigkeit2[Schild]{Schilde}[2]
+\Fertigkeit2{}
+\Fertigkeit2{}
+\Fertigkeit2{}
+\Fertigkeit2{}
+\Fertigkeit2{}
+\Fertigkeit2{}
+\Fertigkeit2{Zwergisch}[12]
+\Fertigkeit2{Commentang}[12]
+\Fertigkeit2[SchreibenZwergisch]{Schreiben Zwergisch}[12]
+\Fertigkeit2{Zauberschrift}[8]
+
+\Fertig1{Trinken}{}
+\Fertig1{Wahrnehmung}{}
+\Fertig1{Richtungssinn}{}
+\Fertig1{Robustheit}{}
+\Fertig1{Fallenentdecken}{}
+\Fertig1{}{}
+\Fertig1{Meditieren}{Wk}
+\Fertig1{Erste Hilfe}{pA}
+\Fertig1{Anfuehren}{pA}
+\Fertig1{Klettern}{St}
+\Fertig1{Seilkunst}{Gs}
+\Fertig1{Reiten}{Gw}
+\Fertig1{Gelaendelauf}{Gw}
+
+\Fertig2{Zwergisch}{In}
+\Fertig2{Commentang}{In}
+\Fertig2{SchreibenZwergisch}{In}
+\Fertig2{Zauberschrift}{In}
+
+
+% Das folgende Kommando ist ganz ähnlich zu \Fertig, aber für Waffen:
+
+%\Waffe1[Beschreibung]{Referenz}[Modifikation]{AB/leer}[Schaden][Nah]
+% Wie bei \Fertig, nur dass AB für den Angriffsbonus steht, und dass [Schaden]
+% und [Nah] der Schaden bzw Nahkampfschaden ist; beides ist optional.
+% Wird allerdings [Schaden] ausgelassen, muss auch [Nah] ausgelassen werden.
+% Die "Waffe" Raufen kann automatisch referenziert werden.
+%
+% Für den Schaden kann das Macro \PlusSB{Wert} benutzt werden:
+% Dies führt dazu, dass die Summe "Wert + Schadensbonus" mit einem
+% davorgestellten "+" (bzw. "-" im negativen Fall) ausgegeben wird;
+% falls die Summe 0 ist, wird nichts ausgegeben.
+% Dadurch sind Angaben wie beispielsweise "1W6\plusSB{-1}" bei einem Dolch,
+% "1W5\plusSB{}" bei einem Kurzschwert (der leere Eintrag hat den Wert 0)
+% oder "1W5\plusSB{1}" bei einem Langschwert sinnvoll.
+% Beachten Sie, dass die Benutzung dieses Macros nicht immer sinnvoll ist:
+% Bei einer Fernwaffe beispielsweise wird der Schadensbonus ja nicht addiert.
+
+\Waffe1[Langschwert]{1Schwert}{AB}[1W6\PlusSB{1}]
+\Waffe1[Handaxt]{1Schlag}{AB}[1W6\PlusSB{0}]
+\Waffe1[Dolch]{Stich}{AB}[1W6\PlusSB{-1}]
+\Waffe1[Stielhammer]{2Schlag}{AB}[2W6\PlusSB{0}]
+\Waffe1[großer Schild]{Schild}{2}
+\Waffe2{Raufen}{}
+
+%\Zauber1{Name}{AP}{Prozess}{Zauberdauer}{Reichweite}{Wirkungsziel}%
+%       {Wirkungsbereich}{Wirkungsdauer}{Beschreibung}{Art}
+
+\Zauber1{Wagemut}{2}{Verändern}{10\,sec}{---}{Geist}%
+  {Zauberer}{2\,min}{S.~148; Angriff +2, Schaden +2, Abwehr -2}{Geste}
+\Zauber1{Heiliger Zorn}{2}{Verändern}{Augenblick}{---}{Körper}%
+  {Zauberer}{2\,min}{S.~144; Stärke +30 (Raufen +1, Schaden +2)}%
+  {Gedanke}
+%\Zauber1{Segnen}{2}{Wund./""Veränd.}{1\,min}{Berührung}{Körper}%
+% {1 Wesen}{10\,min}{S.~146; +1 Erfolgs/Widerstands "~5 Prüfwürfe}{Geste}
+\Zauber1{Handauflegen}{1}{Erschaffen}{10\,sec}{Berührung}{Körper}%
+  {1 Wesen}{0}{S.~143; 1W6 AP}{Geste}
+\Zauber1{Heilen von Wunden}{3}{Erschaffen}{1\,min}{Berührung}{Körper}%
+  {1 Wesen}{0}{S.~144; 1W6 LP+AP}{Geste}
+\Zauber1{Erkennen der Aura}{1}{Erkennen}{Augenblick}{0\,m}{Geist}%
+  {30\,m Kegel}{0}{S.~139}{Gedanke}
+
+
+% Ebenfalls auf dem Zauberblatt stehen die Liste der magischen Gegenstände.
+% Diese wird mit folgendem Kommando gefüllt:
+
+%\Magisch{Gegenstand}{Beschreibung}
+
+\Magisch{}{}
+
+\Output{Figurenblatt}
+\Output{Abenteuerblatt}
+\Output{Zauberblatt}
+
+\end{document}
