@@ -16,7 +16,7 @@
 % Die Anleitung zur Benutzung dieser Datei befindet sich in m5bsp-mv.tex
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{m5figur-mv}[2018/06/10]
+\ProvidesClass{m5figur-mv}[2018/10/19]
 
 \PassOptionsToClass{11pt,a4paper,oneside,landscape}{article}
 
@@ -582,7 +582,7 @@
 	\def\mg@Wert{0}%
 	\mg@calcWert{#2}{#3}\mg@ungelerf{#1}{\mg@sumWert}}
 \newcommand*{\mg@unglOhne}[3]{\mg@ungelerf{#1}{#2}}
-\UngelerntMit
+\UngelerntOhne
 \newcommand*{\mg@ungelernt}{{\mg@tiniest\begin{tabular}{ll}\toprule
 \multicolumn{2}{@{}p{50mm}@{}}{ungelernte F\"{a}higkeiten: alle wenigstens
 \mg@ungelerntadd0 au\ss er \emph{Musizieren}, \emph{Schreiben}, \emph{Sprache},
