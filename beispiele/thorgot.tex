@@ -3,39 +3,39 @@
 
 \DefData{Spieler}{Martin Väth}
 
-\DefData{Figur}{Thorghot}
+\DefData{Figur}{Thorgot}
 \DefData{Typ}{Zwerg (Or)}
 \DefData{Grad}{2}
 \DefData{Spezialisierung}{}
 \DefData{St}{78}
 \DefData{Gs}{91}
 \DefData{Gw}{{50}{50}}% Normal bzw. in Rüstung
-\DefData{Ko}{59}
+\DefData{Ko}{61}
 \DefData{In}{55}
 \DefData{Zt}{98}
 \DefData{Au}{65}
 \DefData{pA}{90}
 \DefData{Wk}{65}
-\DefData{B}{{19}{19}}% Normal bzw. in Rüstung
+\DefData{B}{{19}{15}}% Normal bzw. in Rüstung
 \DefData{GiT}{\StandardGiT}% Das ist Voreinstellung
 \DefData{Raufen}{8}
-\DefData{Ausdauerbonus}{9}
+\DefData{Ausdauerbonus}{10}
 \DefData{Schadensbonus}{3}
 \DefData{Angriffsbonus}{{1}{1}}% Normal bzw. in Rüstung
 \DefData{Abwehrbonus}{{0}{0}}% Normal bzw. in Rüstung
 \DefData{ResistenzBonus}{{3}{4}}
 \DefData{Zauberbonus}{2}
 \DefData{RK}{{KR}{3}}
-\DefData{Ruestung}{Hals/Beinschutz}
+\DefData{Ruestung}{Hals-/Beinschutz}
 \DefData{Sehen}{{0}{6}}
 \DefData{Nachtsicht}{{2}{8}}
 \DefData{Hoeren}{{0}{6}}
 \DefData{Riechen}{{0}{6}}
 \DefData{SechsterSinn}{{0}{6}}
-\DefData{LP}{16}
-\DefData{AP}{16}
+\DefData{LP}{17}
+\DefData{AP}{17}
 \DefData{GG}{}
-\DefData{SG}{}
+\DefData{SG}{1}
 \DefData{Geburtsdatum}{}
 \DefData{Alter}{28}
 \DefData{haendig}{rechts}
@@ -51,7 +51,7 @@
 % Praxispunkte für Zauber:
 
 \DefData{Beherrschen}{}
-\DefData{Erkennen}{}
+\DefData{Erkennen}{1}
 \DefData{Formen}{}
 \DefData{Zerstoeren}{}
 \DefData{Dweomer}{}
@@ -68,7 +68,7 @@
 \Fertigkeit1{Zaubern}[12]
 \Fertigkeit1{Resistenz}[12]
 
-\Fertigkeit1{Trinken}[5]
+\Fertigkeit1{Trinken}[6]
 \Fertigkeit1{Wahrnehmung}[6]
 \Fertigkeit1{Richtungssinn}[12]
 \Fertigkeit1{Robustheit}[9]
@@ -94,7 +94,7 @@
 \Fertigkeit2{}
 \Fertigkeit2{}
 \Fertigkeit2{Zwergisch}[12]
-\Fertigkeit2{Commentang}[12]
+\Fertigkeit2{Albisch}[12]
 \Fertigkeit2[SchreibenZwergisch]{Schreiben Zwergisch}[12]
 \Fertigkeit2{Zauberschrift}[8]
 
@@ -113,7 +113,7 @@
 \Fertig1{Gelaendelauf}{Gw}
 
 \Fertig2{Zwergisch}{In}
-\Fertig2{Commentang}{In}
+\Fertig2{Albisch}{In}
 \Fertig2{SchreibenZwergisch}{In}
 \Fertig2{Zauberschrift}{In}
 
@@ -137,9 +137,9 @@
 % Bei einer Fernwaffe beispielsweise wird der Schadensbonus ja nicht addiert.
 
 \Waffe1[Langschwert]{1Schwert}{AB}[1W6\PlusSB{1}]
-\Waffe1[Handaxt]{1Schlag}{AB}[1W6\PlusSB{0}]
+\Waffe1[Handaxt]{1Schlag}{AB}[1W6\PlusSB{0}][1\,PP]
 \Waffe1[Dolch]{Stich}{AB}[1W6\PlusSB{-1}]
-\Waffe1[Stielhammer]{2Schlag}{AB}[2W6\PlusSB{0}]
+\Waffe1[Stielhammer]{2Schlag}[2]{AB}[2W6\PlusSB{0}]
 \Waffe1[großer Schild]{Schild}{2}
 \Waffe2{Raufen}{}
 
@@ -149,8 +149,7 @@
 \Zauber1{Wagemut}{2}{Verändern}{10\,sec}{---}{Geist}%
   {Zauberer}{2\,min}{S.~148; Angriff +2, Schaden +2, Abwehr -2}{Geste}
 \Zauber1{Heiliger Zorn}{2}{Verändern}{Augenblick}{---}{Körper}%
-  {Zauberer}{2\,min}{S.~144; Stärke +30 (Raufen +1, Schaden +2)}%
-  {Gedanke}
+  {Zauberer}{2\,min}{S.~144; Stärke +30 (Raufen +1, Schaden +2)}{Gedanke}
 %\Zauber1{Segnen}{2}{Wund./""Veränd.}{1\,min}{Berührung}{Körper}%
 % {1 Wesen}{10\,min}{S.~146; +1 Erfolgs/Widerstands "~5 Prüfwürfe}{Geste}
 \Zauber1{Handauflegen}{1}{Erschaffen}{10\,sec}{Berührung}{Körper}%
