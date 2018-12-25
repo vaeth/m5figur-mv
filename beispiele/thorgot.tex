@@ -5,7 +5,7 @@
 
 \DefData{Figur}{Thorgot}
 \DefData{Typ}{Zwerg (Or)}
-\DefData{Grad}{2}
+\DefData{Grad}{3}
 \DefData{Spezialisierung}{}
 \DefData{St}{78}
 \DefData{Gs}{91}
@@ -26,14 +26,14 @@
 \DefData{ResistenzBonus}{{3}{4}}
 \DefData{Zauberbonus}{2}
 \DefData{RK}{{KR}{3}}
-\DefData{Ruestung}{Hals-/Beinschutz}
+\DefData{Ruestung}{Helm+Visier(PR), Hals(KR)/Bein(LR), Hören/Sehen -2}
 \DefData{Sehen}{{0}{6}}
 \DefData{Nachtsicht}{{2}{8}}
 \DefData{Hoeren}{{0}{6}}
 \DefData{Riechen}{{0}{6}}
 \DefData{SechsterSinn}{{0}{6}}
 \DefData{LP}{17}
-\DefData{AP}{17}
+\DefData{AP}{21}
 \DefData{GG}{}
 \DefData{SG}{1}
 \DefData{Geburtsdatum}{}
@@ -47,11 +47,12 @@
 \DefData{Glaube}{Zornal Eisenhand}
 \DefData{Merkmale}{}
 \DefData{Datum01}{{20.10.18}{200}{}{}}
+\DefData{Datum02}{{23.12.18}{360}{20}{400}}
 
 % Praxispunkte für Zauber:
 
 \DefData{Beherrschen}{}
-\DefData{Erkennen}{1}
+\DefData{Erkennen}{}
 \DefData{Formen}{}
 \DefData{Zerstoeren}{}
 \DefData{Dweomer}{}
@@ -83,10 +84,10 @@
 \Fertigkeit1[Gelaendelauf]{Geländelauf}[12]
 
 \Fertigkeit2[Stich]{Stichwaffe}[5]
-\Fertigkeit2[1Schlag]{Einhandschlagwaffe}[5]
+\Fertigkeit2[1Schlag]{Einhandschlagwaffe}[6]
 \Fertigkeit2[1Schwert]{Einhandschwert}[5]
-\Fertigkeit2[2Schlag]{Zweihandschlagwaffe}[7]
-\Fertigkeit2[Schild]{Schilde}[2]
+\Fertigkeit2[2Schlag]{Zweihandschlagwaffe}[8]
+\Fertigkeit2[Schild]{Schilde}[3]
 \Fertigkeit2{}
 \Fertigkeit2{}
 \Fertigkeit2{}
@@ -137,8 +138,9 @@
 % Bei einer Fernwaffe beispielsweise wird der Schadensbonus ja nicht addiert.
 
 \Waffe1[Langschwert]{1Schwert}{AB}[1W6\PlusSB{1}]
-\Waffe1[Handaxt]{1Schlag}{AB}[1W6\PlusSB{0}][1\,PP]
+\Waffe1[Handaxt]{1Schlag}{AB}[1W6\PlusSB{0}]%[1\,PP]
 \Waffe1[Dolch]{Stich}{AB}[1W6\PlusSB{-1}]
+\Waffe1[mag.\ Dolch]{Stich}{AB}[1W6\PlusSB{0}]
 \Waffe1[Stielhammer]{2Schlag}[2]{AB}[2W6\PlusSB{0}]
 \Waffe1[großer Schild]{Schild}{2}
 \Waffe2{Raufen}{}
@@ -158,6 +160,10 @@
   {1 Wesen}{0}{S.~144; 1W6 LP+AP}{Geste}
 \Zauber1{Erkennen der Aura}{1}{Erkennen}{Augenblick}{0\,m}{Geist}%
   {30\,m Kegel}{0}{S.~139}{Gedanke}
+\Zauber1{Strahlender Panzer}{2}{Formen}{10\,sec}{Berührung}{Umgebung}%
+  {Zauberer}{2\,min}{S.~147; Bannen v.\ Dunkelheit, RK +2}{Geste}
+\Zauber1{Blutmeisterschaft}{1+1 je Wunde}{Verändern}{10\,sec}{---}{Körper}%
+  {Zauberer}{60\,min}{S.~138; 1 LP weniger pro Wunde aber 1 AP}{Gedanke}
 
 
 % Ebenfalls auf dem Zauberblatt stehen die Liste der magischen Gegenstände.
@@ -165,7 +171,7 @@
 
 %\Magisch{Gegenstand}{Beschreibung}
 
-\Magisch{}{}
+\Magisch{großes Schildamulett gegen Untote}{ABW 20}
 
 \Output{Figurenblatt}
 \Output{Abenteuerblatt}
