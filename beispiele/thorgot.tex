@@ -5,7 +5,7 @@
 
 \DefData{Figur}{Thorgot}
 \DefData{Typ}{Zwerg (Or)}
-\DefData{Grad}{3}
+\DefData{Grad}{4}
 \DefData{Spezialisierung}{}
 \DefData{St}{78}
 \DefData{Gs}{91}
@@ -14,7 +14,7 @@
 \DefData{In}{55}
 \DefData{Zt}{98}
 \DefData{Au}{65}
-\DefData{pA}{90}
+\DefData{pA}{94}
 \DefData{Wk}{65}
 \DefData{B}{{19}{15}}% Normal bzw. in Rüstung
 \DefData{GiT}{\StandardGiT}% Das ist Voreinstellung
@@ -26,16 +26,16 @@
 \DefData{ResistenzBonus}{{3}{4}}
 \DefData{Zauberbonus}{2}
 \DefData{RK}{{KR}{3}}
-\DefData{Ruestung}{Helm+Visier(PR), Hals(KR)/Bein(LR), Hören/Sehen -2}
+\DefData{Ruestung}{Helm/Visier\,(PR), Hals\,(KR), Bein\,(LR), Hören/Sehen -2}
 \DefData{Sehen}{{0}{6}}
 \DefData{Nachtsicht}{{2}{8}}
 \DefData{Hoeren}{{0}{6}}
 \DefData{Riechen}{{0}{6}}
 \DefData{SechsterSinn}{{0}{6}}
 \DefData{LP}{17}
-\DefData{AP}{21}
+\DefData{AP}{24}
 \DefData{GG}{}
-\DefData{SG}{1}
+\DefData{SG}{2}
 \DefData{Geburtsdatum}{}
 \DefData{Alter}{28}
 \DefData{haendig}{rechts}
@@ -48,6 +48,7 @@
 \DefData{Merkmale}{}
 \DefData{Datum01}{{20.10.18}{200}{}{}}
 \DefData{Datum02}{{23.12.18}{360}{20}{400}}
+\DefData{Datum02}{{25.12.18}{540}{20}{1090}}
 
 % Praxispunkte für Zauber:
 
@@ -66,7 +67,7 @@
 	{\StandardAbwehrPlus{2}}}% Mit Verteidigungswaffe
 
 \Fertigkeit1{Abwehr}[12]
-\Fertigkeit1{Zaubern}[12]
+\Fertigkeit1{Zaubern}[13]
 \Fertigkeit1{Resistenz}[12]
 
 \Fertigkeit1{Trinken}[6]
@@ -84,6 +85,7 @@
 \Fertigkeit1[Gelaendelauf]{Geländelauf}[12]
 
 \Fertigkeit2[Stich]{Stichwaffe}[5]
+\Fertigkeit2[Spiess]{Spiesswaffe}[8]
 \Fertigkeit2[1Schlag]{Einhandschlagwaffe}[6]
 \Fertigkeit2[1Schwert]{Einhandschwert}[5]
 \Fertigkeit2[2Schlag]{Zweihandschlagwaffe}[8]
@@ -141,8 +143,10 @@
 \Waffe1[Handaxt]{1Schlag}{AB}[1W6\PlusSB{0}]%[1\,PP]
 \Waffe1[Dolch]{Stich}{AB}[1W6\PlusSB{-1}]
 \Waffe1[mag.\ Dolch]{Stich}{AB}[1W6\PlusSB{0}]
-\Waffe1[Stielhammer]{2Schlag}[2]{AB}[2W6\PlusSB{0}]
-\Waffe1[großer Schild]{Schild}{2}
+\Waffe1[Stielhammer (2-händig)]{2Schlag}[2]{AB}[2W6\PlusSB{0}]
+\Waffe1[Stielhammer/Spieß]{Spiess}[2]{AB}[1W6\PlusSB{0}]
+\Waffe1[Stielhammer/Sturm]{Spiess}[2]{AB}[1W6\PlusSB{1}]
+\Waffe1[großer Schild]{Schild}{}
 \Waffe2{Raufen}{}
 
 %\Zauber1{Name}{AP}{Prozess}{Zauberdauer}{Reichweite}{Wirkungsziel}%
