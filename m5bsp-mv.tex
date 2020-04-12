@@ -129,16 +129,16 @@
 
 \DefData{Figur}{Cynyr ap Clai}
 \DefData{Typ}{Schamane}
-\DefData{Grad}{17}
+\DefData{Grad}{21}
 \DefData{Spezialisierung}{}
-\DefData{St}{73}
-\DefData{Gs}{96}
+\DefData{St}{75}
+\DefData{Gs}{98}
 \DefData{Gw}{{85}{85}}% Normal bzw. in Rüstung
 \DefData{Ko}{87}
 \DefData{In}{92}
 \DefData{Zt}{83}
 \DefData{Au}{94}
-\DefData{pA}{90}
+\DefData{pA}{93}
 \DefData{Wk}{86}
 \DefData{B}{{29}{29}}% Normal bzw. in Rüstung
 \DefData{GiT}{\StandardGiT}% Das ist Voreinstellung
@@ -152,14 +152,14 @@
 \DefData{RK}{{LR}{2}}
 \DefData{Ruestung}{Lederhalsschutz Lederstiefel}
 \DefData{Sehen}{{0}{6}}
-\DefData{Nachtsicht}{{0}{6}}
+\DefData{Nachtsicht}{{2}{2}}
 \DefData{Hoeren}{{0}{6}}
 \DefData{Riechen}{{4}{10}}
 \DefData{SechsterSinn}{{2}{8}}
 \DefData{LP}{19}
-\DefData{AP}{55}
+\DefData{AP}{60}
 \DefData{GG}{2}
-\DefData{SG}{10}
+\DefData{SG}{12}
 \DefData{Geburtsdatum}{}
 \DefData{Alter}{28}
 \DefData{haendig}{rechts}
@@ -174,10 +174,10 @@
 \DefData{Datum02}{{30.12.14}{5750}{20}{448}}
 \DefData{Datum03}{{29.12.16}{6000}{180}{2263}}
 \DefData{Datum04}{{15.04.17}{6200}{380}{3063}}
+\DefData{Datum05}{{26.12.19}{12200}{4460}{20}}
 
 % Leere Definitionen sind eigentlich redundant, aber zur Vollständigkeit:
 
-\DefData{Datum05}{{}{}{}{}}
 \DefData{Datum06}{{}{}{}{}}
 \DefData{Datum07}{{}{}{}{}}
 \DefData{Datum08}{{}{}{}{}}
@@ -204,7 +204,7 @@
 \DefData{Bewegen}{}
 \DefData{Erschaffen}{}
 \DefData{Veraendern}{}
-\DefData{Wundertaten}{1}
+\DefData{Wundertaten}{}
 \DefData{Zauberlieder}{---} % Der (lange) Gedankenstrich
 
 
@@ -215,9 +215,9 @@
 % schon die ersten Einträge in der ersten Fertigkeitstabelle des
 % Figurenblattes festgelegt werden.
 
-\Fertigkeit1{Abwehr}[15]
-\Fertigkeit1{Zaubern}[17]
-\Fertigkeit1{Resistenz}[15]
+\Fertigkeit1{Abwehr}[16]
+\Fertigkeit1{Zaubern}[18]
+\Fertigkeit1{Resistenz}[16]
 
 % Nun kommen die Basisfertigkeiten mit Boni.
 % Die folgenden Werte sind die Voreinstellung, und wir könnten diese Befehle
@@ -478,8 +478,7 @@ Bei Fehler: 1W6 LP+AP\end{minipage}}
 
 %\Magisch{Gegenstand}{Beschreibung}
 
-\Magisch{1 Kraut der konz.\ Energie}{volle AP;
-  später verliert man 3 LP}
+\Magisch{1 Kraut der konz.\ Energie}{volle AP; später verliert man 3 LP}
 \Magisch{1 Krafttrunk}{2W6 AP}
 \Magisch{2 Heiltrank}{1W6 LP+AP}
 \Magisch{5 Berserkerpilze}{}
@@ -507,20 +506,18 @@ Bei Fehler: 1W6 LP+AP\end{minipage}}
 % gewünschten Stellen eingefügt werden (z.B. in
 % \begin{minipage}{10cm} .... \end{minipage}
 % eingeschlossen).
-\vbox to0pt{\vspace*{17cm}\hbox to0pt{\hspace*{2cm}Veraltete Version}}
+\vbox to0pt{\vspace*{145mm}\hbox to0pt{\hspace*{2cm}Veraltete Version}}
 \Output{ZauberblattMagier}% Ausgabe des Zauberblattes mit Bemerkung für Magier
 %\Output{Zauberblatt}% Ausgabe des Zauberblattes ohne Bemerkung für Magier
 
 % Wir fügen zum Zauberblatt noch etwas hinzu (weil die Figur inzwischen mehr
 % trainiert hat) und drucken die neue Version nochmals:
 
-\Zauber1{Heranholen}{1}{Bewegen}{10\,sec}{30\,m}{Umgebung}%
-  {1 Objekt}{10\,sec}{S.~91; WW:Abwehr + Stärke/5}{Geste}
 \Zauber1{Dinge wiederfinden}{1}{Erkennen}{10\,min}{unbegrenzt}{Geist}%
   {1 Objekt}{10\,min}{S.~73; 20 Grad genau, Zehnerpotenz von m}{Gedanke}
-\Zauber1{Rindenhaut}{2}{Verändern}{10\,sec}{Berührung}{Körper}%
-  {1 Wesen}{10\,min}{S.~157; B-3 wie KR (-3 LP/AP)}{Eich.Rinde 2SS}
 
+\Zauber2{Rindenhaut}{2}{Verändern}{10\,sec}{Berührung}{Körper}%
+  {1 Wesen}{10\,min}{S.~157; B-3 wie KR (-3 LP/AP)}{Eich.Rinde 2SS}
 \Zauber2{Lebensstärkung}{4}{Dweomer/""Erschaffen}{20\,sec}{Berührung}{Körper}%
   {1 Wesen}{30\,min}{S.~154; 1W6+Grad AP, W.-Dauer auch über Max,
   1 mal pro Tag}{Geste}
@@ -529,13 +526,28 @@ Bei Fehler: 1W6 LP+AP\end{minipage}}
   Gegner -2 auf EW:Angriff}{Geste}
 
 %\Output{ZauberblattMagier}% Ausgabe des Zauberblattes mit Bemerkung für Magier
-\Output{Zauberblatt}% Ausgabe des Zauberblattes ohne Bemerkung für Magier
+%\Output{Zauberblatt}% Ausgabe des Zauberblattes ohne Bemerkung für Magier
+% Statt \Output{Zauberblatt} geben wir hier zu Demozwecken eine Version ohne
+% magischeGegenstände aus:
+
+\Output{ZauberblattKopf}
+\begin{minipage}{\Halbseitenbreite}%
+\Output{ZauberA}% oder \Output{ZauberAMagier}
+\end{minipage}%
+\begin{minipage}{\Halbseitenbreite}%
+\Output{ZauberB}% oder \Output{ZauberBMagier}
+%\Output{magischeGegenstaende}% Wir geben keine maghischen Gegenstände aus
+\end{minipage}%
+\clearpage
+
 
 % Wollte man statt fester Koordinaten den Text einfach am Ende ausgeben,
 % muss man verhindern, dass "\Output{Zauberblatt}" die Seite beendet.
-% Dies könnte man so tun:
+% Dies könnte man mit obiger manueller Ausgabe durch welassen von \clearpage
+% erreichen, oder mit \Output{Zauberblatt} durch temporäre Umdefinition des
+% \clearpage-Befehls:
 
-% {\def\clearpage{\newline}Output{Zauberblatt}}
+% {\def\clearpage{\newline}\Output{Zauberblatt}}
 % \vbox to0pt{\vspace*{17cm}\hbox to0pt{\hspace*{2cm}Version 2}}
 
 
@@ -544,12 +556,13 @@ Bei Fehler: 1W6 LP+AP\end{minipage}}
 % Wir benutzen dies, um noch ein anderes Zauberblatt (mit anderen Einträgen)
 % für die selbe Figur zu erstellen - die anderen Daten sind ja noch die selben.
 
+{% Auch dieses Zauberblatt machen wir wieder nur lokal
 \Zauber1{Wandelhand}{2}{Bewegen}{5\,sec}{Berührung}{Umgebung}%
   {1 Objekt}{10\,min}{M4:S.~184; 6LP $\infty$AP Gw80 St50 B12 11/10/12
   Raufen +6(W-3) Würgen (1W6-1 AP; ab 6 Rd.\ PW+10:Ko)
   Angr.\ -4 oder beidh.\ losreißen}{Wort}
-\Zauber1{Seelenheilung}{2}{Wund./""Veränd.}{10\,min}{3\,m}{Geist}%
-  {1 Wesen}{0}{S.~146}{Wort}
+\Zauber1{Heranholen}{1}{Bewegen}{10\,sec}{30\,m}{Umgebung}%
+  {1 Objekt}{10\,sec}{S.~91; WW:Abwehr + Stärke/5}{Geste}
 \Zauber1{Wasseratmen}{2}{Verändern}{10\,sec}{Berührung}{Körper}%
   {1 Wesen}{8\,h}{S.~127}{Geste}
 \Zauber1{Stille}{2}{Formen}{Augenblick}{0\,m}{Umgebung}%
@@ -563,11 +576,6 @@ Bei Fehler: 1W6 LP+AP\end{minipage}}
   {Zauberer}{$\infty$}{S.~160}{8 Fellstücke des Wolfs (1GS)}
 \Zauber1{Geisterlauf}{4 je Wesen}{Bewegen}{30\,min}{3\,m}{Körper}%
   {bis 7 Wesen}{variabel}{Ergänzungen S.~16, M4:S.~125}{8 Symbole (5GS)}
-\Zauber1{Kraftspende}{1}{Dweomer/""Bewegen}{Augenblick}{30\,m}{Körper}%
-  {1 Wesen}{0}{S.~153; 1W3+1 AP auch über Max. (1 mal pro Tag);
-  nicht auf Zauberer}{Geste}
-\Zauber2{Handauflegen}{1}{Wund./""Ersch.}{10\,sec}{Berührung}%
-  {Körper}{1 Wesen}{0}{S.~143; 1W6 AP (1 mal pro Tag)}{Geste}
 \Zauber2{Brot und Wasser}{3}{Erschaffen}{10\,min}{0\,m}{Umgebung}%
   {-}{0}{S.~71}{Mehlstaub \& Wassertropfen (1GS)}
 \Zauber2{Hagel}{12}{Erschaffen}{30\,sec}{100\,m}{Umgebung}%
@@ -587,26 +595,75 @@ Bei Fehler: 1W6 LP+AP\end{minipage}}
   {Umgebung}{50\,m Umkreis}{30\,min}{S.~103; Sicht 10\,m tags/3\,m nachts,
   Geräusche nur halbweit}{Geste}
 
+
+% Anstelle des Standard-Befehls
+%\Output{Zauberblatt} oder
+%\Output{ZauberblattMagier}
+% wird hier zu Demonstrationszwecken das Zauberblatt wieder „manuell“
+% gebastelt, um noch eine Demo-Bemerkung einzufügen und die
+% magischen Gegegenstände auf einem separaten Blatt auszugeben
+
+\Output{ZauberblattKopf}
+\begin{minipage}{\Halbseitenbreite}%
+\Output{ZauberA}% oder \Output{ZauberAMagier}
+\end{minipage}%
+\begin{minipage}{\Halbseitenbreite}%
+\Output{ZauberB}% oder \Output{ZauberBMagier}
+\scriptsize Die mit W.-Klinge markierten Zauber sind die der Wasserklinge
+%\Output{magischeGegenstaende}%
+\end{minipage}%
+\clearpage
+} % Vergessen der Zauber
+
+\Zauber1{Erkennen der Aura}{1}{Erkennen}{Augenblick}{0\,m}{Geist}%
+  {30,\,Kegel}{0}{S.~139}{Gedanken}
+\Zauber1{Wort des Lebens}{6}{Zerstören}{10\,sec}{0\,m}{Körper}%
+  {9\,m Umkreis}{variabel}{S.~148; Grad\,5--10:
+  W6$\times$10\,min gelähmt,Grad 11--20: 2W6$\times$10\,sec erschöpft, -4,
+  Grad $\ge$21: 1W6$\times$10\,sec -2}{Wort}
+\Zauber1{Schützende Hülle}{1+1/10\,sec}{Erschaffen}{10\,sec}{-}{Körper}%
+  {Zauberer}{variabel \textbf{k}}{S.~148}{Wort}
+\Zauber1{Blutmeisterschaft}{1}{Verändern}{10\,sec}{-}{Körper}%
+  {Zauberer}{60\,min}{S.~138}{Gedanken}
+\Zauber1{Goldene Wehr}{6}{Formen}{1\,min}{Umgebung}{1 Objekt}%
+  {B}{10\,min}{S.~141; 2 (finstere Aura 1W6+2) Punkte Schaden auf
+  geweihte/magische Waffe}{Geste}
+
+\Zauber2{Laufen wie der Wind}{3}{Verändern}{10\,sec}{-}{Körper}%
+  {Zauberer}{10\,min}{S.~154; 4 fache B; Bäume: Geländelauf}{Geste}
+\Zauber2{Seelenheilung}{2}{Wund./""Veränd.}{10\,min}{3\,m}{Geist}%
+  {1 Wesen}{0}{S.~146}{Wort}
+\Zauber2{Kraftspende}{1}{Dweomer/""Bewegen}{Augenblick}{30\,m}{Körper}%
+  {1 Wesen}{0}{S.~153; 1W3+1 AP auch über Max. (1 mal pro Tag);
+  nicht auf Zauberer}{Geste}
+\Zauber2{Handauflegen}{1}{Wund./""Ersch.}{10\,sec}{Berührung}%
+  {Körper}{1 Wesen}{0}{S.~143; 1W6 AP (1 mal pro Tag)}{Geste}
+
+% Die Tabelle der magischen Gegenstände geben wir diesmal zweimal aus:
+% links und rechts
+\Output{ZauberblattKopf}
+{% Neue Gruppe, um die Tabelle nach der Ausgabe zu vergessen
 \Magisch{10 Duftwasser}{pA+10}
 \Magisch{Springwurz}{}
 \Magisch{Schutzamulett}{gegen Lauscher und Beobachter, ABW:15}
 \Magisch{Delfinamulett}{Orden/Aura}
 \Magisch{Wasserklinge}{}
 \Magisch{Maske der Ferne}{500\,km, 30\,min, ABW:1}
-
-% Anstelle des Standard-Befehls
-%\Output{Zauberblatt} oder
-%\Output{ZauberblattMagier}
-% wird hier zu Demonstrationszwecken das Zauberblatt „manuell“ gebastelt,
-% um noch eine Demo-Bemerkung einzufügen.
-
-\Output{ZauberblattKopf}
 \begin{minipage}{\Halbseitenbreite}%
-\Output{ZauberA}% oder \Output{ZauberAMagier}
-\scriptsize Die mit W.-Klinge markierten Zauber sind die der Wasserklinge
+\Output{ZauberA}
+\Output{magischeGegenstaende}%
 \end{minipage}%
+}% Die erste Tabelle der magischen Gegenstände ist jetzt vergessen
+\Magisch{1 Kraut der konz.\ Energie}{volle AP; später verliert man 3 LP}
+\Magisch{1 Krafttrunk}{2W6 AP}
+\Magisch{2 Heiltrank}{1W6 LP+AP}
+\Magisch{5 Berserkerpilze}{}
+\Magisch{2 Amphoren Zauberöl}{}
+\Magisch{30 Portionen Rauschkraut}{von reisendem Zwergenhändler
+  aus Wagen gekauft}
+\Magisch{1 Phiole Weihwasser}{}
 \begin{minipage}{\Halbseitenbreite}%
-\Output{ZauberB}% oder \Output{ZauberBMagier}
+\Output{ZauberB}
 \Output{magischeGegenstaende}%
 \end{minipage}%
 \clearpage
