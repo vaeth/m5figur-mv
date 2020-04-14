@@ -161,7 +161,7 @@
 \DefData{GG}{2}
 \DefData{SG}{12}
 \DefData{Geburtsdatum}{}
-\DefData{Alter}{28}
+\DefData{Alter}{37}
 \DefData{haendig}{rechts}
 \DefData{Groesse}{188}
 \DefData{Gestalt}{g/n}
@@ -204,7 +204,7 @@
 \DefData{Bewegen}{}
 \DefData{Erschaffen}{}
 \DefData{Veraendern}{}
-\DefData{Wundertaten}{}
+\DefData{Wundertaten}{1}
 \DefData{Zauberlieder}{---} % Der (lange) Gedankenstrich
 
 
@@ -465,12 +465,12 @@ Bei Fehler: 1W6 LP+AP\end{minipage}}
 \Zauber2{Bärenwut}{2}{Dweomer/""Verändern}{Augenblick}{-}{Körper}%
   {Zauberer}{2\,min}{S.~149; nur bei LP-Verlust anwendbar;
   Stärke +30, Raufen +4, ohne AP wie normal bis weniger als 6~LP}{Geste}
-\Zauber2{Heilen von Wunden}{3}{Wund./""Ersch.}{1\,min}{Berührung}%
-  {Körper}{1 Wesen}{0}{S.~144; 1W6 LP+AP (1 mal pro 3 Tage)}{Geste}
 \Zauber2{Naturgeist rufen}{3}{Dweomer/""Beherrschen}{5\,min}{500\,m}{Geist}%
   {-}{2\,min}{S.~256}{Trommel}
 \Zauber2{Schlaf}{4 je Wesen}{Beherrschen}{10\,sec}{30\,m}{Körper}%
   {bis 6 Wesen}{8\,h}{S.~109; bis max.\ Grad 10}{Lotusblütenstaub\,10GS}
+\Zauber2{Heilen von Wunden}{3}{Wund./""Ersch.}{1\,min}{Berührung}%
+  {Körper}{1 Wesen}{0}{S.~144; 1W6 LP+AP (1 mal pro 3 Tage)}{Geste}
 
 
 % Ebenfalls auf dem Zauberblatt stehen die Liste der magischen Gegenstände.
@@ -516,14 +516,16 @@ Bei Fehler: 1W6 LP+AP\end{minipage}}
 \Zauber1{Dinge wiederfinden}{1}{Erkennen}{10\,min}{unbegrenzt}{Geist}%
   {1 Objekt}{10\,min}{S.~73; 20 Grad genau, Zehnerpotenz von m}{Gedanke}
 
-\Zauber2{Rindenhaut}{2}{Verändern}{10\,sec}{Berührung}{Körper}%
-  {1 Wesen}{10\,min}{S.~157; B-3 wie KR (-3 LP/AP)}{Eich.Rinde 2SS}
 \Zauber2{Lebensstärkung}{4}{Dweomer/""Erschaffen}{20\,sec}{Berührung}{Körper}%
   {1 Wesen}{30\,min}{S.~154; 1W6+Grad AP, W.-Dauer auch über Max,
   1 mal pro Tag}{Geste}
-\Zauber2{Schlachtenwahnsinn}{6}{Dweomer/""Ver\"{a}ndern}{10\,sec}{-}{Körper}%
-  {Zauberer}{1\,min}{S.~157; Bärenwut+Beschleunigen (S.~149,~68),
-  Gegner -2 auf EW:Angriff}{Geste}
+\Zauber2{Kraftspende}{1}{Dweomer/""Bewegen}{Augenblick}{30\,m}{Körper}%
+  {1 Wesen}{0}{S.~153; 1W3+1 AP auch über Max. (1 mal pro Tag);
+  nicht auf Zauberer}{Geste}
+\Zauber2{Handauflegen}{1}{Wund./""Ersch.}{10\,sec}{Berührung}%
+  {Körper}{1 Wesen}{0}{S.~143; 1W6 AP (1 mal pro Tag)}{Geste}
+\Zauber2{Seelenheilung}{2}{Wund./""Veränd.}{10\,min}{3\,m}{Geist}%
+  {1 Wesen}{0}{S.~146}{Wort}
 
 %\Output{ZauberblattMagier}% Ausgabe des Zauberblattes mit Bemerkung für Magier
 %\Output{Zauberblatt}% Ausgabe des Zauberblattes ohne Bemerkung für Magier
@@ -616,7 +618,7 @@ Bei Fehler: 1W6 LP+AP\end{minipage}}
 } % Vergessen der Zauber
 
 \Zauber1{Erkennen der Aura}{1}{Erkennen}{Augenblick}{0\,m}{Geist}%
-  {30,\,Kegel}{0}{S.~139}{Gedanken}
+  {30\,m Kegel}{0}{S.~139}{Gedanken}
 \Zauber1{Wort des Lebens}{6}{Zerstören}{10\,sec}{0\,m}{Körper}%
   {9\,m Umkreis}{variabel}{S.~148; Grad\,5--10:
   W6$\times$10\,min gelähmt,Grad 11--20: 2W6$\times$10\,sec erschöpft, -4,
@@ -625,19 +627,17 @@ Bei Fehler: 1W6 LP+AP\end{minipage}}
   {Zauberer}{variabel \textbf{k}}{S.~148}{Wort}
 \Zauber1{Blutmeisterschaft}{1}{Verändern}{10\,sec}{-}{Körper}%
   {Zauberer}{60\,min}{S.~138}{Gedanken}
-\Zauber1{Goldene Wehr}{6}{Formen}{1\,min}{Umgebung}{1 Objekt}%
+
+\Zauber2{Goldene Wehr}{6}{Formen}{1\,min}{Umgebung}{1 Objekt}%
   {B}{10\,min}{S.~141; 2 (finstere Aura 1W6+2) Punkte Schaden auf
   geweihte/magische Waffe}{Geste}
-
 \Zauber2{Laufen wie der Wind}{3}{Verändern}{10\,sec}{-}{Körper}%
   {Zauberer}{10\,min}{S.~154; 4 fache B; Bäume: Geländelauf}{Geste}
-\Zauber2{Seelenheilung}{2}{Wund./""Veränd.}{10\,min}{3\,m}{Geist}%
-  {1 Wesen}{0}{S.~146}{Wort}
-\Zauber2{Kraftspende}{1}{Dweomer/""Bewegen}{Augenblick}{30\,m}{Körper}%
-  {1 Wesen}{0}{S.~153; 1W3+1 AP auch über Max. (1 mal pro Tag);
-  nicht auf Zauberer}{Geste}
-\Zauber2{Handauflegen}{1}{Wund./""Ersch.}{10\,sec}{Berührung}%
-  {Körper}{1 Wesen}{0}{S.~143; 1W6 AP (1 mal pro Tag)}{Geste}
+\Zauber2{Rindenhaut}{2}{Verändern}{10\,sec}{Berührung}{Körper}%
+  {1 Wesen}{10\,min}{S.~157; B-3 wie KR (-3 LP/AP)}{Eich.Rinde 2SS}
+\Zauber2{Schlachtenwahnsinn}{6}{Dweomer/""Ver\"{a}ndern}{10\,sec}{-}{Körper}%
+  {Zauberer}{1\,min}{S.~157; Bärenwut+Beschleunigen (S.~149,~68),
+  Gegner -2 auf EW:Angriff}{Geste}
 
 % Die Tabelle der magischen Gegenstände geben wir diesmal zweimal aus:
 % links und rechts
