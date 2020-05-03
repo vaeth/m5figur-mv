@@ -129,7 +129,7 @@
 
 \DefData{Figur}{Cynyr ap Clai}
 \DefData{Typ}{Schamane}
-\DefData{Grad}{21}
+\DefData{Grad}{22}
 \DefData{Spezialisierung}{}
 \DefData{St}{75}
 \DefData{Gs}{98}
@@ -157,7 +157,7 @@
 \DefData{Riechen}{{4}{10}}
 \DefData{SechsterSinn}{{2}{8}}
 \DefData{LP}{19}
-\DefData{AP}{60}
+\DefData{AP}{61}
 \DefData{GG}{2}
 \DefData{SG}{12}
 \DefData{Geburtsdatum}{}
@@ -175,10 +175,10 @@
 \DefData{Datum03}{{29.12.16}{6000}{180}{2263}}
 \DefData{Datum04}{{15.04.17}{6200}{380}{3063}}
 \DefData{Datum05}{{26.12.19}{12200}{4460}{20}}
+\DefData{Datum06}{{01.05.20}{13400}{50}{20}}
 
 % Leere Definitionen sind eigentlich redundant, aber zur Vollständigkeit:
 
-\DefData{Datum06}{{}{}{}{}}
 \DefData{Datum07}{{}{}{}{}}
 \DefData{Datum08}{{}{}{}{}}
 \DefData{Datum09}{{}{}{}{}}
@@ -516,7 +516,7 @@ Bei Fehler: 1W6 LP+AP\end{minipage}}
 \Zauber1{Dinge wiederfinden}{1}{Erkennen}{10\,min}{unbegrenzt}{Geist}%
   {1 Objekt}{10\,min}{S.~73; 20 Grad genau, Zehnerpotenz von m}{Gedanke}
 
-\Zauber2{Lebensstärkung}{4}{Dweomer/""Erschaffen}{20\,sec}{Berührung}{Körper}%
+\Zauber2{Lebensstärkung}{4}{Dweomer/""Ersch.}{20\,sec}{Berührung}{Körper}%
   {1 Wesen}{30\,min}{S.~154; 1W6+Grad AP, W.-Dauer auch über Max,
   1 mal pro Tag}{Geste}
 \Zauber2{Kraftspende}{1}{Dweomer/""Bewegen}{Augenblick}{30\,m}{Körper}%
@@ -526,6 +526,8 @@ Bei Fehler: 1W6 LP+AP\end{minipage}}
   {Körper}{1 Wesen}{0}{S.~143; 1W6 AP (1 mal pro Tag)}{Geste}
 \Zauber2{Seelenheilung}{2}{Wund./""Veränd.}{10\,min}{3\,m}{Geist}%
   {1 Wesen}{0}{S.~146}{Wort}
+\Zauber2{Allheilung}{6}{Wund./""Ersch.}{30\,min}{Berührung}{Körper}%
+  {1 Wesen}{0}{S.~135}{Geste}
 
 %\Output{ZauberblattMagier}% Ausgabe des Zauberblattes mit Bemerkung für Magier
 %\Output{Zauberblatt}% Ausgabe des Zauberblattes ohne Bemerkung für Magier
@@ -617,16 +619,32 @@ Bei Fehler: 1W6 LP+AP\end{minipage}}
 \clearpage
 } % Vergessen der Zauber
 
+{% Ein weiteres lokales Zauberblatt
 \Zauber1{Erkennen der Aura}{1}{Erkennen}{Augenblick}{0\,m}{Geist}%
   {30\,m Kegel}{0}{S.~139}{Gedanken}
-\Zauber1{Wort des Lebens}{6}{Zerstören}{10\,sec}{0\,m}{Körper}%
-  {9\,m Umkreis}{variabel}{S.~148; Grad\,5--10:
-  W6$\times$10\,min gelähmt,Grad 11--20: 2W6$\times$10\,sec erschöpft, -4,
-  Grad $\ge$21: 1W6$\times$10\,sec -2}{Wort}
+\Zauber1{Bannen von Zauberwerk}{4}{Zerstören}{2\,min}{15\,m}{Umgebung}%
+  {1 Wesen/Objekt}{0}{S.~66}{Wort}
+\Zauber1{Heiliges Wort//""Wort des Lebens/""Wort der Trauer}%
+  {6}{Wunder/""Zerstören}{10\,sec}{0\,m}{Körper}{9\,m Umkreis}{variabel}%
+  {S.~144/148/149;
+  Grad\,5--10: W6$\times$10\,min~gelähmt,
+  Grad\,11--20: 2W6$\times$10\,sec~erschöpft,~$-4$,
+  Grad\,$\ge$21: 1W6$\times$10\,sec -2}{Wort}
 \Zauber1{Schützende Hülle}{1+1/10\,sec}{Erschaffen}{10\,sec}{-}{Körper}%
   {Zauberer}{variabel \textbf{k}}{S.~148}{Wort}
 \Zauber1{Blutmeisterschaft}{1}{Verändern}{10\,sec}{-}{Körper}%
   {Zauberer}{60\,min}{S.~138}{Gedanken}
+\Zauber1{Gottesgabe}{4}{Wund./""Veränd.}{1\,min}{0\,m}{Körper}%
+  {Zauberer}{10\,min}{S.~143; +2\,Erfolg/Widerstand, -10\,Prüfwürfe}{Geste}
+\Zauber1{Schutzgeist}{3}{Dweomer/""Bewegen}{10\,sec}{Berührung}{Umgebung}%
+  {Zauberer}{bis 30\,min}{S.~148; LP-Verlust droht bei
+  WW:Abwehr, PW:Gw, Bewegungsfertigkeit}{Geste}
+\Zauber1{Linienlesen}{1}{Dweomer/""Erkennen}{Augenblick}{bis 5\,km}{Geist}%
+  {Zauberer}{10\,sec}{S.~155; Liniensicht\,+\,nächste
+  Kreuzung/""Störungen/""Dämonen}{Gedanke}
+\Zauber1{Linienwanderung}{4}{Dweomer/""Bewegen}{20\,sec}{-}{Körper}%
+  {Zauberer}{1\,h}{S.~155; 2\,km/h nichtmetallische Gegenstände}{Gedanke}
+
 
 \Zauber2{Goldene Wehr}{6}{Formen}{1\,min}{Umgebung}{1 Objekt}%
   {B}{10\,min}{S.~141; 2 (finstere Aura 1W6+2) Punkte Schaden auf
@@ -635,9 +653,26 @@ Bei Fehler: 1W6 LP+AP\end{minipage}}
   {Zauberer}{10\,min}{S.~154; 4 fache B; Bäume: Geländelauf}{Geste}
 \Zauber2{Rindenhaut}{2}{Verändern}{10\,sec}{Berührung}{Körper}%
   {1 Wesen}{10\,min}{S.~157; B-3 wie KR (-3 LP/AP)}{Eich.Rinde 2SS}
-\Zauber2{Schlachtenwahnsinn}{6}{Dweomer/""Ver\"{a}ndern}{10\,sec}{-}{Körper}%
+\Zauber2{Schlachtenwahnsinn}{6}{Dweomer/""Verändern}{10\,sec}{-}{Körper}%
   {Zauberer}{1\,min}{S.~157; Bärenwut+Beschleunigen (S.~149,~68),
   Gegner -2 auf EW:Angriff}{Geste}
+\Zauber2{Zielsuche}{2}{Formen}{10\,sec}{Berührung}{Umgebung}%
+  {1 Objekt}{10\,min}{S.~133}{Geste}
+\Zauber2{Schrumpfen/Wachsen}{6}{Verändern}{20\,sec}{Berührung}{Körper}%
+  {1 Wesen}{10\,min}{S.~110/126; Faktor 2 pro Dimension (8 Volumen);
+  nicht Kleidung; +8\,Schaden, Kraftakt Riese\, Gw/Gs -30}{Geste}
+\Zauber2{Hören der Geister}{1/10\,sec}{Erkennen}{10\,sec}{0\,m}{Körper}%
+  {6\,m Umkreis}{10\,sec/Grad}{S.~92}{Gedanke}
+\Zauber2{Zwiesprache}{1}{Erkennen}{Augenblick}{500\,m}{Körper}%
+  {Zauberer}{10\,min, \textbf{k}}{S.~134}{Wort}
+\Zauber2{Göttliche Eingebung}{4}{Wunder/""Erk.}{30\,min}{-}{Geist}%
+  {Zauberer}{10\,min}{S.~141; 3 Ja/Nein-Fragen, 1/Monat}{Gedanke}
+\Zauber2{Erscheinungen}{6}{Beherrschen}{20\,sec}{30\,m}{Geist}%
+  {3\,m Umkreis}{2\,min, \textbf{k}}{S.~79}{Blütenstaub Blauer Mohn 100\,GS}
+\Output{Zauberblatt}
+\clearpage
+} % Vergessen der Zauber
+
 
 % Die Tabelle der magischen Gegenstände geben wir diesmal zweimal aus:
 % links und rechts
@@ -814,7 +849,7 @@ Bei Fehler: 1W6 LP+AP\end{minipage}}
 
 \Magisch{2 Amphoren Zauberöl}{}
 
-%\Zauber1{Handauflegen}{1}{Wund./""Erschaffen}{10\,sec}{Berührung}%
+%\Zauber1{Handauflegen}{1}{Wund./""Ersch.}{10\,sec}{Berührung}%
 %  {Körper}{1 Wesen}{0}{S.~143; 1W6 AP (1 mal pro Tag)}{Geste}
 
 %\Output{Zauberblatt}
