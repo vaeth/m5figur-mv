@@ -176,10 +176,10 @@
 \DefData{Datum04}{{15.04.17}{6200}{380}{3063}}
 \DefData{Datum05}{{26.12.19}{12200}{4460}{20}}
 \DefData{Datum06}{{01.05.20}{13400}{50}{20}}
+\DefData{Datum07}{{21.05.20}{14900}{1250}{520}}
 
 % Leere Definitionen sind eigentlich redundant, aber zur Vollständigkeit:
 
-\DefData{Datum07}{{}{}{}{}}
 \DefData{Datum08}{{}{}{}{}}
 \DefData{Datum09}{{}{}{}{}}
 \DefData{Datum10}{{}{}{}{}}
@@ -442,7 +442,7 @@ Bei Fehler: 1W6 LP+AP\end{minipage}}
 %       {Wirkungsbereich}{Wirkungsdauer}{Beschreibung}{Art}
 
 \Zauber1{Hitzeschutz Kälteschutz}{1}{Verändern}{Augenblick}{-}{Körper}%
-  {Zauberer}{2\,min}{S.~94}{Gedanken}
+  {Zauberer}{2\,min}{S.~94}{Gedanke}
 \Zauber1{Segnen}{2}{Wund./""Veränd.}{1\,min}{Berührung}{Körper}%
   {1 Wesen}{10\,min}{S.~146; +1 Erfolgs/Widerstands "~5 Prüfwürfe}{Geste}
 \Zauber1{Schwäche}{1 pro Wesen}{Verändern}{Augenblick}{30\,m}{Körper}%
@@ -467,7 +467,7 @@ Bei Fehler: 1W6 LP+AP\end{minipage}}
   Stärke +30, Raufen +4, ohne AP wie normal bis weniger als 6~LP}{Geste}
 \Zauber2{Naturgeist rufen}{3}{Dweomer/""Beherrschen}{5\,min}{500\,m}{Geist}%
   {-}{2\,min}{S.~256}{Trommel}
-\Zauber2{Schlaf}{4 je Wesen}{Beherrschen}{10\,sec}{30\,m}{Körper}%
+\Zauber2{Schlaf}{4 pro Wesen}{Beherrschen}{10\,sec}{30\,m}{Körper}%
   {bis 6 Wesen}{8\,h}{S.~109; bis max.\ Grad 10}{Lotusblütenstaub\,10GS}
 \Zauber2{Heilen von Wunden}{3}{Wund./""Ersch.}{1\,min}{Berührung}%
   {Körper}{1 Wesen}{0}{S.~144; 1W6 LP+AP (1 mal pro 3 Tage)}{Geste}
@@ -578,8 +578,12 @@ Bei Fehler: 1W6 LP+AP\end{minipage}}
   {1 Wesen}{10\,min}{S.~112; benötigt Haar}{Silbernadel (10GS)}
 \Zauber1{Tiergestalt (Wolf)}{6}{Dweomer/""Verändern}{20\,sec}{-}{Körper}%
   {Zauberer}{$\infty$}{S.~160}{8 Fellstücke des Wolfs (1GS)}
-\Zauber1{Geisterlauf}{4 je Wesen}{Bewegen}{30\,min}{3\,m}{Körper}%
+\Zauber1{Geisterlauf}{4 pro Wesen}{Bewegen}{30\,min}{3\,m}{Körper}%
   {bis 7 Wesen}{variabel}{Ergänzungen S.~16, M4:S.~125}{8 Symbole (5GS)}
+\Zauber1{Erkennen der Aura}{1}{Wund./""Erk.}{Augenblick}{0\,m}{Geist}%
+  {30\,m Kegel}{0}{S.~139}{Gedanke}
+\Zauber1{Erkennen von Zauberei}{2}{Erkennen}{Augenblick}{15\,m}{Geist}%
+  {1\,m$^2$}{0}{S.~78}{Gedanke}
 \Zauber2{Brot und Wasser}{3}{Erschaffen}{10\,min}{0\,m}{Umgebung}%
   {-}{0}{S.~71}{Mehlstaub \& Wassertropfen (1GS)}
 \Zauber2{Hagel}{12}{Erschaffen}{30\,sec}{100\,m}{Umgebung}%
@@ -620,38 +624,38 @@ Bei Fehler: 1W6 LP+AP\end{minipage}}
 } % Vergessen der Zauber
 
 {% Ein weiteres lokales Zauberblatt
-\Zauber1{Erkennen der Aura}{1}{Erkennen}{Augenblick}{0\,m}{Geist}%
-  {30\,m Kegel}{0}{S.~139}{Gedanken}
 \Zauber1{Bannen von Zauberwerk}{4}{Zerstören}{2\,min}{15\,m}{Umgebung}%
   {1 Wesen/Objekt}{0}{S.~66}{Wort}
 \Zauber1{Heiliges Wort//""Wort des Lebens/""Wort der Trauer}%
-  {6}{Wunder/""Zerstören}{10\,sec}{0\,m}{Körper}{9\,m Umkreis}{variabel}%
+  {6}{Wund./""Zerstören}{10\,sec}{0\,m}{Körper}{9\,m Umkreis}{variabel}%
   {S.~144/148/149;
   Grad\,5--10: W6$\times$10\,min~gelähmt,
   Grad\,11--20: 2W6$\times$10\,sec~erschöpft,~$-4$,
   Grad\,$\ge$21: 1W6$\times$10\,sec -2}{Wort}
-\Zauber1{Schützende Hülle}{1+1/10\,sec}{Erschaffen}{10\,sec}{-}{Körper}%
-  {Zauberer}{variabel \textbf{k}}{S.~148}{Wort}
+\Zauber1{Schützende Hülle}{1+1/10\,sec}{Wund./Ersch.}{10\,sec}{-}{Körper}%
+  {Zauberer}{variabel \textbf{k}}{S.~146, AP statt LP}{Wort}
+\Zauber1{Flammenkreis}{1}{Erschaffen}{Augenblick}{Berührung}{Umgebung}%
+  {1 Wesen}{2\,min}{S.~85; Schützt vor Untoten, Geisterwesen, nebelartigen
+  Todeszaubern}{Zunder (1\,SS)}
 \Zauber1{Blutmeisterschaft}{1}{Verändern}{10\,sec}{-}{Körper}%
-  {Zauberer}{60\,min}{S.~138}{Gedanken}
+  {Zauberer}{60\,min}{S.~138, 1\,AP statt 1\,LP}{Gedanke}
 \Zauber1{Gottesgabe}{4}{Wund./""Veränd.}{1\,min}{0\,m}{Körper}%
   {Zauberer}{10\,min}{S.~143; +2\,Erfolg/Widerstand, -10\,Prüfwürfe}{Geste}
 \Zauber1{Schutzgeist}{3}{Dweomer/""Bewegen}{10\,sec}{Berührung}{Umgebung}%
   {Zauberer}{bis 30\,min}{S.~148; LP-Verlust droht bei
-  WW:Abwehr, PW:Gw, Bewegungsfertigkeit}{Geste}
+  WW:Abwehr, PW:Gw, Bew.-Fert.}{Geste}
 \Zauber1{Linienlesen}{1}{Dweomer/""Erkennen}{Augenblick}{bis 5\,km}{Geist}%
   {Zauberer}{10\,sec}{S.~155; Liniensicht\,+\,nächste
   Kreuzung/""Störungen/""Dämonen}{Gedanke}
 \Zauber1{Linienwanderung}{4}{Dweomer/""Bewegen}{20\,sec}{-}{Körper}%
-  {Zauberer}{1\,h}{S.~155; 2\,km/h nichtmetallische Gegenstände}{Gedanke}
+  {Zauberer}{1\,h}{S.~155; 2\,km/min bis 120\,km, nichtmetallisch}{Gedanke}
 
-
-\Zauber2{Goldene Wehr}{6}{Formen}{1\,min}{Umgebung}{1 Objekt}%
+\Zauber2{Goldene Wehr}{6}{Wund./Formen}{1\,min}{Umgebung}{1 Objekt}%
   {B}{10\,min}{S.~141; 2 (finstere Aura 1W6+2) Punkte Schaden auf
   geweihte/magische Waffe}{Geste}
-\Zauber2{Laufen wie der Wind}{3}{Verändern}{10\,sec}{-}{Körper}%
+\Zauber2{Laufen wie der Wind}{3}{Dweomer/""Verändern}{10\,sec}{-}{Körper}%
   {Zauberer}{10\,min}{S.~154; 4 fache B; Bäume: Geländelauf}{Geste}
-\Zauber2{Rindenhaut}{2}{Verändern}{10\,sec}{Berührung}{Körper}%
+\Zauber2{Rindenhaut}{2}{Dweomer/""Verändern}{10\,sec}{Berührung}{Körper}%
   {1 Wesen}{10\,min}{S.~157; B-3 wie KR (-3 LP/AP)}{Eich.Rinde 2SS}
 \Zauber2{Schlachtenwahnsinn}{6}{Dweomer/""Verändern}{10\,sec}{-}{Körper}%
   {Zauberer}{1\,min}{S.~157; Bärenwut+Beschleunigen (S.~149,~68),
@@ -665,7 +669,7 @@ Bei Fehler: 1W6 LP+AP\end{minipage}}
   {6\,m Umkreis}{10\,sec/Grad}{S.~92}{Gedanke}
 \Zauber2{Zwiesprache}{1}{Erkennen}{Augenblick}{500\,m}{Körper}%
   {Zauberer}{10\,min, \textbf{k}}{S.~134}{Wort}
-\Zauber2{Göttliche Eingebung}{4}{Wunder/""Erk.}{30\,min}{-}{Geist}%
+\Zauber2{Göttliche Eingebung}{4}{Wund./""Erk.}{30\,min}{-}{Geist}%
   {Zauberer}{10\,min}{S.~141; 3 Ja/Nein-Fragen, 1/Monat}{Gedanke}
 \Zauber2{Erscheinungen}{6}{Beherrschen}{20\,sec}{30\,m}{Geist}%
   {3\,m Umkreis}{2\,min, \textbf{k}}{S.~79}{Blütenstaub Blauer Mohn 100\,GS}
@@ -691,7 +695,6 @@ Bei Fehler: 1W6 LP+AP\end{minipage}}
 }% Die erste Tabelle der magischen Gegenstände ist jetzt vergessen
 \Magisch{1 Kraut der konz.\ Energie}{volle AP; später verliert man 3 LP}
 \Magisch{1 Krafttrunk}{2W6 AP}
-\Magisch{2 Heiltrank}{1W6 LP+AP}
 \Magisch{5 Berserkerpilze}{}
 \Magisch{2 Amphoren Zauberöl}{}
 \Magisch{30 Portionen Rauschkraut}{von reisendem Zwergenhändler
