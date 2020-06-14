@@ -152,7 +152,7 @@
 \DefData{RK}{{LR}{2}}
 \DefData{Ruestung}{Lederhalsschutz Lederstiefel}
 \DefData{Sehen}{{0}{6}}
-\DefData{Nachtsicht}{{2}{2}}
+\DefData{Nachtsicht}{{2}{8}}
 \DefData{Hoeren}{{0}{6}}
 \DefData{Riechen}{{4}{10}}
 \DefData{SechsterSinn}{{2}{8}}
@@ -176,7 +176,7 @@
 \DefData{Datum04}{{15.04.17}{6200}{380}{3063}}
 \DefData{Datum05}{{26.12.19}{12200}{4460}{20}}
 \DefData{Datum06}{{01.05.20}{13400}{50}{20}}
-\DefData{Datum07}{{21.05.20}{14900}{1280}{520}}
+\DefData{Datum07}{{21.05.20}{14900}{1310}{320}}
 
 % Leere Definitionen sind eigentlich redundant, aber zur Vollständigkeit:
 
@@ -221,7 +221,7 @@
 
 % Nun kommen die Basisfertigkeiten mit Boni.
 % Die folgenden Werte sind die Voreinstellung, und wir könnten diese Befehle
-% daher weglassen: % Sie geben die Werte entsprechend der oben gesetzten
+% daher weglassen: Sie geben die Werte entsprechend der oben gesetzten
 % Fertigkeiten und Boni aus.
 
 \DefData{Abwehr}{{\StandardAbwehrPlus{0}}% Normal
@@ -689,6 +689,7 @@ Bei Fehler: 1W6 LP+AP\end{minipage}}
 \Magisch{Delfinamulett}{Orden/Aura}
 \Magisch{Wasserklinge}{}
 \Magisch{Maske der Ferne}{500\,km, 30\,min, ABW:1}
+\Magisch{2 Talismane}{+4 Körpermagie/Geistesmagie}
 \begin{minipage}{\Halbseitenbreite}%
 \Output{ZauberA}
 \Output{magischeGegenstaende}%
@@ -795,10 +796,10 @@ Bei Fehler: 1W6 LP+AP\end{minipage}}
 \Fertigkeit1{Schwimmen}[13]
 \Fertigkeit1{Seilkunst}[12]
 \Fertigkeit1{Balancieren}[12]
-\Fertigkeit1{Glücksspiel}[12]
+\Fertigkeit1[Gluecksspiel]{Glücksspiel}[12]
 \Fertigkeit1{Klettern}[12]
 \Fertigkeit1{Etikette}[8]
-\Fertigkeit1{Verführen}[10]
+\Fertigkeit1[Verfuehren]{Verführen}[10]
 \Fertigkeit1{Verstellen}[10]
 \Fertigkeit1{Gassenwissen}[8]
 \Fertigkeit1{Menschenkenntnis}[8]
@@ -819,10 +820,10 @@ Bei Fehler: 1W6 LP+AP\end{minipage}}
 \Fertig1{Schwimmen}{Gw}
 \Fertig1{Seilkunst}{Gs}
 \Fertig1{Balancieren}{Gw}
-\Fertig1{Glücksspiel}{Gs}
+\Fertig1{Gluecksspiel}{Gs}
 \Fertig1{Klettern}{St}
 \Fertig1{Etikette}{In}
-\Fertig1{Verführen}{pA}
+\Fertig1{Verfuehren}{pA}
 \Fertig1{Verstellen}{pA}
 \Fertig1{Gassenwissen}{In}
 \Fertig1{Menschenkenntnis}{In}

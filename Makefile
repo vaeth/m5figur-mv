@@ -6,7 +6,7 @@ RM=rm -fv
 
 all: m5bsp-mv.pdf beispiele FORCE
 
-beispiele: alessia.pdf thorgot FORCE
+beispiele: alessia.pdf anjini.pdf cynyr.pdf thorgot.pdf FORCE
 
 %.dvi: %.tex
 	latex $*
