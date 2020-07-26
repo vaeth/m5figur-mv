@@ -4,7 +4,7 @@
 % Diese Datei ist Teil des Midgard5-TeX-Figurenblatt-Projekts von Martin V"ath.
 % Sie darf nur zusammen mit m5bsp-mv.tex und README.md weitergegeben werden.
 % Davon abgesehen unterliegt sie der LaTeX Project Public License
-% http://www.latex-project.org/lppl.txt
+% SPDX-License-Identifier: LPPL-1.3c
 % Dies bedeutet i.W., dass sie im Falle von nichttrivialen Modifizierungen
 % umbenannt werden muss, und der ProvidesClass-Eintrag entsprechend anzupassen
 % ist. Welche Modifizierung unter dem Ursprungsnamen der Datei zugelassen ist,

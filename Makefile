@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: LPPL-1.3c
 
 LATEX=latex
 RM=rm -fv

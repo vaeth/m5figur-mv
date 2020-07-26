@@ -5,6 +5,7 @@ LaTeX2e character sheet layout for the __Midgard__ Role Playing Game
 
 Author and (C): Martin Väth.
 This project is under the LaTeX Project Public License
+SPDX-License-Identifier: LPPL-1.3c
 
 Dies ist ein Figurenblatt-Layout für das __Midgard__-Rollenspiel
 (Regelwerk M5), das zur Benutzug mit __LaTeX2e__ gedacht ist.
