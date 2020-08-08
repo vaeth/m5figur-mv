@@ -12,7 +12,7 @@
 \setlength{\ZauberblattKopf}{30mm}
 \DefData{Figur}{Leo Anjini}
 \DefData{Typ}{Glücksritter}
-\DefData{Grad}{16}
+\DefData{Grad}{17}
 \DefData{Spezialisierung}{Florett}
 \DefData{St}{77}
 \DefData{Gs}{100}
@@ -22,7 +22,7 @@
 \DefData{Zt}{39}
 \DefData{Au}{82}
 \DefData{pA}{100}
-\DefData{Wk}{81}
+\DefData{Wk}{83}
 \DefData{B}{{23}{19}}% Normal bzw. in Rüstung
 \DefData{Raufen}{9}
 \DefData{Ausdauerbonus}{8}
@@ -51,7 +51,8 @@
 \DefData{Gewicht}{75}
 \DefData{Stand}{Mittelschicht}
 \DefData{Datum01}{{31.12.14}{950}{0}{}}
-\DefData{Datum01}{{13.06.20}{5300}{0}{}}
+\DefData{Datum02}{{13.06.20}{5300}{0}{}}
+\DefData{Datum03}{{26.06.20}{6800}{40}{1360}}
 
 \Fertigkeit2{Abwehr}[15]
 \Fertigkeit2{Resistenz}[15]
@@ -59,35 +60,35 @@
 \DefData{Abwehr}{{\StandardAbwehrPlus{0}}% Normal
 	{\StandardAbwehrPlus{3}}}% Mit Verteidigungswaffe
 
-\Fertigkeit1[Anfuehren]{Anführen}[10]
-\Fertigkeit1{Akrobatik}[8]
+\Fertigkeit1[Anfuehren]{Anführen}[11]
+\Fertigkeit1{Akrobatik}[9]
 \Fertigkeit1{Athletik}[8]
-\Fertigkeit1{Balancieren}[12]
+\Fertigkeit1{Balancieren}[15]
 \Fertigkeit1{Beredsamkeit}[10]
-\Fertigkeit1[Betaeuben]{Betäuben}[8]
+\Fertigkeit1[Betaeuben]{Betäuben}[9]
 \Fertigkeit1[ErsteHilfe]{Erste Hilfe}[10]
-\Fertigkeit1{Etikette}[10]
-\Fertigkeit1[Faelschen]{Fälschen}[12]
+\Fertigkeit1{Etikette}[12]
+\Fertigkeit1[Faelschen]{Fälschen}[15]
 \Fertigkeit1{Fechten}[11]
-\Fertigkeit1{Gassenwissen}[11]
-\Fertigkeit1{Gaukeln}[12]
+\Fertigkeit1{Gassenwissen}[12]
+\Fertigkeit1{Gaukeln}[15]
 \Fertigkeit1[Gelaendelauf]{Geländelauf}[12]
-\Fertigkeit1[Gluecksspiel]{Glücksspiel}[12]
-\Fertigkeit1{Klettern}[13]
+\Fertigkeit1[Gluecksspiel]{Glücksspiel}[15]
+\Fertigkeit1{Klettern}[15]
 \Fertigkeit1{Landeskunde}[8]
-\Fertigkeit1{Meditieren}[11]
-\Fertigkeit1{Menschenkenntnis}[9]
+\Fertigkeit1{Meditieren}[12]
+\Fertigkeit1{Menschenkenntnis}[10]
 \Fertigkeit1{Musizieren}[12]
 \Fertigkeit1{Reiten}[13]
 \Fertigkeit1{Reiterkampf}[12]
 \Fertigkeit1{Schreiben}[8]
 \Fertigkeit1{Schwimmen}[13]
 \Fertigkeit1{Seilkunst}[12]
-\Fertigkeit1{Stehlen}[8]
+\Fertigkeit1{Stehlen}[10]
 \Fertigkeit1{Trinken}[5]
 \Fertigkeit1[Verhoeren]{Verhören}[10]
-\Fertigkeit1[Verfuehren]{Verführen}[10]
-\Fertigkeit1{Verstellen}[10]
+\Fertigkeit1[Verfuehren]{Verführen}[12]
+\Fertigkeit1{Verstellen}[12]
 \Fertigkeit1{Wagenlenken}[12]
 \Fertigkeit1{Wahrnehmung}[6]
 
@@ -97,7 +98,7 @@
 \Fertigkeit2[Parier]{Parierwaffen}[4]
 \Fertigkeit2[Schild]{Schilde}[4]
 \Fertigkeit2[Stich]{Stichwaffe}[12]
-\Fertigkeit2[Spiess]{Spiesswaffe}[9]
+\Fertigkeit2[Spiess]{Spiesswaffe}[12]
 
 \Fertig1{Anfuehren}{pA}
 \Fertig1{Akrobatik}{Gw}
@@ -132,6 +133,8 @@
 \Fertig2{Wahrnehmung}{}
 
 \Waffe1[Florett (RK max. 2)]{Fecht}[2]{AB}[2W6\PlusSB{-4}][Fechten 2W6-4]
+\Waffe1[Rapier]{Fecht}[2]{AB}[1W6\PlusSB{}][Fechten 1W6]
+\Waffe1[Fuchtel]{Fecht}[2]{AB}[1W6\PlusSB{1}][Fechten 1W6+1]
 \Waffe1[Stoßspeer]{Spiess}{AB}[1W6\PlusSB{}][Sturm 2W6\PlusSB{}]
 \Waffe1[Ochsenzunge]{Stich}{AB}[2W6\PlusSB{-4}]
 \Waffe1[(Parier)Dolch]{Stich}{AB}[1W6\PlusSB{-1}]
